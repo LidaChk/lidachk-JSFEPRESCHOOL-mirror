@@ -5,9 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/svg/favicon.ico" />
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="container header__container">
+
+          <nav class="header__navigation">
+            <div class="header__logo">
+              <a href="/">
+                <img src="./assets/svg/logo.svg" alt="Photographer Alex Rise" />
+              </a>
+            </div>
+            <ul class="navigation">
+              <li class="navigation__item">
+                <a href="#skills" class="navigation__link">Skills</a>
+              </li>
+              <li class="navigation__item">
+                <a href="#portfolio" class="navigation__link">Portfolio</a>
+              </li>
+              <li class="navigation__item">
+                <a href="#video" class="navigation__link">Video</a>
+              </li>
+              <li class="navigation__item">
+                <a href="#price" class="navigation__link">Price</a>
+              </li>
+              <li class="navigation__item">
+                <a href="#contacts" class="navigation__link">Contacts</a>
+              </li>
+            </ul>
+            <div class="language__switch">
+              <a class="language__link active" href="#">en</a>
+              <p class="language__link">/</p>
+              <a class="language__link" href="#">ru</a>
+            </div>
+          </nav>
+
+        </div>
+      </header>
+      <main>
+        <section class="hero"></section>
+        <h1 class="hero__title">Alexa Rise</h1>
+        <section class="skills"></section>
+        <section class="potfolio"></section>
+        <section class="video"></section>
+        <section class="price"></section>
+        <section class="contacts"></section>
+      </main>
+      <footer></footer>
+    </div>
+  </body>
 </html>
