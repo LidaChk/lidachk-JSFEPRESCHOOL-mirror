@@ -10,6 +10,7 @@ li,
 ol {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 img {
@@ -226,7 +227,7 @@ body {
 }
 
 .skills__items {
- display: flex;
+ display: inline-flex;
  justify-content: space-between;
  flex-wrap: wrap;
 }
@@ -281,7 +282,43 @@ body {
  line-height: 36px;
  text-align: center;
 }
+/* ------------------------------------------------------------------------------------------------------------*/
+/* ---------------------------------------------------portfolio---------------------------------------------------*/
 
+.portfolio {
+  padding-top: 100px;
+}
 
+.container__portfolio{
+  padding:0px;
+}
+.portfolio_btns_lst {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 60px;
+}
+.portfolio__btn_item:not(:last-child) {
+  margin-right: 5px;
+}
+.portfolio__btn {
+  color: var(--color-gold);
+  background-color: transparent;
+  border: 1px solid var(--color-gold);
+}
+.portfolio__btn:hover,
+.portfolio__btn:focus {
+  color: #ffffff;
+  background-color: var(--color-gold);
+}
+.portfolio__btn.active {
+  background-color: var(--color-gold);
+  color: #000;
+}
+
+.portfolio_items_img {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
 /* ------------------------------------------------------------------------------------------------------------*/
 /* ---------------------------------------------------footer---------------------------------------------------*/
