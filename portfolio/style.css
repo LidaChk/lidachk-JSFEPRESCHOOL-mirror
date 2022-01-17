@@ -351,5 +351,58 @@ body {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
 }
+
+/* ------------------------------------------------------------------------------------------------------------*/
+/* ---------------------------------------------------price---------------------------------------------------*/
+.price {
+  padding-top: 100px;
+}
+.price__block {
+  display: flex;
+  justify-content: space-between;
+}
+.price__block:not(:last-child) {
+  margin-right: 25px;
+}
+.price__item {
+  display: block;
+  width: 450px;
+  border: 3px solid var(--color-gold);
+  align_items: center;
+  padding-top: 43px;
+  padding-bottom: 43px;
+}
+.price__title {
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 56px;
+  text-align: center;
+}
+.price__price {
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 48px;
+  text-align: center;
+  color: var(--color-gold);
+}
+.price__text {
+  display: block;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 36px;
+  text-align: center;
+}
+.price__btn {
+  margin-left: 115px;
+  margin-top: 40px;
+}
+
+
 /* ------------------------------------------------------------------------------------------------------------*/
 /* ---------------------------------------------------footer---------------------------------------------------*/
