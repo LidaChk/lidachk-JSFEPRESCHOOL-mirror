@@ -3,7 +3,6 @@
   --color-black: #000;
   --font1: 60px;
   --font2: 40px;
-  --timing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 ul,
@@ -30,7 +29,7 @@ img {
   height: 55px;
   cursor: pointer;
   border: 0;
-  transition: all 250ms var(--timingFn);
+  transition: all 0.3s;
   background-color: var(--color-gold);
 }
 .btn_goldy:hover,
@@ -46,6 +45,7 @@ body {
   font-family: "Merriweather", serif;
   background-color: #000;
   color: #ffffff;
+  scroll-behavior: smooth;
 }
 
 * {
@@ -59,8 +59,23 @@ body {
   padding: 0 20px;
 }
 
+.wrapper  {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.wrapper::before {
+  content:'';
+  display:block;
+  width: 700px;
+  height: 2px;
+  background-color: var(--color-gold);
+  position: absolute;
+  top:39px;
+}
 
-.header__container {
+
+.header__bg {
   background: url('./assets/img/header_bg.jpg');
   background-repeat: no-repeat;
   background-position: center 0;
@@ -71,8 +86,28 @@ body {
 }
 
 
+.header__container {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
 /* ------------------------------------------------------------------------------------------------------------*/
 /* ---------------------------------------------------navigatio------------------------------------------------*/
+.logo {
+  width: 50px;
+  height: 50px;
+  background-image: url(./assets/svg/logo.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: all 0.3s;
+  position: relative;
+  left: 20px;
+}
+.logo:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
+
 .header__navigation {
   display: flex;
   justify-content: space-between; 
@@ -89,13 +124,13 @@ body {
   margin-right: 30px; 
 }
 .navigation__link {
- font-family: Inter;
+ font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 50px;
   color:#ffffff;
-  transition: all 250ms var(--timing);
+  transition: all 0.3s;
   cursor: pointer;
 }
 .navigation__link:hover,
@@ -111,7 +146,7 @@ body {
   font-weight: bold;
   font-size: 20px;
   line-height: 50px;
-  cursor: pointer;
+  cursor: po"Inter";
   color:#ffffff;
 }
 .language__link {
@@ -120,7 +155,7 @@ body {
   font-weight: bold;
   font-size: 20px;
   line-height: 50px;
-  cursor: pointer;
+  cursor: po"Inter";
   color:#ffffff;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -138,18 +173,18 @@ body {
   padding-top: 160px;
   padding-bottom: 350px;
 }
-.hero-content-box {
+.hero__content-box {
   width: 500px;
   margin-left: 60px;
 }
-.hero-title {
+.hero__header {
   font-family: "Merriweather";
   font-style: normal;
   font-weight: 700;
   font-size: 60px;
   line-height: 120px;
 }
-.hero-text {
+.hero__text {
   font-family: "Inter";
   font-style: normal;
   font-weight: normal;
@@ -158,3 +193,67 @@ body {
   width: 470px;
   margin-bottom: 25px;
 }
+/* ------------------------------------------------------------------------------------------------------------*/
+/* ---------------------------------------------------skills---------------------------------------------------*/
+.skills {
+  padding-top: 100px;
+}
+
+.skills__items {
+ display: flex;
+ justify-content: space-between;
+ flex-wrap: wrap;
+}
+.skill__item {
+ background-position: center top;
+ padding-top: 100px;
+ padding-right: 20px;
+ padding-left: 20px;
+}
+.skill__item:nth-child(1) {
+ background-image: url('./assets/svg/camera.svg');
+ background-size: 62px 50px;
+ background-repeat: no-repeat;
+ background-position: center 0;
+}
+.skill__item:nth-child(2) {
+ background-image: url('./assets/svg/video.svg');
+ background-size: 60px 50px;
+ background-repeat: no-repeat;
+ background-position: center 0;
+}
+.skill__item:nth-child(3) {
+ background-image: url('./assets/svg/image.svg');
+ background-size: 66px 50px;
+ background-repeat: no-repeat;
+ background-position: center 0;
+}
+.skill__item:nth-child(4) {
+ background-image: url('./assets/svg/mic.svg');
+ background-size: 32px 50px;
+ background-repeat: no-repeat;
+ background-position: center 0;
+}
+.item__title {
+ display: flex;
+ justify-content: center;
+ font-family: "Inter";
+ font-style: normal;
+ font-weight: bold;
+ font-size: 20px;
+ line-height: 40px;
+ text-align: center;
+ width: 280px;
+ margin-bottom: 20px;
+}
+.item__text {
+ width: 280px;
+ font-family: "Inter";
+ font-style: normal;
+ font-weight: normal;
+ font-size: 18px;
+ line-height: 36px;
+ text-align: center;
+}
+/* ------------------------------------------------------------------------------------------------------------*/
+/* ---------------------------------------------------footer---------------------------------------------------*/

@@ -16,15 +16,14 @@
     <script src="index.js"></script>
   </head>
   <body>
-      <header class="header">
-        <div class="container">
-          <div class="header__container"></div>
+    <div class="container">  
+    <header class="header">
+      
+        <div class="container header__container">
+          <div class="header__bg"></div>
+          <div class="logo header__logo"></div>
           <nav class="header__navigation">
-            <div class="header__logo">
-              <a href="/">
-                <img src="./assets/svg/logo.svg" alt="Photographer Alex Rise" />
-              </a>
-            </div>
+            
             <div>
             <ul class="navigation">
               <li class="navigation__item">
@@ -56,26 +55,51 @@
       <main>
         <section class="hero">
           <div class="container">
-              <div class="hero-content-box">
-                  <h1 class="hero-title">Alexa Rise</h1>
-                  <p class="hero-text">
+              <div class="hero__content-box">
+                  <h1 class="hero__header">Alexa Rise</h1>
+                  <p class="hero__text">
                       Save sincere emotions, romantic feelings and
                       happy moments of life together with
                       professional
                       photographer Alexa Rise
                   </p>
-                  <button class="btn_goldy" type="button">
-                      Here me</button>
+                  <button class="btn_goldy" type="button">Here me</button>
               </div>
           </div>
       </section>
-        <section class="skills"></section>
+      <section class="skills">
+        <div class="container container__skills">
+            <div class="wrapper wrapper__skills">
+                <h2 class="section_header">Skills</h2>
+            </div>
+
+            <div class="skills__items">
+                <div class="skill__item">
+                    <h3 class="item__title">Digital photography</h3>
+                    <p class="item__text">High-quality photos in the studio and on the nature</p>
+                </div>
+                <div class="skill__item">
+                    <h3 class="item__title">Video shooting</h3>
+                    <p class="item__text">Capture your moments so that they always stay with you</p>
+                </div>
+                <div class="skill__item">
+                    <h3 class="item__title">Rotouch</h3>
+                    <p class="item__text">I strive to make photography surpass reality</p>
+                </div>
+                <div class="skill__item">
+                    <h3 class="item__title">Audio</h3>
+                    <p class="item__text">Professional sounds recording for video, advertising, portfolio</p>
+                </div>
+            </div>
+        </div>
+    </section>
         <section class="potfolio"></section>
         <section class="video"></section>
         <section class="price"></section>
         <section class="contacts"></section>
       </main>
       <footer></footer>
-    
+    </div>
+  </div>
   </body>
 </html>
