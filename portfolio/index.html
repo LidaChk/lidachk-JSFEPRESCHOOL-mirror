@@ -1,105 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="assets/svg/favicon.ico" />
-    <script src="index.js"></script>
-  </head>
-  <body>
-    <div class="container">  
-    <header class="header">
-      
-        <div class="container header__container">
-          <div class="header__bg"></div>
-          <div class="logo header__logo"></div>
-          <nav class="header__navigation">
-            
-            <div>
-            <ul class="navigation">
-              <li class="navigation__item">
-                <a href="#skills" class="navigation__link">Skills</a>
-              </li>
-              <li class="navigation__item">
-                <a href="#portfolio" class="navigation__link">Portfolio</a>
-              </li>
-              <li class="navigation__item">
-                <a href="#video" class="navigation__link">Video</a>
-              </li>
-              <li class="navigation__item">
-                <a href="#price" class="navigation__link">Price</a>
-              </li>
-              <li class="navigation__item">
-                <a href="#contacts" class="navigation__link">Contacts</a>
-              </li>
-            </ul>
-          </div>
-            <div class="language__switch">
-              <a class="language__link switch_on" href="#en">en</a>
-              <p class="language__link">/</p>
-              <a class="language__link" href="#ru">ru</a>
-            </div>
-          </nav>
 
-        </div>
-      </header>
-      <main>
-        <section class="hero">
-          <div class="container">
-              <div class="hero__content-box">
-                  <h1 class="hero__header">Alexa Rise</h1>
-                  <p class="hero__text">
-                      Save sincere emotions, romantic feelings and
-                      happy moments of life together with
-                      professional
-                      photographer Alexa Rise
-                  </p>
-                  <button class="btn_goldy" type="button">Here me</button>
-              </div>
-          </div>
-      </section>
-      <section class="skills">
-        <div class="container container__skills">
-            <div class="wrapper wrapper__skills">
-                <h2 class="section_header">Skills</h2>
-            </div>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>portfolio</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="style.css" />
+	<link rel="icon" href="assets/svg/favicon.ico" />
+	<script src="index.js"></script>
+</head>
 
-            <div class="skills__items">
-                <div class="skill__item">
-                    <h3 class="item__title">Digital photography</h3>
-                    <p class="item__text">High-quality photos in the studio and on the nature</p>
-                </div>
-                <div class="skill__item">
-                    <h3 class="item__title">Video shooting</h3>
-                    <p class="item__text">Capture your moments so that they always stay with you</p>
-                </div>
-                <div class="skill__item">
-                    <h3 class="item__title">Rotouch</h3>
-                    <p class="item__text">I strive to make photography surpass reality</p>
-                </div>
-                <div class="skill__item">
-                    <h3 class="item__title">Audio</h3>
-                    <p class="item__text">Professional sounds recording for video, advertising, portfolio</p>
-                </div>
-            </div>
-        </div>
-    </section>
-        <section class="potfolio"></section>
-        <section class="video"></section>
-        <section class="price"></section>
-        <section class="contacts"></section>
-      </main>
-      <footer></footer>
-    </div>
-  </div>
-  </body>
+<body>
+	<div class="container">
+		<header class="header">
+			<div class="container header__container">
+				<div class="header__bg"></div>
+				<div class="logo header__logo"></div>
+				<nav class="header__navigation">
+					<div>
+						<ul class="navigation">
+							<li class="navigation__item">
+								<a href="#skills" class="navigation__link">Skills</a>
+							</li>
+							<li class="navigation__item">
+								<a href="#portfolio" class="navigation__link">Portfolio</a>
+							</li>
+							<li class="navigation__item">
+								<a href="#video" class="navigation__link">Video</a>
+							</li>
+							<li class="navigation__item">
+								<a href="#price" class="navigation__link">Price</a>
+							</li>
+							<li class="navigation__item">
+								<a href="#contacts" class="navigation__link">Contacts</a>
+							</li>
+						</ul>
+					</div>
+					<div class="language__switch">
+						<a class="language__link switch_on" href="#en">en</a>
+						<p class="language__link">/</p>
+						<a class="language__link" href="#ru">ru</a>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main>
+			<section class="hero">
+				<div class="container">
+					<div class="hero__content-box">
+						<h1 class="hero__header">Alexa Rise</h1>
+						<p class="hero__text">
+							Save sincere emotions, romantic feelings and
+							happy moments of life together with
+							professional
+							photographer Alexa Rise
+						</p>
+						<button class="btn_goldy" type="button">Here me</button>
+					</div>
+				</div>
+			</section>
+			<section class="skills" id="skills">
+				<div class="container container__skills">
+					<div class="wrapper">
+						<h2 class="section__header">Skills</h2>
+					</div>
+					<div class="skills__items">
+						<div class="skill__item">
+							<h3 class="item__title">Digital photography</h3>
+							<p class="item__text">High-quality photos in the studio and on the nature</p>
+						</div>
+						<div class="skill__item">
+							<h3 class="item__title">Video shooting</h3>
+							<p class="item__text">Capture your moments so that they always stay with you</p>
+						</div>
+						<div class="skill__item">
+							<h3 class="item__title">Rotouch</h3>
+							<p class="item__text">I strive to make photography surpass reality</p>
+						</div>
+						<div class="skill__item">
+							<h3 class="item__title">Audio</h3>
+							<p class="item__text">Professional sounds recording for video, advertising, portfolio</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="portfolio" id="portfolio">
+				<div class="container container__portfolio">
+					<div class="wrapper">
+						<h2 class="section__header">Portfolio</h2>
+					</div>
+					<ul class="portfolio_btns_lst">
+						<li class="portfolio__btn_item">
+							<button class="portfolio__btn btn_goldy" type="button">Winter</button>
+						</li>
+						<li class="portfolio__btn_item">
+							<button class="portfolio__btn btn_goldy" type="button">Spring</button>
+						</li>
+						<li class="portfolio__btn_item">
+							<button class="portfolio__btn btn_goldy" type="button">Summer</button>
+						</li>
+						<li class="portfolio__btn_item">
+							<button class="portfolio__btn btn_goldy active" type="button">Autumn</button>
+						</li>
+					</ul>
+					<ul class="portfolio_items_img">
+						<li class="portfolio_item">
+							<img src="./assets/img/portfolio_img1.jpg" alt="boy and girl">
+						</li>
+						<li class="portfolio_item">
+							<img src="./assets/img/portfolio_img2.jpg" alt="tree">
+						</li>
+						<li class="portfolio_item">
+							<img src="./assets/img/portfolio_img3.jpg" alt="child">
+						</li>
+						<li class="portfolio_item">
+							<img src="./assets/img/portfolio_img4.jpg" alt="big tree">
+						</li>
+						<li class="portfolio_item">
+							<img src="./assets/img/portfolio_img5.jpg" alt="man and woman">
+						</li>
+						<li class="portfolio_item">
+							<img src="./assets/img/portfolio_img6.jpg" alt="phone">
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section class="video" id="video">
+				<div class="container container__video">
+					<div class="wrapper">
+						<h2 class="section__header">Video</h2>
+					</div>
+					<div class="video_player">
+						<img src="./assets/img/video_player.jpg" alt="bride and groom">
+						<button class="video_btn video_btn_color"></button>
+					</div>
+				</div>
+			</section>
+			<section class="price" id="price">
+				<div class="container container__price">
+					<div class="wrapper">
+						<h2 class="section__header">Price</h2>
+					</div>
+					<div class="price__block">
+						<article class="price__item">
+							<h3 class="price__title">Standard</h3>
+							<p class="price__price">500 $</p>
+							<span class="price__text">One location</span>
+							<span class="price__text">120 photos in color</span>
+							<span class="price__text">12 photos in retouch</span>
+							<span class="price__text">Readiness 2-3 weeks</span>
+							<span class="price__text">Make up, visage</span>
+							<button class="price__btn btn_goldy" type="button" data-modal-open="">Order shooting
+							</button>
+						</article>
+						<article class="price__item">
+							<h3 class="price__title">Premium</h3>
+							<p class="price__price">700 $</p>
+							<span class="price__text">One or two locations</span>
+							<span class="price__text">200 photos in color</span>
+							<span class="price__text">20 photos in retouch</span>
+							<span class="price__text">Readiness 1-2 weeks</span>
+							<span class="price__text">Make up, visage</span>
+							<button class="price__btn btn_goldy" type="button" data-modal-open="">Order shooting</button>
+						</article>
+						<article class="price__item">
+							<h3 class="price__title">Gold</h3>
+							<p class="price__price">1000 $</p>
+							<span class="price__text">Three locations or more</span>
+							<span class="price__text">300 photos in color</span>
+							<span class="price__text">50 photos in retouch</span>
+							<span class="price__text">Readiness 1 week</span>
+							<span class="price__text">Make up, visage, hairstyle</span>
+							<button class="price__btn btn_goldy" type="button">Order shooting</button>
+						</article>
+					</div>
+				</div>
+			</section>
+			<section class="contacts" id="contacts">
+				<div class="container container_contacts">
+					<div class="wrapper__contacts">
+						<form class="form__contacts">
+							<h2 class="section__header contacts__title">Contact me</h2>
+							<input class="form_input" type="email" name="contact_mail" id="contact_mail" placeholder="E-mail">
+							<input class="form_input" type="tel" name="contact_phone" id="contact_phone" placeholder="Phone">
+							<textarea class="form_input" name="input_message" placeholder="Message"></textarea>
+							<button class="btn_goldy" type="button">Send message</button>
+						</form>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="container container_footer">
+				<h3 class="footer__title">footer</h3>
+				<div class="footer-block">
+					<ul class="footer__list">
+						<li class="footer_item">©</li>
+						<li class="footer_item">2022</li>
+						<li class="">
+							<a class="footer_item link" href="https://github.com/rolling-scopes-school">
+								github
+							</a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<a class="footer-school link" href="https://rs.school/js-stage0/">
+								Rolling Scopes School
+							</a>
+						</li>
+					</ul>
+					<ul class="icon-list">
+						<li class="icon-list_item">
+							<a href="https://www.instagram.com/rollingscopes/">
+								<svg class="icon">
+									<use xlink:href="./assets/svg/sprite.svg#instagram"></use>
+								</svg>
+							</a>
+						</li>
+						<li class="icon-list_item">
+							<a href="https://www.facebook.com/groups/TheRollingScopes/">
+								<svg class="icon">
+									<use xlink:href="./assets/svg/sprite.svg#facebook"></use>
+								</svg>
+							</a>
+						</li>
+						<li class="icon-list_item">
+							<a href="https://twitter.com/rollingscopes">
+								<svg class="icon">
+									<use xlink:href="./assets/svg/sprite.svg#twitter"></use>
+								</svg>
+							</a>
+						</li>
+						<li class="icon-list_item">
+							<a href="https://www.pinterest.ru/">
+								<svg class="icon">
+									<use xlink:href="./assets/svg/sprite.svg#pinterest"></use>
+								</svg>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
+
 </html>
