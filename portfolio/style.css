@@ -85,14 +85,14 @@ body {
 
 
 
-.wrapper__skills  {
+.wrapper  {
   position: relative;
   display: flex;
   justify-content: center;
   overflow-x: hidden
 }
-.wrapper__skills::before,
-.wrapper__skills::before {
+.wrapper::before,
+.wrapper::before {
   content:'';
   display:block;
   width: 700px;
@@ -115,7 +115,7 @@ body {
   position: relative;
   padding: 0 20px;
   top: -33px;
-  background-image: linear-gradient(to top, #000 39px, #bdae82 39px, #bdae82 41px, #000 41px);
+  /*background-image: linear-gradient(to top, #000 39px, #bdae82 39px, #bdae82 41px, #000 41px);*/
 }
 
 /* ------------------------------------------------------------------------------------------------------------*/
@@ -229,7 +229,7 @@ body {
 .skills__items {
  display: inline-flex;
  justify-content: space-between;
- flex-wrap: wrap;
+ /*flex-wrap: wrap;*/
 }
 .skill__item {
  background-position: center top;
@@ -292,6 +292,7 @@ body {
 .container__portfolio{
   padding:0px;
 }
+
 .portfolio_btns_lst {
   display: flex;
   justify-content: center;
@@ -318,7 +319,37 @@ body {
 .portfolio_items_img {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 25px;
+}
+/* ------------------------------------------------------------------------------------------------------------*/
+/* ---------------------------------------------------video---------------------------------------------------*/
+
+.video {
+  padding-top: 100px;
+}
+.video_player {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.video_btn {
+  position: absolute;
+  width: 129.86px;
+  height: 130px;
+  cursor: pointer;
+}
+.video_btn_color {
+  background-image: url("./assets/svg/play.svg");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  transition: all 250ms var(--timingFn);
+}
+.video_btn_color:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 /* ------------------------------------------------------------------------------------------------------------*/
 /* ---------------------------------------------------footer---------------------------------------------------*/
