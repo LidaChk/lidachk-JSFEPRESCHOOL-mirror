@@ -345,7 +345,7 @@ body {
   background-repeat: no-repeat;
   background-color: transparent;
   border: 0;
-  transition: all 250ms var(--timingFn);
+  transition: all 300ms;
 }
 .video_btn_color:hover {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
@@ -368,7 +368,7 @@ body {
   display: block;
   width: 450px;
   border: 3px solid var(--color-gold);
-  align_items: center;
+  align-items: center;
   padding-top: 43px;
   padding-bottom: 43px;
 }
@@ -381,7 +381,7 @@ body {
   text-align: center;
 }
 .price__price {
-  font-family: Merriweather;
+  font-family: "Merriweather";
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
@@ -391,7 +391,7 @@ body {
 }
 .price__text {
   display: block;
-  font-family: Inter;
+  font-family: "Inter";
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -404,5 +404,68 @@ body {
 }
 
 
+/* ------------------------------------------------------------------------------------------------------------*/
+/* ---------------------------------------------------contacts-------------------------------------------------*/
+.contacts {
+  padding-top: 100px;
+}
+.container_contacts {
+  background: url("./assets/img/contacts.jpg");
+  background-size: auto 700px;
+  background-position: center center;
+  height: 700px;
+}
+.wrapper__contacts {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.form__contacts {
+  width: 450px;
+  height: 445px;
+  margin-top: 60px;
+}
+.contacts__title {
+  margin-bottom: 40px;
+  background-color: transparent;
+  padding-left: 0px;
+  text-align: left;
+  top:auto;
+}
+
+input {
+  height: 50px;
+  margin-bottom: 20px;
+}
+textarea {
+  height: 100px;
+  resize: none;
+  border-radius: 0px;
+  margin-bottom: 25px;
+  color: var(--color-gold);
+}
+.form_input {
+  width: 450px;
+  font-family: inherit;
+  font-weight: normal;
+  font-size: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--color-gold);
+  padding-left: 20px;
+}
+::placeholder {
+  font-family: inherit;
+  font-size: 20px;
+  line-height: 40px;
+  color: var(--color-gold);
+}
+/* фона элементов input при авто-заполнении в Chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #bdae82;
+  transition: background-color 0s ease-in-out 9000s;
+}
 /* ------------------------------------------------------------------------------------------------------------*/
 /* ---------------------------------------------------footer---------------------------------------------------*/
