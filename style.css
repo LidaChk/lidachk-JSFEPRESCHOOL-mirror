@@ -19,7 +19,24 @@ img {
   height: auto;
 }
 
-
+.btn_goldy {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  width: 220px;
+  height: 55px;
+  cursor: pointer;
+  border: 0;
+  transition: all 250ms var(--timingFn);
+  background-color: var(--color-gold);
+}
+.btn_goldy:hover,
+.btn_goldy:focus {
+  color: #ffffff;
+}
 
 
 
@@ -53,7 +70,9 @@ body {
   z-index: -1;
 }
 
-/* navigation */
+
+/* ------------------------------------------------------------------------------------------------------------*/
+/* ---------------------------------------------------navigatio------------------------------------------------*/
 .header__navigation {
   display: flex;
   justify-content: space-between; 
@@ -110,6 +129,32 @@ body {
 .language__link:not(:last-child) {
  margin-right: 8px; 
 }
-.active {
+.switch_on {
   color: var(--color-gold);
+}
+/* ------------------------------------------------------------------------------------------------------------*/
+/* ---------------------------------------------------hero ---------------------------------------------------*/
+.hero {
+  padding-top: 160px;
+  padding-bottom: 350px;
+}
+.hero-content-box {
+  width: 500px;
+  margin-left: 60px;
+}
+.hero-title {
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 120px;
+}
+.hero-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 40px;
+  width: 470px;
+  margin-bottom: 25px;
 }

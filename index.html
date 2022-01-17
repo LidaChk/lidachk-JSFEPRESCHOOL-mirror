@@ -16,10 +16,9 @@
     <script src="index.js"></script>
   </head>
   <body>
-    <div class="container">
       <header class="header">
-        <div class="container header__container">
-
+        <div class="container">
+          <div class="header__container"></div>
           <nav class="header__navigation">
             <div class="header__logo">
               <a href="/">
@@ -46,7 +45,7 @@
             </ul>
           </div>
             <div class="language__switch">
-              <a class="language__link active" href="#en">en</a>
+              <a class="language__link switch_on" href="#en">en</a>
               <p class="language__link">/</p>
               <a class="language__link" href="#ru">ru</a>
             </div>
@@ -55,8 +54,21 @@
         </div>
       </header>
       <main>
-        <section class="hero"></section>
-        <h1 class="hero__title">Alexa Rise</h1>
+        <section class="hero">
+          <div class="container">
+              <div class="hero-content-box">
+                  <h1 class="hero-title">Alexa Rise</h1>
+                  <p class="hero-text">
+                      Save sincere emotions, romantic feelings and
+                      happy moments of life together with
+                      professional
+                      photographer Alexa Rise
+                  </p>
+                  <button class="btn_goldy" type="button">
+                      Here me</button>
+              </div>
+          </div>
+      </section>
         <section class="skills"></section>
         <section class="potfolio"></section>
         <section class="video"></section>
@@ -64,6 +76,6 @@
         <section class="contacts"></section>
       </main>
       <footer></footer>
-    </div>
+    
   </body>
 </html>
