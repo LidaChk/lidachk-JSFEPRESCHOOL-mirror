@@ -62,6 +62,9 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   display: grid;
+  position: relative;
+
+  
 }
 
 
@@ -79,6 +82,7 @@ body {
   justify-content: center;
   overflow-x: hidden;    
   height: 140px;
+  left: -33px;
 }
 
 .wrapper::before,
@@ -107,21 +111,17 @@ body {
   /*background-image: linear-gradient(to top, #000 39px, #bdae82 39px, #bdae82 41px, #000 41px);*/
 }
 
-.container_secion{
-  position: relative;
-  left: 40px;
-}
+
 
 /* ------------------------------------------------------------------------------------------------------------*/
 /* ---------------------------------------------------navigatio------------------------------------------------*/
 .header__bg {
   background: url('./assets/img/header_bg.jpg');
-  background-repeat: no-repeat;
-  background-position: center 0;
+  background-repeat: no-repeat;  
   width: 1440px;
   height: 900px;
-  position: absolute;
-  
+  position: absolute;  
+  left: -webkit-calc(50%-720);
   z-index: -1;
 }
 
@@ -145,7 +145,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 25px;
+  padding: 15px 0px;
   position: relative;
  
 }
@@ -213,13 +213,13 @@ body {
 /* ------------------------------------------------------------------------------------------------------------*/
 /* ---------------------------------------------------hero ---------------------------------------------------*/
 .hero {
-  padding-top: 115px;
+  padding-top: 110px;
   padding-bottom: 330px;
 }
 
 .hero__content_box {
   width: 500px;
-  margin-left: 50px;
+  margin-left: 60px;
 }
 
 .hero__header {
@@ -245,12 +245,15 @@ body {
 /* ---------------------------------------------------skills---------------------------------------------------*/
 .skills {
   padding-top: 100px;
+  padding-right: 0px;
 }
 
 .skills__items {
   display: inline-flex;
   justify-content: space-between;
   gap: 40px;
+  position: relative;
+  left:-30px;
   /*flex-wrap: wrap;*/
 }
 
@@ -326,8 +329,10 @@ body {
 .portfolio_btns_lst {
   display: flex;
   justify-content: center;
-  padding-bottom: 60px; 
-  gap:5px 
+  padding-bottom: 65px; 
+  gap:5px; 
+  position: relative;
+  left:-30px;
 }
 
 
@@ -354,7 +359,8 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 25px;
- 
+  position: relative;
+  left:-30px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------*/
@@ -365,11 +371,12 @@ body {
 }
 
 .video_player {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 1400px;
+  position: relative;
+  left:-30px;
 }
 
 .video_btn {
@@ -402,7 +409,8 @@ body {
   justify-content: space-between;
   padding:0 30px;
   gap:25px;
-  
+  position: relative;
+  left:-30px;
 }
 
 .container_price
@@ -457,14 +465,15 @@ body {
 /* ------------------------------------------------------------------------------------------------------------*/
 /* ---------------------------------------------------contacts-------------------------------------------------*/
 .contacts {
-  padding-top: 110px;
+  padding-top: 100px;
 }
 
 .container__contacts {
   background: url("./assets/img/contacts.jpg");   
-  padding: 0px 20px;
+  padding: 5px 20px;
   height: 700px;
   position: relative;
+  left:-30px;
 }
 
 .wrapper__contacts {
@@ -482,8 +491,7 @@ body {
   margin-bottom: 10px;
   background-color: transparent;
   padding-left: 0px;
-  text-align: left;
-  
+  text-align: left;  
 }
 
 input {
@@ -530,7 +538,7 @@ input:-webkit-autofill:active {
 
 
 .footer {
-  padding-top: 47px;
+  padding-top: 50px;
   padding-bottom: 50px;
 }
 
@@ -543,6 +551,8 @@ input:-webkit-autofill:active {
   justify-content: space-between;
   align-items: center;
   font-size: 0.8rem;
+  position: relative;
+  left:-30px;
 }
 
 .footer__list {
