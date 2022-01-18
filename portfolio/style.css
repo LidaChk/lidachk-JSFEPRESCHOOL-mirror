@@ -4,11 +4,10 @@
   --font1: 60px;
   --font2: 40px;
 }
-@media (max-width: 768px) {
-  :root {
-    --font1: 40px;
-    --font2: 32px;
-  }
+
+
+html {
+  scroll-behavior: smooth;
 }
 
 ul,
@@ -64,16 +63,7 @@ body {
   padding: 0 20px;
 }
 
-.header__bg {
-  background: url('./assets/img/header_bg.jpg');
-  background-repeat: no-repeat;
-  background-position: center 0;
-  width: 1440px;
-  height: 900px;
-  position: absolute;
-  
-  z-index: -1;
-}
+
 
 .header__container {
   display: inline-flex;
@@ -124,6 +114,18 @@ body {
 
 /* ------------------------------------------------------------------------------------------------------------*/
 /* ---------------------------------------------------navigatio------------------------------------------------*/
+.header__bg {
+  background: url('./assets/img/header_bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center 0;
+  width: 1440px;
+  height: 900px;
+  position: absolute;
+  
+  z-index: -1;
+}
+
+
 .logo {
   width: 50px;
   height: 50px;
@@ -133,8 +135,6 @@ body {
   transition: all 0.3s;
   position: relative;
   left: -30px;
-
-
 }
 
 .logo:hover {
