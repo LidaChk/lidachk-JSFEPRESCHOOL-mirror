@@ -2,8 +2,6 @@
 
 window.onload = function() {
 
-  console.log("index.js");
-
   document.querySelectorAll("a.language__link").forEach(element =>
     element.addEventListener("click", function() {
       if (!this.classList.contains('switch_on')) {
@@ -12,6 +10,18 @@ window.onload = function() {
       }
       return true;
     }));
+
+
+    document.querySelector('#portfolio').querySelectorAll('button').forEach(element =>
+      element.addEventListener("click", function() {
+        if (this.classList.contains('btn_blacky')) {
+          let el = document.querySelector('#portfolio').querySelector("button.btn_goldy");
+          el.classList.add('btn_blacky');
+          el.classList.remove('btn_goldy');
+          this.classList.add('btn_goldy');
+        }
+        return true;
+      }));
 };
 
 let res = 'Оценка 92\n1.Вёрстка валидная +10\n2.Вёрстка семантическая +20\n3.Вёрстка соответствует макету(частично) +40\n4.Требования к css + 12\n5.Интерактивность, реализуемая через css +20'
