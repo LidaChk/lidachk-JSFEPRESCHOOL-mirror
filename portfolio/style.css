@@ -238,7 +238,7 @@ body {
   font-weight: normal;
   font-size: 20px;
   line-height: 40px;
-  width: 470px;
+  width: 500px;
   margin-bottom: 25px;
   margin-top: -40px;
 }
@@ -367,6 +367,7 @@ body {
 /* ---------------------------------------------------video---------------------------------------------------*/
 .video {
   padding-top: 100px;
+  padding-left:10px
 }
 
 .video_player {
@@ -374,6 +375,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 1400px;
 }
 
 .video_btn {
@@ -402,25 +404,30 @@ body {
 }
 
 .price__block {
-  display: flex;
+  display: inline-flex;
   justify-content: space-between;
+  padding:0 30px;
+  gap:25px;
+  
 }
 
-.price__block:not(:last-child) {
-  margin-right: 25px;
+.container_price
+{
+  padding:20px;
 }
+
 
 .price__item {
   display: block;
   width: 450px;
+  height: 500px;
   border: 3px solid var(--color-gold);
-  align-items: center;
-  padding-top: 43px;
-  padding-bottom: 43px;
+  align-items: center;  
+  padding-top: 10px;  
 }
 
 .price__title {
-  font-family: Merriweather;
+  font-family: "Merriweather";
   font-style: normal;
   font-weight: bold;
   font-size: 28px;
@@ -433,7 +440,7 @@ body {
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
-  line-height: 48px;
+  line-height: 40px;
   text-align: center;
   color: var(--color-gold);
 }
@@ -450,7 +457,7 @@ body {
 
 .price__btn {
   margin-left: 115px;
-  margin-top: 40px;
+  margin-top: 36px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------*/
@@ -459,11 +466,13 @@ body {
   padding-top: 100px;
 }
 
-.container_contacts {
+.container__contacts {
   background: url("./assets/img/contacts.jpg");
-  background-size: auto 700px;
-  background-position: center center;
+   
+  
   height: 700px;
+  position: relative;
+  left:10px;
 }
 
 .wrapper__contacts {
@@ -475,7 +484,8 @@ body {
 .form__contacts {
   width: 450px;
   height: 445px;
-  margin-top: 60px;
+  margin-top: 25px;
+  padding-left: 15px;
 }
 
 .contacts__title {
@@ -527,6 +537,11 @@ input:-webkit-autofill:active {
 
 /* ------------------------------------------------------------------------------------------------------------*/
 /* ---------------------------------------------------footer---------------------------------------------------*/
+.container__footer{
+  position: relative;
+  left:27px;
+}
+
 .footer {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -545,6 +560,7 @@ input:-webkit-autofill:active {
 
 .footer__list {
   display: flex;
+  
 }
 
 .footer_item {
@@ -569,7 +585,7 @@ input:-webkit-autofill:active {
 
 .link {
   color: #ffffff;
-  transition: all 250ms var(--timingFn);
+  transition: all 300ms ;
 }
 
 .link:hover,
@@ -582,7 +598,7 @@ input:-webkit-autofill:active {
   width: 30px;
   height: 30px;
   fill: #ffffff;
-  transition: all 250ms var(--timingFn);
+  transition: all 300ms;
 }
 
 .icon:hover {
@@ -592,8 +608,6 @@ input:-webkit-autofill:active {
 .icon-list {
   display: flex;
   justify-content: flex-end;
+  gap:20px;
 }
 
-.icon-list_item:not(:last-child) {
-  margin-right: 25px;
-}
