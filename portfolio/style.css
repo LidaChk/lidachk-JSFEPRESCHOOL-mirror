@@ -86,7 +86,9 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
-  overflow-x: hidden
+  overflow-x: hidden;  
+  padding-left: 60px;
+  height: 140px;
 }
 
 .wrapper::before,
@@ -108,8 +110,7 @@ body {
   line-height: 80px;
   text-align: center;
   color: var(--color-gold);
-  background-color: #000;
-  margin-bottom: 60px;
+  background-color: #000;  
   position: relative;
   padding: 0 20px;
   top: -33px;
@@ -215,12 +216,12 @@ body {
 /* ---------------------------------------------------hero ---------------------------------------------------*/
 .hero {
   padding-top: 145px;
-  padding-bottom: 360px;
+  padding-bottom: 330px;
 }
 
 .hero__content_box {
   width: 500px;
-  margin-left: 65px;
+  margin-left: 50px;
 }
 
 .hero__header {
@@ -239,7 +240,7 @@ body {
   line-height: 40px;
   width: 470px;
   margin-bottom: 25px;
-  margin-top: 10px;
+  margin-top: -40px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------*/
@@ -251,14 +252,17 @@ body {
 .skills__items {
   display: inline-flex;
   justify-content: space-between;
+  gap: 40px;
+  padding-left: 10px;
   /*flex-wrap: wrap;*/
 }
 
 .skill__item {
   background-position: center top;
-  padding-top: 100px;
+  padding-top: 80px;
   padding-right: 20px;
   padding-left: 20px;
+  margin-bottom: -10px;
 }
 
 .skill__item:nth-child(1) {
@@ -326,6 +330,7 @@ body {
   display: flex;
   justify-content: center;
   padding-bottom: 60px;
+  padding-left:60px;
 }
 
 .portfolio__btn_item:not(:last-child) {
@@ -354,6 +359,8 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 25px;
+  position:relative;
+  left: 30px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------*/
