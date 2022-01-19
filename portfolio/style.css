@@ -138,8 +138,6 @@ body {
 
 /* ------------------------------------------------------------------------------------------------------------*/
 /* ---------------------------------------------------navigatio------------------------------------------------*/
-.container1
-{}
 
 .header__bg {
   background: url('./assets/img/header_bg.jpg');
@@ -529,6 +527,7 @@ textarea {
   background: rgba(0, 0, 0, 0.5);
   border: 2px solid var(--color-gold);
   padding-left: 20px;
+  color: var(--color-gold);
 }
 
 ::placeholder {
@@ -538,14 +537,13 @@ textarea {
   color: var(--color-gold);
 }
 
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-text-fill-color: #bdae82;
-  transition: background-color 0s ease-in-out 9000s;
+.form_input:hover,
+.form_input:focus,
+.form_input:active,
+.form_input:focus{
+  border: 2px solid var(--color-gold);
 }
+
 
 /* ------------------------------------------------------------------------------------------------------------*/
 /* ---------------------------------------------------footer---------------------------------------------------*/
