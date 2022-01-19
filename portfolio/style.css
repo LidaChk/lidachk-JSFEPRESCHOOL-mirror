@@ -58,16 +58,11 @@ img {
 }
 
 
-.btn_goldy:hover,
-.btn_goldy:focus {
+.btn_basic:hover,
+.btn_basic:focus {
   color: #ffffff;
 }
 
-.btn_blacky:hover,
-.btn_blacky:focus {
-  color: #ffffff;
-  background-color: var(--color-gold);
-}
 
 body {
   font-family: "Inter", sans-serif;
@@ -536,14 +531,6 @@ textarea {
   line-height: 40px;
   color: var(--color-gold);
 }
-
-.form_input:hover,
-.form_input:focus,
-.form_input:active,
-.form_input:focus{
-  border: 2px solid var(--color-gold);
-}
-
 
 /* ------------------------------------------------------------------------------------------------------------*/
 /* ---------------------------------------------------footer---------------------------------------------------*/
