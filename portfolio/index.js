@@ -26,25 +26,32 @@ window.onload = function () {
 
   function BurgerToggle() {
 
-    arrTabletItems = ['.navburger__wrapper', '.header__container', '.navigation', '.navigation__link', '.burger_container', 'h2','.wrapper', '.video_player', 'form__contacts', '.hero__content_box', '.logo'];
+    arrTabletItems = ['.navburger__wrapper', '.header__container', '.navigation', '.navigation__link', '.burger_container', 'h2', '.wrapper', '.video_player', 'form__contacts', '.hero__content_box', '.logo'];
 
     arrTabletItems.forEach(x => document.querySelectorAll(x).forEach(el => el.classList.toggle('tablet_navbar')));
 
+    return true;
+
+  }
+
+  function NavBarClose() {
+    document.querySelectorAll('.tablet_navbar').forEach(x => x.classList.remove('tablet_navbar'));
+
+    return true;
   }
 
 
-  document.querySelector('.navigation__link').addEventListener('click', function () {
+  document.querySelectorAll('.navigation__link').forEach(e => e.addEventListener('click', function () {
 
-    if (document.querySelector('.tablet_navbar.navigation__link')) {
-      this.classList.toggle('change');
-      BurgerToggle()
-      
-    }
-  });
+    if (document.querySelector('.burger_container')) document.querySelector('.burger_container').classList.toggle('change');
+    NavBarClose();
+    return true;
+  }));
 
 
   document.querySelector('.burger_container').addEventListener('click', function () {
     this.classList.toggle('change');
     BurgerToggle();
+    return true;
   });
 };
