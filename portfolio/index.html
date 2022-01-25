@@ -4,27 +4,30 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>portfolio</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet" />
-	<link rel="stylesheet" href="style.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap"
+		rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="icon" href="assets/svg/favicon.ico" />
 	<script src="index.js"></script>
 </head>
 
 <body>
 	<div class="container">
-    <div class="wrapper_bg">
-      <div class="header__bg"></div>	
-    </div>    
+		<div class="wrapper_bg">
+			<div class="header__bg"></div>
+		</div>
 		<header class="header">
-			<div class="container header__container">	        	
-				<nav class="header__navigation">          
-          <div class="logo header__logo"></div>
+			<div class="navburger__wrapper">
+			<div class="header__container">
+				<div class="logo header__logo"></div>
+				<nav class="header__navigation">
 					<div>
-						<ul class="navigation">
+						<ul id="nav1" class="navigation desktop" >
 							<li class="navigation__item">
 								<a href="#skills" class="navigation__link">Skills</a>
 							</li>
@@ -42,31 +45,42 @@
 							</li>
 						</ul>
 					</div>
+
 					<div class="language__switch">
-						<a class="language__link switch_on" href="#" onclick="return false;">en</a>
+						<a class="language__link switch_on" href="#">en</a>
 						<p class="language__link">/</p>
-						<a class="language__link" href="#" onclick="return false;">ru</a>
+						<a class="language__link" href="#">ru</a>
 					</div>
+					<div class="burger_container tablet">
+						<div class="bun1 buns"></div>
+						<div class="bun2 buns"></div>
+						<div class="bun3 buns"></div>
+					</div> 
 				</nav>
 			</div>
+		</div>
 		</header>
 		<main>
 			<section class="hero">
-				<div class="container_secion">
+				<div class="container__header">
 					<div class="hero__content_box">
 						<h1 class="hero__header">Alexa Rise</h1>
-						<p class="hero__text">
-							Save sincere emotions, romantic feelings and
-							happy moments of life together with
-							professional
-							photographer Alexa Rise
+						<p class="hero__text desktop">
+							Save sincere emotions, romantic feelings and<br>
+							happy moments of life together with professional<br>
+							photographer Alexa Rise<br>
 						</p>
-						<button class="btn_basic btn_goldy" type="button">Hire me</button>
+						<p class="hero__text tablet">
+							Save sincere emotions, romantic feelings<br>
+							and happy moments of life together with<br>
+							professional photographer Alexa Rise<br>
+						</p>
+						<button class="btn_basic btn_goldy" type="button">Hire me<button>
 					</div>
 				</div>
 			</section>
 			<section class="skills" id="skills">
-				<div class="container container__section">
+				<div class="container__section">
 					<div class="wrapper">
 						<h2 class="section__header">Skills</h2>
 					</div>
@@ -91,7 +105,7 @@
 				</div>
 			</section>
 			<section class="portfolio" id="portfolio">
-				<div class="container container__portfolio">
+				<div class="container__section">
 					<div class="wrapper">
 						<h2 class="section__header">Portfolio</h2>
 					</div>
@@ -132,18 +146,19 @@
 				</div>
 			</section>
 			<section class="video" id="video">
-				<div class="container container__video">
+				<div class="container__section">
 					<div class="wrapper">
 						<h2 class="section__header">Video</h2>
 					</div>
 					<div class="video_player">
-						<img src="./assets/img/video_player.jpg" alt="bride and groom">
+						<img src="./assets/img/video_player.jpg" class="desktop" alt="bride and groom">
+						<img src="./assets/img/tablet_video_player.jpg" class="tablet" alt="bride and groom">
 						<button class="video_btn video_btn_color"></button>
 					</div>
 				</div>
 			</section>
 			<section class="price" id="price">
-				<div class="container__price">
+				<div class="container__section">
 					<div class="wrapper">
 						<h2 class="section__header">Price</h2>
 					</div>
@@ -156,7 +171,8 @@
 							<span class="price__text">12 photos in retouch</span>
 							<span class="price__text">Readiness 2-3 weeks</span>
 							<span class="price__text">Make up, visage</span>
-							<button class="price__btn btn_basic btn_goldy" type="button" data-modal-open="">Order shooting
+							<button class="price__btn btn_basic btn_goldy" type="button" data-modal-open="">Order
+								shooting
 							</button>
 						</article>
 						<article class="price__item">
@@ -167,7 +183,8 @@
 							<span class="price__text">20 photos in retouch</span>
 							<span class="price__text">Readiness 1-2 weeks</span>
 							<span class="price__text">Make up, visage</span>
-							<button class="price__btn btn_basic btn_goldy" type="button" data-modal-open="">Order shooting</button>
+							<button class="price__btn btn_basic btn_goldy" type="button" data-modal-open="">Order
+								shooting</button>
 						</article>
 						<article class="price__item">
 							<h3 class="price__title">Gold</h3>
@@ -183,21 +200,24 @@
 				</div>
 			</section>
 			<section class="contacts" id="contacts">
-				<div class="container container__contacts">
+				<div class="container__contacts">
+					<div class="contacts_bg"></div>
 					<div class="wrapper__contacts">
 						<form class="form__contacts">
 							<h2 class="section__header contacts__title">Contact me</h2>
-							<input class="form_input" type="email" name="contact_mail" id="contact_mail" placeholder="E-mail">
-							<input class="form_input" type="tel" name="contact_phone" id="contact_phone" placeholder="Phone">
+							<input class="form_input" type="email" name="contact_mail" id="contact_mail"
+								placeholder="E-mail">
+							<input class="form_input" type="tel" name="contact_phone" id="contact_phone"
+								placeholder="Phone">
 							<textarea class="form_input" name="input_message" placeholder="Message"></textarea>
-							<button class="btn_basic btn_goldy" type="button">Send message</button>
+							<button class="btn_basic btn_goldy btn_contacts" type="button">Send message</button>
 						</form>
 					</div>
 				</div>
 			</section>
 		</main>
 		<footer class="footer">
-			<div class="container container__footer">
+			<div class="container__footer">
 				<h3 class="footer__title">footer</h3>
 				<div class="footer-block">
 					<ul class="footer__list">
