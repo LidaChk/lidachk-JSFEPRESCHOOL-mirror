@@ -10,7 +10,7 @@ window.onload = function() {
       }
       return false;
     }));
-
+    
 
     document.querySelector('#portfolio').querySelectorAll('button.btn_basic').forEach(element =>
       element.addEventListener("click", function btnChangeColor() {
@@ -25,5 +25,11 @@ window.onload = function() {
       }));
 };
 
-let res = 'Оценка 92\n1.Вёрстка валидная +10\n2.Вёрстка семантическая +20\n3.Вёрстка соответствует макету(частично) +40\n4.Требования к css + 12\n5.Интерактивность, реализуемая через css +20'
-console.log(res);
+/* let res = 'Оценка 92\n1.Вёрстка валидная +10\n2.Вёрстка семантическая +20\n3.Вёрстка соответствует макету(частично) +40\n4.Требования к css + 12\n5.Интерактивность, реализуемая через css +20'
+console.log(res); */
+
+function strCount(obj){
+ for (var prop in obj) {
+  console.log("obj." + prop + " = " + obj[prop]);
+}
+}
