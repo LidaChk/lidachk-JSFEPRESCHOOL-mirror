@@ -22,18 +22,29 @@ window.onload = function () {
       return false;
     }));
 
+
+
+  function BurgerToggle() {
+
+    arrTabletItems = ['.navburger__wrapper', '.header__container', '.navigation', '.navigation__link', '.burger_container', 'h2','.wrapper', '.video_player', 'form__contacts', '.hero__content_box', '.logo'];
+
+    arrTabletItems.forEach(x => document.querySelectorAll(x).forEach(el => el.classList.toggle('tablet_navbar')));
+
+  }
+
+
+  document.querySelector('.navigation__link').addEventListener('click', function () {
+
+    if (document.querySelector('.tablet_navbar.navigation__link')) {
+      this.classList.toggle('change');
+      BurgerToggle()
+      
+    }
+  });
+
+
   document.querySelector('.burger_container').addEventListener('click', function () {
-    this.classList.toggle('change')
+    this.classList.toggle('change');
+    BurgerToggle();
   });
 };
-
-/* let res = 'Оценка 92\n1.Вёрстка валидная +10\n2.Вёрстка семантическая +20\n3.Вёрстка соответствует макету(частично) +40\n4.Требования к css + 12\n5.Интерактивность, реализуемая через css +20'
-console.log(res); */
-
-console.log("Буду благодарна, если проверите мою работу поздже. https://discord.gg/FNfcbgjn" );
-
-function strCount(obj) {
-  for (var prop in obj) {
-    console.log("obj." + prop + " = " + obj[prop]);
-  }
-}
