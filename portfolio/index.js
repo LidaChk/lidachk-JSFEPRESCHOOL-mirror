@@ -1,3 +1,13 @@
+function OpenNavBar()
+{
+
+}
+
+function CloseNavBar()
+{
+
+}
+
 window.onload = function () {
 
   document.querySelectorAll("a.language__link").forEach(element =>
@@ -32,8 +42,3 @@ console.log(res); */
 
 console.log("Буду благодарна, если проверите мою работу поздже. https://discord.gg/FNfcbgjn" );
 
-function strCount(obj) {
-  for (var prop in obj) {
-    console.log("obj." + prop + " = " + obj[prop]);
-  }
-}
