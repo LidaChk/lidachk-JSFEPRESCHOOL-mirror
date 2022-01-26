@@ -815,12 +815,12 @@ textarea {
   position: relative;
   gap: 22px;
 }
-}
+
 
 /* BURGER */
 @media (max-width: 768px) {
 
-  .burger_container {
+  burger_container {
     display: inline-block;
     cursor: pointer;
     margin: 0 45px 0 30px;
