@@ -369,6 +369,10 @@ body {
 @media (max-width: 1400px) {
   .video_player {
     margin-left: -20px;
+    width: 100vw;
+  }
+  .video img{
+    width: 100vw;
   }
 }
 
@@ -951,7 +955,7 @@ textarea {
 @media (max-width: 450px) {
 
   .portfolio_item,
-  .portfolio_item>img,
+  .portfolio_item img,
   .video_player {
     width: 100vw;
   }
