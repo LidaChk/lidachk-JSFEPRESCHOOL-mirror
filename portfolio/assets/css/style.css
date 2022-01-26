@@ -985,7 +985,8 @@ textarea {
 
   .portfolio_item,
   .portfolio_item img,
-  .video_player {
-    width: 100vw;
+  .video_player,
+  .form__contacts .form_input {
+    width: 98vw;
   }
 }
