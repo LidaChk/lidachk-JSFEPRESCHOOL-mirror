@@ -1,5 +1,5 @@
-console.log("Прошу прощения за бврдак в исходниках, прчесать не усплела.");
-console.log("Считаю все пункты выполненными. оценка 75.");
+//console.log("Прошу прощения за бврдак в исходниках, прчесать не усплела.");
+//console.log("Считаю все пункты выполненными. оценка 75.");
 window.onload = function () {
 
   document.querySelectorAll("a.language__link").forEach(element =>
