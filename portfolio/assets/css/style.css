@@ -348,7 +348,7 @@ body {
 }
 
 .portfolio_item {
-  margin-top: -4px;
+ /*  margin-top: -4px; */
   flex-shrink: 2;
   display: inline-flex;
 }
@@ -614,6 +614,10 @@ textarea {
 
 @media (max-width: 768px) {
 
+
+  .container {
+    padding:0;
+  }
   .container {
     max-width: 768px;
   }
@@ -647,7 +651,6 @@ textarea {
 
   .hero__content_box {
     gap: 20px;
-    padding: 0 40px;
   }
 
   .hero__header {
@@ -676,7 +679,7 @@ textarea {
   }
 
   .portfolio_btns_lst {
-    margin: 0 40px;
+    padding: 0 60px 60px 60px;
   }
 
   .wrapper {
@@ -719,7 +722,7 @@ textarea {
     align-items: center;
     position: relative;
     width: 100vw;
-    margin-left: -20px;
+    margin-left: 0px;
     min-width: 100vW;
   }
 }
@@ -771,6 +774,9 @@ textarea {
   background-repeat: no-repeat;
   width: 768px;
   height: 600px;
+  position: absolute;
+  z-index: -1;
+  background-position: center center;
 }
 
 .wrapper__contacts {
@@ -786,6 +792,7 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 0;
 }
 
 .contacts__title {
@@ -885,7 +892,7 @@ textarea {
     width: 620px;
     position: absolute;
     top: 0;
-    right: 20px;
+    right: 0px;
     padding-top: 134px;
     
     box-sizing: border-box;
