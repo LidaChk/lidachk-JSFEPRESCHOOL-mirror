@@ -68,7 +68,7 @@ window.onload = function () {
   document.querySelectorAll('.navigation__link').forEach(e => e.addEventListener('click', function () {
 
     if (document.querySelector('.burger_container')) document.querySelector('.burger_container').classList.toggle('change');
-    NavBarClose();
+    BurgerToggle();
     return true;
   }));
 
