@@ -28,16 +28,38 @@ window.onload = function () {
 
   function BurgerToggle() {
 
-    arrTabletItems = ['.navburger__wrapper', '.header__container', '.navigation', '.navigation__link', '.burger_container', 'h2', '.wrapper', '.video_player', 'form__contacts', '.hero__content_box', '.form__contacts'];
+    slide_items = ['.navigation', '.navigation__link']
 
-    arrTabletItems.forEach(x => document.querySelectorAll(x).forEach(el => el.classList.toggle('tablet_navbar')));
+    slide_items.forEach(x => document.querySelectorAll(x).forEach(el => el.classList.toggle('tablet_navbar')));
+    setTimeout(function () {
+      slide_items.forEach(x => document.querySelectorAll(x).forEach(el => el.classList.toggle('big_navbar')));
+    }, 100);
 
+
+
+    arrTabletItems = ['.navburger__wrapper', '.header__container', '.burger_container', 'h2', '.wrapper', '.video_player', 'form__contacts', '.hero__content_box', '.form__contacts'];
+
+    setTimeout(function () {
+      arrTabletItems.forEach(x => document.querySelectorAll(x).forEach(el => el.classList.toggle('tablet_navbar')));
+    }, 300)
     return true;
 
+    /*  */
   }
 
   function NavBarClose() {
-    document.querySelectorAll('.tablet_navbar').forEach(x => x.classList.remove('tablet_navbar'));
+    
+    document.querySelector('.navigation').classList.toggle('big_navbar_off');
+
+
+    setTimeout(function () {
+
+      document.querySelectorAll('.tablet_navbar').forEach(x =>function() 
+      {
+        x.classList.remove('big_navbar');
+        x.classList.remove('tablet_navbar');
+      });
+    }, 100)
 
     return true;
   }
