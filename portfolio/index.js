@@ -26,56 +26,53 @@ window.onload = function () {
 
 
 
-  function BurgerToggle() {
+  function OpenNavBar() {
 
-    slide_items = ['.navigation', '.navigation__link']
+    arrTabletItems = ['.navburger__wrapper', '.header__container', '.burger_container', 'h2', '.wrapper', '.video_player', 'form__contacts', '.hero__content_box', '.form__contacts', '.skills', '.navigation__link']
 
-    slide_items.forEach(x => document.querySelectorAll(x).forEach(el => el.classList.toggle('tablet_navbar')));
+    arrTabletItems.forEach(x => document.querySelectorAll(x).forEach(el => el.classList.toggle('tablet_navbar')));
+
+
+    document.querySelector('.navigation').classList.add('tablet_navbar');
     setTimeout(function () {
-      slide_items.forEach(x => document.querySelectorAll(x).forEach(el => el.classList.toggle('big_navbar')));
-    }, 100);
-
-
-
-    arrTabletItems = ['.navburger__wrapper', '.header__container', '.burger_container', 'h2', '.wrapper', '.video_player', 'form__contacts', '.hero__content_box', '.form__contacts'];
-
-    setTimeout(function () {
-      arrTabletItems.forEach(x => document.querySelectorAll(x).forEach(el => el.classList.toggle('tablet_navbar')));
-    }, 300)
+      document.querySelector('.navigation').classList.add('big_navbar');
+      return true;
+    }, 300);
     return true;
 
-    /*  */
   }
 
-  function NavBarClose() {
-    
+  function CloseNavBar() {
+
     document.querySelector('.navigation').classList.toggle('big_navbar_off');
-
-
     setTimeout(function () {
 
-      document.querySelectorAll('.tablet_navbar').forEach(x =>function() 
-      {
-        x.classList.remove('big_navbar');
-        x.classList.remove('tablet_navbar');
-      });
-    }, 100)
+      document.querySelectorAll('.big_navbar').forEach(x => x.classList.remove('big_navbar'));
+      document.querySelectorAll('.tablet_navbar').forEach(x => x.classList.remove('tablet_navbar'));
+      document.querySelector('.navigation').classList.toggle('big_navbar_off');
 
+    }, 400);
     return true;
+
   }
 
 
   document.querySelectorAll('.navigation__link').forEach(e => e.addEventListener('click', function () {
 
     if (document.querySelector('.burger_container')) document.querySelector('.burger_container').classList.toggle('change');
-    BurgerToggle();
+    CloseNavBar();
     return true;
   }));
 
 
   document.querySelector('.burger_container').addEventListener('click', function () {
-    this.classList.toggle('change');
-    BurgerToggle();
+    document.querySelector('.burger_container').classList.toggle('change');
+    if (!document.querySelector('.big_navbar')) {
+      OpenNavBar();
+    } else {
+      CloseNavBar();
+
+    }
     return true;
   });
 };

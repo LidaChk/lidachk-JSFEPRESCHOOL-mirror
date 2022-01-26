@@ -674,7 +674,8 @@ textarea {
     display: block;
   }
 
-  .desktop {
+  .desktop,
+  .navigation {
     display: none;
   }
 
@@ -898,8 +899,7 @@ textarea {
     z-index: 2;
     padding-left: 25px;
     scroll-behavior: smooth;
-    opacity: 0;
- 
+    opacity: 0; 
   }
 
 
@@ -927,7 +927,7 @@ textarea {
   .tablet_navbar.burger_container {
     display: inline-block;
     cursor: pointer;
-    margin: 0 80px 0 25px;
+    margin: 0 60px 0 25px;
     transition: all 0.3s;
     z-index: 3;
   }
@@ -939,12 +939,12 @@ textarea {
   .navigation.tablet_navbar.big_navbar{
     width: 620px;
     opacity: 1;
-    transition:  width 0.3s, opacity 0.3s; 
+    transition:  width 0.4s, opacity 0.4s; 
   }
 
   .navigation.tablet_navbar.big_navbar.big_navbar_off{
     width: 0;
-    transition:  width 0.5s, opacity 0.5s; 
+    transition:  width 0.4s, opacity 0.4s; 
   }
 
 
@@ -955,7 +955,9 @@ textarea {
     overflow: hidden;
     z-index: -1;
   }
-
+  .tablet_navbar.skills{
+    margin-top: 90px;
+  }
   /* .language__switch{
     padding-right:10px;
   } */
