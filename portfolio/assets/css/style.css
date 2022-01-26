@@ -815,7 +815,7 @@ textarea {
   position: relative;
   gap: 22px;
 }
-}
+
 
 /* BURGER */
 @media (max-width: 768px) {
@@ -887,6 +887,7 @@ textarea {
     top: 0;
     right: 20px;
     padding-top: 134px;
+    
     box-sizing: border-box;
     z-index: 2;
     padding-left: 20px;
@@ -937,6 +938,9 @@ textarea {
     z-index: -1;
   }
 
+  /* .language__switch{
+    padding-right:10px;
+  } */
 
   /*   .tablet_navbar.logo{
     left:40px;
