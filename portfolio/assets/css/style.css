@@ -972,6 +972,7 @@ textarea {
 
 
 @media (max-width: 620px) {
+  .navigation.tablet_navbar.big_navbar,
   .navigation.tablet_navbar {
     width: 100%;
   }
