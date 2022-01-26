@@ -95,7 +95,7 @@ body {
 
 .header__container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 20px 0px;
 }
 
@@ -112,8 +112,12 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   transition: all 0.3s;
-  position: relative;
+  /*  position: relative; */
   cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 0;
 }
 
 .logo:hover,
@@ -123,7 +127,7 @@ body {
 
 .navigation {
   display: flex;
-  transition: all 0.4s;
+  transition: all 0.2s;
 }
 
 .navigation__item {
@@ -137,7 +141,7 @@ body {
   font-size: 20px;
   line-height: 50px;
   color: #ffffff;
-  transition: all 0.3s;
+  transition: all 0.2s;
   cursor: pointer;
 }
 
@@ -174,7 +178,7 @@ body {
   margin-top: 0px;
   margin-bottom: 0px;
   text-decoration: none;
-  transition: all 0.3s;
+  transition: all 0.2s;
 }
 
 .language__link:not(:last-child) {
@@ -850,7 +854,7 @@ textarea {
     /* height: 50px; */
     position: fixed;
   }
-  
+
   .navigation.tablet_navbar {
     display: flex;
     flex-direction: column;
@@ -858,17 +862,19 @@ textarea {
     align-items: flex-start;
     gap: 15px;
     height: 100vh;
-    width: 620px;   
+    width: 620px;
     position: absolute;
     top: 0;
-    right: -20px; 
+    right: 20px;
     padding-top: 134px;
-    padding-left: 90px;
-    box-sizing: border-box;  
+    box-sizing: border-box;
     z-index: 2;
+    padding-left: 20px;
+    transition: 0.4s;
+    scroll-behavior: smooth;
   }
 
- 
+
 
 
   .tablet_navbar.navigation__link {
@@ -881,10 +887,15 @@ textarea {
     transition: all 0.3s;
     cursor: pointer;
     scroll-behavior: smooth;
-  
+    margin-left: 100px;
   }
 
- 
+
+  .tablet_navbar.navigation__link:hover,
+  .tablet_navbar.navigation__link:focus {
+    color: var(--color-gold);
+  }
+
 
   .tablet_navbar.burger_container {
     display: inline-block;
@@ -893,19 +904,29 @@ textarea {
     transition: all 0.3s;
     z-index: 3;
   }
-  .tablet_navbar.hero__content_box{
+
+  .tablet_navbar.hero__content_box {
     padding: 90px 40px;
   }
 
   h2.tablet_navbar,
   div.wrapper.tablet_navbar,
   .video_player.tablet_navbar,
-  .form__contacts.tablet_navbar{
-    overflow:hidden ;
-    z-index: -1; 
+  .form__contacts.tablet_navbar {
+    overflow: hidden;
+    z-index: -1;
   }
-  
-  .tablet_navbar.logo{
+
+ 
+  /*   .tablet_navbar.logo{
     left:40px;
+  } */
+}
+
+
+
+@media (max-width: 620px) {
+  .navigation.tablet_navbar {
+    width: 100%;
   }
-} 
+}
