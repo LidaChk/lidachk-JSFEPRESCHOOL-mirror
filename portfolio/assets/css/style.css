@@ -127,7 +127,7 @@ body {
 
 .navigation {
   display: flex;
-  transition: all 0.2s;
+/*   transition: all 0.2s; */
 }
 
 .navigation__item {
@@ -348,7 +348,7 @@ body {
 }
 
 .portfolio_item {
-  margin-top: -4px;
+ /*  margin-top: -4px; */
   flex-shrink: 2;
   display: inline-flex;
 }
@@ -614,6 +614,10 @@ textarea {
 
 @media (max-width: 768px) {
 
+
+  .container {
+    padding:0;
+  }
   .container {
     max-width: 768px;
   }
@@ -647,7 +651,6 @@ textarea {
 
   .hero__content_box {
     gap: 20px;
-    padding: 0 40px;
   }
 
   .hero__header {
@@ -671,12 +674,13 @@ textarea {
     display: block;
   }
 
-  .desktop {
+  .desktop,
+  .navigation {
     display: none;
   }
 
   .portfolio_btns_lst {
-    margin: 0 40px;
+    padding: 0 60px 60px 60px;
   }
 
   .wrapper {
@@ -719,7 +723,7 @@ textarea {
     align-items: center;
     position: relative;
     width: 100vw;
-    margin-left: -20px;
+    margin-left: 0px;
     min-width: 100vW;
   }
 }
@@ -771,6 +775,9 @@ textarea {
   background-repeat: no-repeat;
   width: 768px;
   height: 600px;
+  position: absolute;
+  z-index: -1;
+  background-position: center center;
 }
 
 .wrapper__contacts {
@@ -786,6 +793,7 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 0;
 }
 
 .contacts__title {
@@ -882,17 +890,16 @@ textarea {
     align-items: flex-start;
     gap: 15px;
     height: 100vh;
-    width: 620px;
+    width: 0px; 
     position: absolute;
     top: 0;
-    right: 20px;
+    right: 0px;
     padding-top: 134px;
-    
     box-sizing: border-box;
     z-index: 2;
-    padding-left: 20px;
-    transition: 0.4s;
+    padding-left: 25px;
     scroll-behavior: smooth;
+    opacity: 0; 
   }
 
 
@@ -903,9 +910,8 @@ textarea {
     font-style: normal;
     font-weight: 400;
     font-size: 35px;
-    line-height: 73px;
+    line-height: 74px;
     color: #ffffff;
-    transition: all 0.3s;
     cursor: pointer;
     scroll-behavior: smooth;
     margin-left: 100px;
@@ -921,23 +927,37 @@ textarea {
   .tablet_navbar.burger_container {
     display: inline-block;
     cursor: pointer;
-    margin: 0 80px 0 25px;
+    margin: 0 60px 0 25px;
     transition: all 0.3s;
     z-index: 3;
   }
 
-  .tablet_navbar.hero__content_box {
-    padding: 90px 40px;
+ .tablet_navbar.hero__content_box {
+    padding: 90px 60px;
+  }
+ 
+  .navigation.tablet_navbar.big_navbar{
+    width: 620px;
+    opacity: 1;
+    transition:  width 0.4s, opacity 0.4s; 
   }
 
-  h2.tablet_navbar,
+  .navigation.tablet_navbar.big_navbar.big_navbar_off{
+    width: 0;
+    transition:  width 0.4s, opacity 0.4s; 
+  }
+
+
+  /* h2.tablet_navbar, */
   div.wrapper.tablet_navbar,
   .video_player.tablet_navbar,
   .form__contacts.tablet_navbar {
     overflow: hidden;
     z-index: -1;
   }
-
+  .tablet_navbar.skills{
+    margin-top: 90px;
+  }
   /* .language__switch{
     padding-right:10px;
   } */
@@ -945,11 +965,16 @@ textarea {
   /*   .tablet_navbar.logo{
     left:40px;
   } */
+
+
+
+
 }
 
 
 
 @media (max-width: 620px) {
+  .navigation.tablet_navbar.big_navbar,
   .navigation.tablet_navbar {
     width: 100%;
   }
