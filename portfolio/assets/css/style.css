@@ -348,7 +348,9 @@ body {
 }
 
 .portfolio_item {
-  height: 560px;
+  margin-top: -4px;
+  flex-shrink: 2;
+  display: inline-flex;
 }
 
 /* Video */
@@ -359,9 +361,21 @@ body {
   justify-content: center;
   align-items: center;
   /*   width: 100%; */
-  min-width: 830px;
+  min-width: 100vW;
   position: relative;
+
 }
+
+@media (max-width: 1400px) {
+  .video_player {
+    margin-left: -20px;
+    width: 100vw;
+  }
+  .video img{
+    width: 100vw;
+  }
+}
+
 
 .video_btn {
   position: absolute;
@@ -440,7 +454,7 @@ body {
 }
 
 /* Contacts */
-.contacts_bg {
+.contacts_bg.desktop {
   background: url('../img/contacts.jpg');
   background-repeat: no-repeat;
   width: 1440px;
@@ -588,12 +602,7 @@ textarea {
   gap: 20px;
 }
 
-@media (min-width: 769px) and (max-width: 870px) {
-  .video_player {
-    position: relative;
-    left: -20px;
-  }
-}
+
 
 
 @media (min-width: 769px) and (max-width: 964px) {
@@ -701,100 +710,111 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 765px;
-    position: relative;
-    left: -20px;
+    width: 100vw;
   }
 
-  .video_btn {
-    position: absolute;
-    width: 64.62px;
-    height: 64.69px;
-    cursor: pointer;
-  }
-
-  .price {
-    margin-top: -16px;
-  }
-
-  .price__item {
-    display: flex;
-    width: 420px;
-    height: 505px;
-    border: 3px solid var(--color-gold);
-    align-items: center;
-    flex-direction: column;
-    box-sizing: border-box;
-  }
-
-  .price__title {
-    line-height: 73px;
-  }
-
-  .price__block {
-    gap: 50px;
-  }
-
-  .contacts {
-    margin-top: -20px
-  }
-
-  .container__contacts {
-    position: relative;
+  .video_player {
     display: flex;
     justify-content: center;
-    height: 600px;
-  }
-
-  .contacts_bg {
-    background: url('../img/tablet_contacts.jpg');
-    background-repeat: no-repeat;
-    width: 768px;
-    height: 600px;
-  }
-
-  .wrapper__contacts {
-    justify-content: center;
-  }
-
-  .form__contacts {
-    align-items: center;
-  }
-
-  .form__contacts {
-    padding: 50px 0px 105px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .contacts__title {
-    margin-bottom: 10px;
-  }
-
-  .footer {
-    padding: 25px 0;
-  }
-
-  .footer-block {
-    flex-direction: column;
-  }
-
-  .footer_item,
-  .footer-school {
-    font-size: 20px;
-    line-height: 24px;
-  }
-
-
-  .footer-block {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     align-items: center;
     position: relative;
-    gap: 22px;
+    width: 100vw;
+    margin-left: -20px;
+    min-width: 100vW;
   }
+}
+
+
+
+.video_btn {
+  position: absolute;
+  width: 64.62px;
+  height: 64.69px;
+  cursor: pointer;
+}
+
+.price {
+  margin-top: -16px;
+}
+
+.price__item {
+  display: flex;
+  width: 420px;
+  height: 505px;
+  border: 3px solid var(--color-gold);
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.price__title {
+  line-height: 73px;
+}
+
+.price__block {
+  gap: 50px;
+}
+
+.contacts {
+  margin-top: -20px
+}
+
+.container__contacts {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 600px;
+}
+
+.contacts_bg.tablet {
+  background: url('../img/tablet_contacts.jpg');
+  background-repeat: no-repeat;
+  width: 768px;
+  height: 600px;
+}
+
+.wrapper__contacts {
+  justify-content: center;
+}
+
+.form__contacts {
+  align-items: center;
+}
+
+.form__contacts {
+  padding: 50px 0px 105px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contacts__title {
+  margin-bottom: 10px;
+}
+
+.footer {
+  padding: 25px 0;
+}
+
+.footer-block {
+  flex-direction: column;
+}
+
+.footer_item,
+.footer-school {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+
+.footer-block {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  gap: 22px;
+}
 }
 
 /* BURGER */
@@ -870,6 +890,7 @@ textarea {
     box-sizing: border-box;
     z-index: 2;
     padding-left: 20px;
+    transition: 0.4s;
     scroll-behavior: smooth;
   }
 
@@ -916,6 +937,7 @@ textarea {
     z-index: -1;
   }
 
+
   /*   .tablet_navbar.logo{
     left:40px;
   } */
@@ -926,5 +948,15 @@ textarea {
 @media (max-width: 620px) {
   .navigation.tablet_navbar {
     width: 100%;
+  }
+}
+
+
+@media (max-width: 450px) {
+
+  .portfolio_item,
+  .portfolio_item img,
+  .video_player {
+    width: 100vw;
   }
 }

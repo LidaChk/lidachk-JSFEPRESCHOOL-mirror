@@ -1,3 +1,5 @@
+console.log("Прошу прощения за бврдак в исходниках, прчесать не усплела.");
+console.log("Считаю все пункты выполненными. оценка 75.");
 window.onload = function () {
 
   document.querySelectorAll("a.language__link").forEach(element =>
@@ -26,7 +28,7 @@ window.onload = function () {
 
   function BurgerToggle() {
 
-    arrTabletItems = ['.navburger__wrapper', '.header__container', '.navigation', '.navigation__link', '.burger_container', 'h2', '.wrapper', '.video_player', 'form__contacts', '.hero__content_box', '.logo'];
+    arrTabletItems = ['.navburger__wrapper', '.header__container', '.navigation', '.navigation__link', '.burger_container', 'h2', '.wrapper', '.video_player', 'form__contacts', '.hero__content_box', '.form__contacts'];
 
     arrTabletItems.forEach(x => document.querySelectorAll(x).forEach(el => el.classList.toggle('tablet_navbar')));
 
