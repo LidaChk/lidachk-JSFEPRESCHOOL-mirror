@@ -1,5 +1,17 @@
-//console.log("Прошу прощения за бврдак в исходниках, прчесать не усплела.");
-//console.log("Считаю все пункты выполненными. оценка 75.");
+// Theme Loader&Switcher
+
+if(!localStorage.getItem('data-theme')) localStorage.setItem('data-theme', 'dark');
+document.documentElement.setAttribute("data-theme", localStorage.getItem('data-theme'));
+function switchTheme() {
+    localStorage.setItem('data-theme', (localStorage.getItem('data-theme') == 'dark')? 'light' : 'dark');
+    document.documentElement.setAttribute("data-theme", localStorage.getItem('data-theme'));
+    return true;
+}
+
+//--------------------
+
+
+
 window.onload = function () {
 
   document.querySelectorAll("a.language__link").forEach(element =>
