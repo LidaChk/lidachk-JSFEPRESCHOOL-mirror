@@ -10,10 +10,11 @@ function switchTheme() {
 
 //--------------------
 
-
-
 window.onload = function () {
 
+  document.querySelector('div.theme__switch').addEventListener("click", switchTheme);
+
+  
   document.querySelectorAll("a.language__link").forEach(element =>
     element.addEventListener("click", function langSwitch() {
       if (!this.classList.contains('switch_on')) {
