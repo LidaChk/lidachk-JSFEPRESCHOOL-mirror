@@ -9,12 +9,66 @@ function switchTheme() {
 }
 
 //--------------------
+// Season switcher and creator
+
+
+if(!localStorage.getItem('cur-season')) localStorage.setItem('cur-season', 'autumn');
+
+const aSeasons = ['winter', 'spring', 'summer','autumn'];
+const PfImgCount = 6;
+const sImgFolder = './assets/img/';
+
+/* function CreatePfItem(n) {
+  let li = document.createElement('li');
+  li.classList.add('portfolio_item');
+  aSeasons.forEach(s => {
+    let img = document.createElement('img');
+    img.classList.add(s);
+    img.classList.add('pf_img');
+    img.alt = s + ' ' +1;
+    img.src = sImgFolder + s + '/' + n + '.jpg';
+    
+    li.appendChild(img);
+  });
+  return  li;
+}
+
+function CreatePfList(element)
+{
+  for(let i =1; i <= PfImgCount; i ++){
+    element.appendChild(CreatePfItem(i))
+  }
+}  */
+
+function setSeason(sSeason){
+  document.querySelectorAll('.pf_img.active').forEach(e => e.classList.remove('active'));
+  document.querySelectorAll('.pf_img.' + sSeason).forEach(e => e.classList.add('active'));
+  localStorage.setItem('cur-season', sSeason);
+  document.querySelectorAll('button').
+      forEach(b => {if(b.dataset.season == sSeason) b.classList.add('btn_active')}); 
+}
+function changeSeason(event){
+  element = event.target; 
+  if(element.type == 'button') {
+    document.querySelector('.portfolio_btns_lst').querySelectorAll('button').
+        forEach( b => b.classList.remove('btn_active'));
+    setSeason(element.dataset.season);
+  }
+}
+
+//------------------------------------
+
+
 
 window.onload = function () {
 
-  document.querySelector('div.theme__switch').addEventListener("click", switchTheme);
+/*   CreatePfList(document.querySelector('.portfolio_items_img')); */
+  setSeason(localStorage.getItem('cur-season'));
+  document.querySelector('div.theme__switch').addEventListener('click', switchTheme);
+  document.querySelector('.portfolio_btns_lst').addEventListener('click', changeSeason)
 
-  
+
+
   document.querySelectorAll("a.language__link").forEach(element =>
     element.addEventListener("click", function langSwitch() {
       if (!this.classList.contains('switch_on')) {
@@ -25,17 +79,6 @@ window.onload = function () {
     }));
 
 
-  document.querySelector('#portfolio').querySelectorAll('button.btn_basic').forEach(element =>
-    element.addEventListener("click", function btnChangeColor() {
-      if (this.classList.contains('btn_blacky')) {
-        let el = document.querySelector('#portfolio').querySelector('button.btn_goldy');
-        el.classList.togle('btn_blacky');
-        el.classList.togle('btn_goldy');
-        this.classList.togle('btn_goldy');
-      }
-      console.log('btnChangeColor');
-      return false;
-    }));
 
 
 

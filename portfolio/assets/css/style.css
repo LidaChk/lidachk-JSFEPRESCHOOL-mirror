@@ -7,7 +7,7 @@
   --color-gold-white: #bdae82;
   --color-black-gold: #000;
   --color-gold-black: #bdae82;
-  --color-white-gold:#ffffff;
+  --color-white-gold: #ffffff;
   --menu-color: rgb(0, 0, 0, 0.75);
   --header-bg: url('../img/header_bg.jpg');
   --header-bg-tablet: url('../img/tablet_header_bg.jpg');
@@ -24,11 +24,11 @@
   --color-black-white: #ffffff;
   --color-white-black: #1C1C1C;
   --color-black-matt: #1C1C1C;
-  --color-white: #ffffff; 
+  --color-white: #ffffff;
   --color-gold-white: #ffffff;
   --color-black-gold: #bdae82;
   --color-gold-black: #1C1C1C;
-  --color-white-gold:#bdae82;
+  --color-white-gold: #bdae82;
   --menu-color: rgb(255, 255, 255, 0.75);
   --header-bg: url('../img/header_bg_light.jpg');
   --header-bg-tablet: url('../img/tablet_header_bg_light.jpg');
@@ -100,16 +100,18 @@ body {
   border: 1px solid var(--color-gold);
 }
 
-.btn_goldy {
+.btn_goldy,
+.btn_active {
   background-color: var(--color-gold-black);
-  color:var(--color-black-gold);
+  color: var(--color-black-gold);
   border: 1px solid var(--color-gold);
 }
 
 .btn_price {
   background-color: var(--color-gold);
-  color:var(--color-black-matt);
+  color: var(--color-black-matt);
 }
+
 .btn_basic:hover,
 .btn_basic:focus {
   color: var(--color-white-gold);
@@ -118,19 +120,23 @@ body {
 .btn_price:hover,
 .btn_price:focus,
 .btn_price:hover,
-.btn_price:focus
- {
+.btn_price:focus {
   background-color: var(--color-gold-black);
 }
+
 .btn_blacky:hover,
 .btn_blacky:focus {
   background-color: var(--color-black-matt);
   border: 1px solid var(--color-gold);
 }
+
 .btn_goldy:hover,
-.btn_goldy:focus {
+.btn_goldy:focus
+.btn_active:hover,
+.btn_active:focus {
   background-color: var(--color-black-matt);
 }
+
 /* Navigation */
 
 .header__bg {
@@ -238,6 +244,7 @@ body {
 .language__link:not(:last-child) {
   margin-right: 8px;
 }
+
 a.language__link:hover,
 a.language__link:focus {
   color: var(--color-gold);
@@ -428,9 +435,27 @@ a.language__link:focus {
 }
 
 .portfolio_item {
-  /*  margin-top: -4px; */
-  flex-shrink: 2;
-  display: inline-flex;
+  /*    flex-shrink: 2;
+  display: inline-flex;  */
+  display: block;
+  height: 560px;
+  width: 450px;
+}
+
+.pf_img {
+  visibility:hidden;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  transition: opacity 1s, visibility 1s;
+}
+
+.active {
+  visibility:visible;
+  opacity: 1;
+  overflow: hidden;
+  position: absolute;
+  transition: opacity 1s, visibility 1s;
 }
 
 /* Video */
