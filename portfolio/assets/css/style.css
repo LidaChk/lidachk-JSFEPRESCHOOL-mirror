@@ -1,3 +1,6 @@
+body{
+  opacity: 0;  
+}
 :root {
   --color-gold: #bdae82;
   --color-black-white: #000;
@@ -18,6 +21,7 @@
   --font2: 40px;
   --btn-width: 220px;
 }
+
 
 [data-theme='light'] {
   --color-gold: #bdae82;
@@ -287,8 +291,8 @@ a.language__link:focus {
   justify-content: flex-start;
   gap: 10px;
   align-items: flex-start;
-  padding: 0 60px;
-  height: 100%;
+  padding: 0 56vw 0 60px;
+  height: 100%;  
 }
 
 .hero__header {
@@ -447,6 +451,7 @@ a.language__link:focus {
   opacity: 0;
   overflow: hidden;
   position: absolute;
+  z-index: -1;
   transition: opacity 1s, visibility 1s;
 }
 
