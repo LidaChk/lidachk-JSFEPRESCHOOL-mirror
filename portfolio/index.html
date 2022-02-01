@@ -14,11 +14,15 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/media_style.css">
 	<link rel="icon" href="assets/svg/favicon.ico" />
-	<script type="module" src="index.js"></script>
+	<script type="module"  src="index.js"></script>
 	<script type="module" src="./js/translate.js"></script>
 </head>
 
 <body>
+	<script>
+		if (!localStorage.getItem('data-theme')) localStorage.setItem('data-theme', 'dark');
+		document.documentElement.setAttribute("data-theme", localStorage.getItem('data-theme'));
+	</script>
 	<div class="container">
 		<div class="wrapper_bg">
 			<div class="header__bg"></div>
