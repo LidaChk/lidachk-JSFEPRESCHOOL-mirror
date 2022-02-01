@@ -180,7 +180,7 @@ body {
 .btn_hero:after,
 .btn_price:after {
   content: "";
-  background: var(--color-black-gold);
+  background: var(--color-white-gold);
   display: block;
   position: absolute;
   padding-top: 300%;
