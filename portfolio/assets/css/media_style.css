@@ -1,0 +1,394 @@
+@media (min-width: 769px) and (max-width: 964px) {
+    .portfolio_btns_lst {
+        margin: 0 130px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+
+    .container {
+        padding: 0;
+    }
+
+    .container {
+        max-width: 768px;
+    }
+
+    .header__bg {
+        background: var(--header-bg-tablet);
+        width: 768px;
+        height: 590px;
+    }
+
+    .header__container {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+
+    .container__header {
+        height: 500px;
+    }
+
+    .logo {
+        position: absolute;
+        left: 60px;
+    }
+
+    .container__header {
+        height: 500px;
+        margin-top: 78px;
+        box-sizing: border-box;
+    }
+
+    .hero__content_box {
+        gap: 20px;
+    }
+    .hero__content_box {
+        padding: 0 calc(90vw - 390px) 0 8vw;
+        margin-right: 2vw;
+    }
+    .hero__header {
+        font-family: Merriweather;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 32px;
+        line-height: 64px;
+    }
+
+    .hero__text {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 40px;
+    }
+
+    .tablet {
+        display: block;
+    }
+
+    .desktop,
+    .navigation {
+        display: none;
+    }
+
+    .portfolio_btns_lst {
+        padding: 0 60px 60px 60px;
+    }
+    
+    .wrapper {
+        height: 130px;
+    }
+
+    .section__header {
+        font-size: 32px;
+    }
+
+    .item__text {
+        font-size: 18px;
+        line-height: 22px;
+        width: 275px;
+    }
+
+    .skill__item {
+        padding-top: 80px;
+    }
+
+    .skills__items {
+        margin-bottom: 140px;
+        gap: 60px;
+    }
+
+    .video {
+        margin-top: -20px;
+    }
+
+
+    .video_player {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100vw;
+        margin-left: 0px;
+    }
+
+
+
+
+    .video_btn {
+        position: absolute;
+        width: 64.62px;
+        height: 64.69px;
+        cursor: pointer;
+    }
+
+    .price {
+        margin-top: -16px;
+    }
+
+    .price__item {
+        display: flex;
+        width: 420px;
+        height: 505px;
+        border: 3px solid var(--color-gold);
+        align-items: center;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    .price__title {
+        line-height: 73px;
+    }
+
+    .price__block {
+        gap: 50px;
+    }
+
+    .contacts {
+        margin-top: -20px
+    }
+
+    .container__contacts {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        height: 600px;
+    }
+
+    .contacts_bg.tablet {
+        background: var(--contacts-bg-tablet);
+        background-repeat: no-repeat;
+        width: 768px;
+        height: 600px;
+        position: absolute;
+        z-index: -1;
+        background-position: center center;
+    }
+
+    .wrapper__contacts {
+        justify-content: center;
+    }
+
+    .form__contacts {
+        align-items: center;
+    }
+
+    .form__contacts {
+        padding: 50px 0px 105px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        z-index: 0;
+    }
+
+    .contacts__title {
+        margin-bottom: 10px;
+    }
+
+    .footer {
+        padding: 25px 0;
+    }
+
+    .footer-block {
+        flex-direction: column;
+    }
+
+    .footer_item,
+    .footer-school {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+
+    .footer-block {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        gap: 22px;
+    }
+
+
+    /* BURGER */
+    @media (max-width: 768px) {
+
+        .burger_container {
+            display: inline-block;
+            cursor: pointer;
+            margin: 0 45px 0 30px;
+            transition: all 0.3s;
+            z-index: 3;
+        }
+
+        .bun1,
+        .bun2,
+        .bun3 {
+            width: 50px;
+            height: 3px;
+            background-color: var(--color-white-black);
+            margin: 10px 0;
+            transition: all 0.4s;
+        }
+
+        .change .bun1 {
+            -webkit-transform: rotate(-45deg) translate(-9px, 9px);
+            -ms-transform: rotate(-45deg) translate(-9px, 9px);
+            -moz-transform: rotate(-45deg) translate(-9px, 9px);
+            -o-transform: rotate(-45deg) translate(-9px, 9px);
+            transform: rotate(-45deg) translate(-9px, 9px);
+        }
+
+        .change .bun2 {
+            opacity: 0;
+        }
+
+        .change .bun3 {
+            -webkit-transform: rotate(45deg) translate(-9px, -9px);
+            -ms-transform: rotate(45deg) translate(-9px, -9px);
+            -moz-transform: rotate(45deg) translate(-9px, -9px);
+            -o-transform: rotate(45deg) translate(-9px, -9px);
+            transform: rotate(45deg) translate(-9px, -9px);
+        }
+
+        .buns:hover,
+        .buns:focus,
+        .burger_container:hover,
+        .burger_container:focus {
+            filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+        }
+
+    }
+
+    /* Sticky */
+    @media (max-width: 768px) {
+
+        .tablet_navbar.navburger__wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .tablet_navbar.header__container {
+            width: 100%;
+            /* height: 50px; */
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;;
+        }
+
+        .navigation.tablet_navbar {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--menu-color);
+            align-items: flex-start;
+            gap: 15px;
+            height: 100vh;
+            width: 0px;
+            position: absolute;
+            top: 0;
+            right: 0px;
+            padding-top: 134px;
+            box-sizing: border-box;
+            z-index: 3;
+            padding-left: 25px;
+            scroll-behavior: smooth;
+            opacity: 0;
+        }
+
+
+
+
+        .tablet_navbar.navigation__link {
+            font-family: "Merriweather";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 74px;
+            color: var(--color-gold-black);
+            cursor: pointer;
+            scroll-behavior: smooth;
+            margin-left: 100px;
+        }
+
+
+        .tablet_navbar.navigation__link:hover,
+        .tablet_navbar.navigation__link:focus {
+            color: var(--color-gold);
+            background: none;
+            box-shadow: none;
+        }
+
+
+        .tablet_navbar.burger_container {
+            display: inline-block;
+            cursor: pointer;
+            margin: 0 60px 0 25px;
+            transition: all 0.3s;
+            z-index: 3;
+        }
+
+        .tablet_navbar.hero__content_box {
+            padding-top: 90px;
+        }
+
+        .navigation.tablet_navbar.big_navbar {
+            width: 620px;
+            opacity: 1;
+            transition: width 0.4s, opacity 0.4s;
+        }
+
+        .navigation.tablet_navbar.big_navbar.big_navbar_off {
+            width: 0;
+            transition: width 0.4s, opacity 0.4s;
+        }
+
+
+        /* h2.tablet_navbar, */
+        div.wrapper.tablet_navbar,
+        .video_player.tablet_navbar,
+        .form__contacts.tablet_navbar,
+        .btn_basic.tablet_navbar {
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .tablet_navbar.skills {
+            margin-top: 90px;
+        }
+    }
+}
+
+
+@media (max-width: 620px) {
+
+    .navigation.tablet_navbar.big_navbar,
+    .navigation.tablet_navbar {
+        width: 100%;
+    }
+}
+@media (max-width: 560px) {
+    .logo{
+        left: 3.6vw;
+    }
+.portfolio_item{
+    height: 124.5vw;
+    }
+.burger_container
+{
+    margin: 0 8vw 0 5vw;
+}
+}
+@media (max-width: 450px) {
+
+    .video_player,
+    .form__contacts .form_input {
+        width: 98vw;
+    }
+}
