@@ -12,11 +12,17 @@
 		rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/media_style.css">
 	<link rel="icon" href="assets/svg/favicon.ico" />
-	<script src="index.js"></script>
+	<script type="module"  src="index.js"></script>
+	<script type="module" src="./js/translate.js"></script>
 </head>
 
 <body>
+	<script>
+		if (!localStorage.getItem('data-theme')) localStorage.setItem('data-theme', 'dark');
+		document.documentElement.setAttribute("data-theme", localStorage.getItem('data-theme'));
+	</script>
 	<div class="container">
 		<div class="wrapper_bg">
 			<div class="header__bg"></div>
@@ -24,59 +30,54 @@
 		<header class="header">
 			<div class="logo header__logo"></div>
 			<div class="navburger__wrapper">
-			<div class="header__container">
-				
-				<nav class="header__navigation">
-					<div>
-						<ul class="navigation" >
-							<li class="navigation__item">
-								<a href="#skills" class="navigation__link">Skills</a>
-							</li>
-							<li class="navigation__item">
-								<a href="#portfolio" class="navigation__link">Portfolio</a>
-							</li>
-							<li class="navigation__item">
-								<a href="#video" class="navigation__link">Video</a>
-							</li>
-							<li class="navigation__item">
-								<a href="#price" class="navigation__link">Price</a>
-							</li>
-							<li class="navigation__item">
-								<a href="#contacts" class="navigation__link">Contacts</a>
-							</li>
-						</ul>
-					</div>
+				<div class="header__container">
 
-					<div class="language__switch">
-						<a class="language__link switch_on" href="#">en</a>
-						<p class="language__link">/</p>
-						<a class="language__link" href="#">ru</a>
-					</div>
-					<div class="burger_container tablet">
-						<div class="bun1 buns"></div>
-						<div class="bun2 buns"></div>
-						<div class="bun3 buns"></div>
-					</div> 
-				</nav>
+					<nav class="header__navigation">
+						<div>
+							<ul class="navigation">
+								<li class="navigation__item">
+									<a href="#skills" class="navigation__link">Skills</a>
+								</li>
+								<li class="navigation__item">
+									<a href="#portfolio" class="navigation__link">Portfolio</a>
+								</li>
+								<li class="navigation__item">
+									<a href="#video" class="navigation__link">Video</a>
+								</li>
+								<li class="navigation__item">
+									<a href="#price" class="navigation__link">Price</a>
+								</li>
+								<li class="navigation__item">
+									<a href="#contacts" class="navigation__link">Contacts</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="language__switch">
+							<a class="language__link switch_on" href="#">EN</a>
+							<p class="language__link">/</p>
+							<a class="language__link " href="#">RU</a>
+						</div>
+						<div class="theme__switch"></div>
+						<div class="burger_container tablet">
+							<div class="bun1 buns"></div>
+							<div class="bun2 buns"></div>
+							<div class="bun3 buns"></div>
+						</div>
+					</nav>
+				</div>
 			</div>
-		</div>
 		</header>
 		<main>
 			<section class="hero">
 				<div class="container__header">
 					<div class="hero__content_box">
 						<h1 class="hero__header">Alexa Rise</h1>
-						<p class="hero__text desktop">
-							Save sincere emotions, romantic feelings and<br>
-							happy moments of life together with professional<br>
-							photographer Alexa Rise<br>
-						</p>
-						<p class="hero__text tablet">
-							Save sincere emotions, romantic feelings<br>
-							and happy moments of life together with<br>
-							professional photographer Alexa Rise<br>
-						</p>
-						<button class="btn_basic btn_goldy" type="button">Hire me<button>
+						<p class="hero__text">
+							Save sincere emotions, romantic feelings and happy moments of life together with professional photographer Alexa Rise</p>
+						<div class="wrapper__btn">
+							<button class="btn_basic btn_hero" type="button">Hire me<button>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -112,37 +113,49 @@
 					</div>
 					<ul class="portfolio_btns_lst">
 						<li class="portfolio__btn_item">
-							<button class="btn_basic btn_blacky" type="button">Winter</button>
+							<button class="btn_basic btn_blacky" data-season="winter" type="button">Winter</button>
 						</li>
 						<li class="portfolio__btn_item">
-							<button class="btn_basic btn_blacky" type="button">Spring</button>
+							<button class="btn_basic btn_blacky" data-season="spring" type="button">Spring</button>
 						</li>
 						<li class="portfolio__btn_item">
-							<button class="btn_basic btn_blacky" type="button">Summer</button>
+							<button class="btn_basic btn_blacky" data-season="summer" type="button">Summer</button>
 						</li>
 						<li class="portfolio__btn_item">
-							<button class="btn_basic btn_goldy" type="button">Autumn</button>
+							<button class="btn_basic btn_blacky" data-season="autumn" type="button">Autumn</button>
 						</li>
 					</ul>
 					<ul class="portfolio_items_img">
-						<li class="portfolio_item">
-							<img src="./assets/img/portfolio_img1.jpg" alt="boy and girl">
-						</li>
-						<li class="portfolio_item">
-							<img src="./assets/img/portfolio_img2.jpg" alt="tree">
-						</li>
-						<li class="portfolio_item">
-							<img src="./assets/img/portfolio_img3.jpg" alt="child">
-						</li>
-						<li class="portfolio_item">
-							<img src="./assets/img/portfolio_img4.jpg" alt="big tree">
-						</li>
-						<li class="portfolio_item">
-							<img src="./assets/img/portfolio_img5.jpg" alt="man and woman">
-						</li>
-						<li class="portfolio_item">
-							<img src="./assets/img/portfolio_img6.jpg" alt="phone">
-						</li>
+						<li class="portfolio_item"><img class="winter pf_img" alt="winter 1"
+								src="./assets/img/winter/1.jpg"><img class="spring pf_img" alt="spring 1"
+								src="./assets/img/spring/1.jpg"><img class="summer pf_img" alt="summer 1"
+								src="./assets/img/summer/1.jpg"><img class="autumn pf_img " alt="autumn 1"
+								src="./assets/img/autumn/1.jpg"></li>
+						<li class="portfolio_item"><img class="winter pf_img" alt="winter 1"
+								src="./assets/img/winter/2.jpg"><img class="spring pf_img" alt="spring 1"
+								src="./assets/img/spring/2.jpg"><img class="summer pf_img" alt="summer 1"
+								src="./assets/img/summer/2.jpg"><img class="autumn pf_img " alt="autumn 1"
+								src="./assets/img/autumn/2.jpg"></li>
+						<li class="portfolio_item"><img class="winter pf_img" alt="winter 1"
+								src="./assets/img/winter/3.jpg"><img class="spring pf_img" alt="spring 1"
+								src="./assets/img/spring/3.jpg"><img class="summer pf_img" alt="summer 1"
+								src="./assets/img/summer/3.jpg"><img class="autumn pf_img " alt="autumn 1"
+								src="./assets/img/autumn/3.jpg"></li>
+						<li class="portfolio_item"><img class="winter pf_img" alt="winter 1"
+								src="./assets/img/winter/4.jpg"><img class="spring pf_img" alt="spring 1"
+								src="./assets/img/spring/4.jpg"><img class="summer pf_img" alt="summer 1"
+								src="./assets/img/summer/4.jpg"><img class="autumn pf_img " alt="autumn 1"
+								src="./assets/img/autumn/4.jpg"></li>
+						<li class="portfolio_item"><img class="winter pf_img" alt="winter 1"
+								src="./assets/img/winter/5.jpg"><img class="spring pf_img" alt="spring 1"
+								src="./assets/img/spring/5.jpg"><img class="summer pf_img" alt="summer 1"
+								src="./assets/img/summer/5.jpg"><img class="autumn pf_img " alt="autumn 1"
+								src="./assets/img/autumn/5.jpg"></li>
+						<li class="portfolio_item"><img class="winter pf_img" alt="winter 1"
+								src="./assets/img/winter/6.jpg"><img class="spring pf_img" alt="spring 1"
+								src="./assets/img/spring/6.jpg"><img class="summer pf_img" alt="summer 1"
+								src="./assets/img/summer/6.jpg"><img class="autumn pf_img " alt="autumn 1"
+								src="./assets/img/autumn/6.jpg"></li>
 					</ul>
 				</div>
 			</section>
@@ -172,9 +185,7 @@
 							<span class="price__text">12 photos in retouch</span>
 							<span class="price__text">Readiness 2-3 weeks</span>
 							<span class="price__text">Make up, visage</span>
-							<button class="price__btn btn_basic btn_goldy" type="button" data-modal-open="">Order
-								shooting
-							</button>
+							<button class="btn_basic btn_price" type="button" data-modal-open="">Order shooting</button>
 						</article>
 						<article class="price__item">
 							<h3 class="price__title">Premium</h3>
@@ -184,8 +195,7 @@
 							<span class="price__text">20 photos in retouch</span>
 							<span class="price__text">Readiness 1-2 weeks</span>
 							<span class="price__text">Make up, visage</span>
-							<button class="price__btn btn_basic btn_goldy" type="button" data-modal-open="">Order
-								shooting</button>
+							<button class="btn_basic btn_price" type="button" data-modal-open="">Order shooting</button>
 						</article>
 						<article class="price__item">
 							<h3 class="price__title">Gold</h3>
@@ -195,7 +205,7 @@
 							<span class="price__text">50 photos in retouch</span>
 							<span class="price__text">Readiness 1 week</span>
 							<span class="price__text">Make up, visage, hairstyle</span>
-							<button class="price__btn btn_basic btn_goldy" type="button">Order shooting</button>
+							<button class="btn_basic btn_price" type="button">Order shooting</button>
 						</article>
 					</div>
 				</div>
@@ -212,7 +222,7 @@
 							<input class="form_input" type="tel" name="contact_phone" id="contact_phone"
 								placeholder="Phone">
 							<textarea class="form_input" name="input_message" placeholder="Message"></textarea>
-							<button class="btn_basic btn_goldy btn_contacts" type="button">Send message</button>
+							<button class="btn_basic btn_hero btn_contacts" type="button">Send message</button>
 						</form>
 					</div>
 				</div>
