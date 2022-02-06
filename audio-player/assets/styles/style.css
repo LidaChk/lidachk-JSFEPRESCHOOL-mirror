@@ -198,17 +198,22 @@ height: 100vh;
   backdrop-filter: blur(5px);
 }
 
-
+.footer-block{
+  display: flex;
+  justify-content: center;
+}
 
 .footer-list{
   display:flex;
   flex-direction: row;
-  justify-content:space-between;
-  padding: 1rem; 
+  justify-content:space-evenly;
+  width:30rem;
+  flex-wrap: wrap;
 }
-.footer-item{
+.footer-item,{
   color:var(--color-two);
   transition: all 0.3s;
+
 }
 
 a.footer-item:hover
