@@ -5,47 +5,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AudioPlayer</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined&Poppins&display=swap" rel="stylesheet">
     <link rel="icon" href="./assets/svg/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="./assets/styles/style.css">
     <link rel="stylesheet" type="text/css" href="./assets/styles/feachures.css">
 </head>
-<div class="player_container">
-    <div class="player ">
-        <!-- -------------------------------------------->
-        <div class="details">
-            <!-- <div class="now-playing" >PLAYING x OF y</div> -->
-            <div class="track-art claymorphism-box"></div>
-            <div class="track-name">Track Name</div>
-            <div class="track-artist">Track Artist</div>
-        </div>
-
-        <!--Track buttons section ----------------------->
-        <div class="buttons">
-            <div class="skip-previous material-icons-outlined claymorphism" onclick="skipPrevious()">skip_previous</div>
-            <div class="play-pause material-icons-outlined claymorphism" onclick="playpauseTrack()">play_circle_filled
+<body>
+    <div class="player_container">
+        <div class="player ">
+            <!-- -------------------------------------------->
+            <div class="details">
+                <!-- <div class="now-playing" >PLAYING x OF y</div> -->
+                <div class="track-art claymorphism-box"></div>
+                <div class="track-name">Track Name</div>
+                <div class="track-artist">Track Artist</div>
             </div>
-            <div class="skip-next material-icons-outlined claymorphism" onclick="skipNext()">skip_next</div>
+
+            <!--Track buttons section ----------------------->
+            <div class="buttons">
+                <div class="skip-previous material-icons-outlined claymorphism" onclick="skipPrevious()">skip_previous
+                </div>
+                <div class="play-pause material-icons-outlined claymorphism" onclick="playpauseTrack()">
+                    play_circle_filled
+                </div>
+                <div class="skip-next material-icons-outlined claymorphism" onclick="skipNext()">skip_next</div>
+            </div>
+
+            <!-- Music progress silder ---------------------->
+            <div class="container slider_container claymorphism">
+                <div class="current-time">00:00</div>
+                <input type="range" min="1" max="100" value="0" class="progress-slider" onchange="slideTo()">
+                <div class="total-duration">00:00</div>
+            </div>
+
+            <!-- Volume level slider-------------------------->
+            <div class="slider_container claymorphism">
+                <span class="material-icons-outlined volume-control">remove</span>
+                <input type="range" min="1" max="100" value="99" class="volume-slider" onchange="setVolume()">
+                <span class="material-icons-outlined volume-control">add</span>
+            </div>
         </div>
 
-        <!-- Music progress silder ---------------------->
-        <div class="container slider_container claymorphism">
-            <div class="current-time">00:00</div>
-            <input type="range" min="1" max="100" value="0" class="progress-slider" onchange="slideTo()">
-            <div class="total-duration">00:00</div>
-        </div>
 
-        <!-- Volume level slider-------------------------->
-        <div class="slider_container claymorphism">
-            <span class="material-icons-outlined volume-control">remove</span>
-            <input type="range" min="1" max="100" value="99" class="volume-slider" onchange="setVolume()">
-            <span class="material-icons-outlined volume-control">add</span>
+
+
+        <div class="footer">
+            <div class="footer-block">
+                <ul class="footer-list">
+                    <li class="footer-item">© 2022</li>
+                    <li class="">
+                        <a class="footer-item link" href="https://github.com/LidaChk" style="opacity: 1;">
+                            LidaChk@GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a class="footer-item link" href="https://rs.school/js-stage0/" style="opacity: 1;">
+                            Rolling Scopes School
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
+</body>
 
-</div>
+
+
 <script src="./assets/scripts/main.js"></script>
 
 </html>
