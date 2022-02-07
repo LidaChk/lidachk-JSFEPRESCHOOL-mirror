@@ -8,6 +8,17 @@ console.log("ToDo: ability to add new song");
 console.log("ToDo: ability play youtube music");
 console.log("ToDo: ability send to Alice"); */
 
+
+ console.log("Самооценка 65:\n",
+ "[x] Вёрстка +10\n",
+ "[x] Кнопка Play/Pause +10\n",
+ "[x] При кликах по кнопкам переключается проигрываемый аудиотрек. Аудиотреки пролистываются по кругу - после последнего идёт первый +10\n",
+ "[x] При смене аудиотрека меняется изображение - обложка аудиотрека +10\n",
+ "[x] Прогресс-бар отображает прогресс проигрывания текущего аудиотрека. При перемещении ползунка вручную меняется текущее время проигрывания аудиотрека +10\n",
+ "[x] Отображается продолжительность аудиотрека и его текущее время проигрывания +10\n",
+ "[x] Дополнительный функционал: регулировка уровня звука +5\n");
+
+
 // and assign them to a variable
 let nowPlaying = document.querySelector(".now-playing");
 let imgTrackArt = document.querySelector(".track-art");
@@ -39,7 +50,8 @@ let aTrackList = [
     src: "https://soundcloud.com/keysofmoon",
     image: "./assets/img/WayToDream.jpg",
     path: "./assets/media/Way to Dream - Inspiring Piano and Strings (Keys Of Moon Music)(mp3).mp3",
-    nex: 1,
+    next: 1,
+    prev: 2
   },
   {
     name: "White Petals",
@@ -47,7 +59,8 @@ let aTrackList = [
     src: "https://soundcloud.com/keysofmoon",
     image: "./assets/img/white-petals.jpg",
     path: "./assets/media/keys-of-moon-white-petals.mp3",
-    nex: 2,
+    next: 2,
+    prev: 0
   },
   {
     name: "Canon in D Major",
@@ -55,7 +68,8 @@ let aTrackList = [
     src: "",
     image: "https://picsum.photos/200",
     path: "./assets/media/Kevin_MacLeod_-_Canon_in_D_Major.mp3",
-    nex: 0,
+    next: 0,
+    prev: 1
   },
 ];
 
@@ -108,15 +122,13 @@ function pauseTrack() {
 }
 
 function skipNext() {
-  if (indTrack < aTrackList.length - 1) indTrack += 1;
-  else indTrack = 0;
+  indTrack=aTrackList[indTrack].next;
   loadTrack(indTrack);
   playTrack();
 }
 
 function skipPrevious() {
-  if (indTrack > 0) indTrack -= 1;
-  else indTrack = aTrackList.length;
+  indTrack=aTrackList[indTrack].prev;
   loadTrack(indTrack);
   playTrack();
 }
