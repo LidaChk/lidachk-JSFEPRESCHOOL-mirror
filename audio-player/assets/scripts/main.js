@@ -1,6 +1,8 @@
+console.log('ToDo: github as icon and  rss as icon');
 console.log('ToDo: Volume Control');
 console.log('ToDo: Cash current volume');
-console.log('ToDo: List of Songs To Object with Order');
+console.log('ToDo: List of Songs as Cycle Queue');
+console.log('ToDo: ');
 console.log('ToDo: Songs img caurusel');
 console.log('ToDo: Cash playlist');
 console.log('ToDo: add src for songs');
@@ -54,7 +56,7 @@ let aTrackList = [
     name: "Canon in D Major",
     artist: "Kevin MacLeod",
     src: "",
-    image: "https://source.unsplash.com/random/250×250/?forest",
+    image: "https://picsum.photos/200",
     path: "./assets/media/Kevin_MacLeod_-_Canon_in_D_Major.mp3",
   },
 ];

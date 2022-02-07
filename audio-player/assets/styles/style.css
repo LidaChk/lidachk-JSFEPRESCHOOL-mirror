@@ -23,7 +23,8 @@
 
 ol,
 ul,
-a{
+a,
+p{
     list-style: none;
     text-decoration: none;    
     color:var(--color-two);
@@ -210,13 +211,26 @@ height: 100vh;
   width:30rem;
   flex-wrap: wrap;
 }
-.footer-item,{
+.footer-item{
   color:var(--color-two);
+  opacity: 0.5;
   transition: all 0.3s;
 
 }
 
-a.footer-item:hover
+.footer-text{
+  padding:0.5rem;
+  font-weight: 600;
+}
+
+.footer-svg{
+  padding-left:0.5rem;
+  padding-right:0.5rem;
+  filter: invert(25%) sepia(8%) saturate(1232%) hue-rotate(109deg) brightness(95%) contrast(88%);
+  
+}
+
+.footer-svg:hover
 {
-  color:var(--color-three);
+  filter: invert(69%) sepia(9%) saturate(393%) hue-rotate(108deg) brightness(97%) contrast(92%);
 }
