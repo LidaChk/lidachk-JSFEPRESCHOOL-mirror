@@ -113,7 +113,7 @@ height: 100vh;
   width: 3rem;
 }
 .material-icons-outlined:hover {
-  /* opacity: 0.6; */
+  opacity: 0.6; 
   color:var(--color-three);
 }
 
@@ -131,26 +131,33 @@ height: 100vh;
   padding: 0;
 }
 
+
 .progress-slider,
 .volume-slider {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  height: 5px;
-  background: linear-gradient(
-    to right,
-    #b5ead7,
-    #93bfb0,
-    #72978a,
-    #537066,
-    #364b44
-  );
+  height: 5px;  
   opacity: 1;
   -webkit-transition: 0.2s;
   -moz-transition: 0.2s;
   -o-transition: 0.2s;
-  transition: opacity 0.2s;
+  transition: all 0.2s;
 }
+.progress-slider,
+.volume-slider
+{
+  --grad-thumb:1%;
+}
+
+
+.progress-slider,
+.volume-slider
+{
+  background: linear-gradient(90deg, rgba(54,75,68,0.8) 0%, rgba(166,164,202,0.8) var(--grad-thumb), rgba(222,219,255,0.8) 100%);
+  
+} 
+
 
 .progress-slider::-webkit-slider-thumb,
 .volume-slider::-webkit-slider-thumb {
@@ -172,6 +179,7 @@ height: 100vh;
     #b4b1d7,
     #a6a4ca
   );
+
 }
 
 .progress-slider::-webkit-slider-thumb:active,
@@ -179,6 +187,8 @@ height: 100vh;
   box-shadow: inset -3px -3px 3px var(--color-four),
     inset 3px 3px 3px var(--color-five);
 }
+
+
 
 .progress-slider {
   width: 60%;

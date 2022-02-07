@@ -1,17 +1,12 @@
-console.log('ToDo: github as icon and  rss as icon');
-console.log('ToDo: Volume Control');
-console.log('ToDo: Cash current volume');
-console.log('ToDo: List of Songs as Cycle Queue');
-console.log('ToDo: ');
-console.log('ToDo: Songs img caurusel');
-console.log('ToDo: Cash playlist');
-console.log('ToDo: add src for songs');
-console.log('ToDo: List Randomise');
-console.log('ToDo: PlayList Menu');
-console.log('ToDo: ability to add new song');
-console.log('ToDo: ability play youtube music');
-console.log('ToDo: ability send to Alice');
-
+console.log("ToDo: List of Songs as Cycle Queue");
+console.log("ToDo: Songs img caurusel");
+console.log("ToDo: Cash playlist");
+console.log("ToDo: add src for songs");
+console.log("ToDo: List Randomise");
+console.log("ToDo: PlayList Menu");
+console.log("ToDo: ability to add new song");
+console.log("ToDo: ability play youtube music");
+console.log("ToDo: ability send to Alice");
 
 // and assign them to a variable
 let nowPlaying = document.querySelector(".now-playing");
@@ -44,6 +39,7 @@ let aTrackList = [
     src: "https://soundcloud.com/keysofmoon",
     image: "./assets/img/WayToDream.jpg",
     path: "./assets/media/Way to Dream - Inspiring Piano and Strings (Keys Of Moon Music)(mp3).mp3",
+    nex: 1,
   },
   {
     name: "White Petals",
@@ -51,6 +47,7 @@ let aTrackList = [
     src: "https://soundcloud.com/keysofmoon",
     image: "./assets/img/white-petals.jpg",
     path: "./assets/media/keys-of-moon-white-petals.mp3",
+    nex: 2,
   },
   {
     name: "Canon in D Major",
@@ -58,6 +55,7 @@ let aTrackList = [
     src: "",
     image: "https://picsum.photos/200",
     path: "./assets/media/Kevin_MacLeod_-_Canon_in_D_Major.mp3",
+    nex: 0,
   },
 ];
 
@@ -71,14 +69,13 @@ function loadTrack(indTrack) {
   currentTrack.load();
 
   // Update details of the track
-
   imgTrackArt.style.backgroundImage =
     "url(" +
     aTrackList[indTrack].image +
     "),\n\tradial-gradient(circle, #dedbff, #c5e1ff, #b1e7fc, #abeaec, #b5ead7)";
   TrakName.textContent = aTrackList[indTrack].name;
   TrackArtist.textContent = aTrackList[indTrack].artist;
-/*   nowPlaying.textContent =
+  /*   nowPlaying.textContent =
     "PLAYING " + (indTrack + 1) + " OF " + aTrackList.length; */
 
   // Set an interval of 1000 milliseconds
@@ -129,17 +126,23 @@ function slideTo() {
   currentTrack.currentTime = slideTo;
 }
 
-function setVolume() {
+function setVolume(n) {
+  volume_slider.stepUp(n);
+  volume_slider.style.setProperty("--grad-thumb", volume_slider.value + "%");
   currentTrack.volume = volume_slider.value / 100;
+  localStorage.setItem("lidaChk-player-volume", volume_slider.value);
 }
 
 function sliderUpdate() {
   let sliderPosition = 0;
 
-  // Check if the current track duration is a legible number
   if (!isNaN(currentTrack.duration)) {
     sliderPosition = currentTrack.currentTime * (100 / currentTrack.duration);
     progress_slider.value = sliderPosition;
+    progress_slider.style.setProperty(
+      "--grad-thumb",
+      progress_slider.value + "%"
+    );
 
     // Calculate the time left and the total duration
     let currentMinutes = Math.floor(currentTrack.currentTime / 60);
@@ -170,4 +173,15 @@ function sliderUpdate() {
     Duration.textContent = durationMinutes + ":" + durationSeconds;
   }
 }
+
+//load VolumeLevel
+function InitFromLocalStorage() {
+  if (!localStorage.getItem("lidaChk-player-volume"))
+  localStorage.setItem("lidaChk-player-volume", 99);
+  volume_slider.value = localStorage.getItem("lidaChk-player-volume");
+  volume_slider.style.setProperty("--grad-thumb", volume_slider.value + "%");
+  currentTrack.volume = volume_slider.value / 100;
+}
+
+InitFromLocalStorage();
 loadTrack(indTrack);
