@@ -35,14 +35,14 @@
             <!-- Music progress silder ---------------------->
             <div class="container slider_container claymorphism-box claymorphism-hover">
                 <div class="current-time">00:00</div>
-                <input type="range" min="1" max="100" value="0" class="progress-slider" onchange="slideTo()">
+                <input type="range" min="1" max="100" value="0" class="progress-slider" onchange="slideTo()" oninput="slideTo()">
                 <div class="total-duration">00:00</div>
             </div>
 
             <!-- Volume level slider-------------------------->
             <div class="slider_container claymorphism-box claymorphism-hover">
                 <span class="material-icons-outlined volume-control" onclick="setVolume(-20)">remove</span>
-                <input type="range" min="1" max="100" value="99" class="volume-slider" onchange="setVolume(0)">
+                <input type="range" min="1" max="100" value="99" class="volume-slider" onchange="setVolume(0)" oninput="setVolume(0)">
                 <span class="material-icons-outlined volume-control" onclick="setVolume(20)">add</span>
             </div>
         </div>
