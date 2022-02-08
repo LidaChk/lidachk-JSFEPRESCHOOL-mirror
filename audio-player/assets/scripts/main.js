@@ -135,6 +135,7 @@ function skipPrevious() {
 
 function slideTo() {
   let slideTo = currentTrack.duration * (progress_slider.value / 100);
+  progress_slider.style.setProperty("--grad-thumb", progress_slider.value + "%");
   currentTrack.currentTime = slideTo;
 }
 
@@ -197,3 +198,7 @@ function InitFromLocalStorage() {
 
 InitFromLocalStorage();
 loadTrack(indTrack);
+
+
+
+  
