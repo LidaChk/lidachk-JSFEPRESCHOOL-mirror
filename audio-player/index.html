@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudioPlayer</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined&Poppins&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/svg/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="./assets/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/styles/feachures.css">
+</head>
+
+<body>
+
+    <div class="player_container">
+        <div class="player-wrapper">
+            <div class="player ">
+                <!-- -------------------------------------------->
+                <div class="details">
+                    <!-- <div class="now-playing" >PLAYING x OF y</div> -->
+                    <div class="track-art claymorphism-box"></div>
+                    <div class="track-name">Track Name</div>
+                    <div class="track-artist">Track Artist</div>
+                </div>
+
+                <!--Track buttons section ----------------------->
+                <div class="buttons">
+                    <div class="skip-previous material-icons-outlined claymorphism" onclick="skipPrevious()">
+                        skip_previous
+                    </div>
+                    <div class="play-pause material-icons-outlined claymorphism" onclick="playpauseTrack()">
+                        play_circle_filled
+                    </div>
+                    <div class="skip-next material-icons-outlined claymorphism" onclick="skipNext()">skip_next</div>
+                </div>
+
+                <!-- Music progress silder ---------------------->
+                <div class="container slider_container claymorphism-box claymorphism-hover">
+                    <div class="current-time">00:00</div>
+                    <input type="range" min="1" max="100" value="0" class="progress-slider" onchange="slideTo()"
+                        oninput="slideTo()">
+                    <div class="total-duration">00:00</div>
+                </div>
+
+                <!-- Volume level slider-------------------------->
+                <div class="slider_container claymorphism-box claymorphism-hover">
+                    <span class="material-icons-outlined volume-control" onclick="setVolume(-20)">remove</span>
+                    <input type="range" min="1" max="100" value="99" class="volume-slider" onchange="setVolume(0)"
+                        oninput="setVolume(0)">
+                    <span class="material-icons-outlined volume-control" onclick="setVolume(20)">add</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-block">
+                <ul class="footer-list">
+                    <li class="footer-item footer-text">© 2022</li>
+                    <li>
+                        <a class="footer-item link" href="https://github.com/LidaChk">
+                            <img class="footer-svg" src="./assets/svg/GitHub-Mark.svg" alt="GitHub Icon" width="30">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="footer-item link" href="https://rs.school/js-stage0/">
+                            <img class="footer-svg" src="./assets/svg/rs_school_js.svg" alt="Rsschool Icon" width="73">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./assets/scripts/main.js"></script>
+
+</html>
