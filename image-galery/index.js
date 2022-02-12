@@ -25,11 +25,13 @@ async function getData() {
 function CreateListItem(objItem) {
 
   let li = document.createElement('li');
+  li.classList.add('nasa-item');
   //li.innerHTML = html;
   let img = document.createElement('img');
   img.src = objItem.links[0].href;
   img.loading = "lazy";
   img.alt = objItem.data[0].title;
+  img.classList.add("nasa-img")
   setTimeout(() =>{img.classList.add("visible")},100);
   li.appendChild(img);
 

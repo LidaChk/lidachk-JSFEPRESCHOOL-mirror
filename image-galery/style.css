@@ -13,12 +13,21 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
 
+:root{
+    --footer-height: 7vh;
+}
+
+
 body {
     font-family: 'Titillium Web', sans-serif;
     font-size: medium;
     background: rgba(0, 0, 0, 1);
 }
 
+main{
+    
+    padding: 15vh 1vh var(--footer-height) 1vh;
+}
 ol,
 ul {
     list-style: none;
@@ -31,7 +40,7 @@ ul {
     gap: 1vh;
 }
 
-li {
+li.nasa-item {
     height: 25vh;
     position: relative;
     flex-grow: 1;
@@ -56,17 +65,16 @@ li {
     background: rgba(0, 0, 0, 0.7);
 }
 
-img {
+.nasa-img {
     max-height: 100%;
     min-width: 100%;
     object-fit: cover;
-    transition: all 1s;
     opacity: 0;
+    transition: all 1s;
 }
 
-img.visible{
+.nasa-img.visible {
     opacity: 1;
-    transition: all 1s;
 }
 
 li:hover>img {
@@ -79,7 +87,8 @@ li:hover>img {
 
 
 .title {
-    background-color: rgb(0, 0, 0, 0.5);
+    background-color: rgb(99, 99, 99, 0.5);
+    backdrop-filter: blur(5px);
     position: absolute;
     bottom: -100%;
     color: white;
@@ -90,9 +99,50 @@ li:hover>img {
     opacity: 0;
     z-index: 2;
 }
-div.title.visible{
+
+div.title.visible {
     opacity: 1;
     bottom: 0;
     transition: all 0.5s;
 }
 
+/* FOOTER */
+.footer {
+    background-color: rgba(99, 99, 99, 0.5);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 3;
+    height: var(--footer-height); 
+}
+
+
+.footer-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-top:2vh;
+}
+
+.footer-item {
+    color: white;
+    opacity: 0.5;
+    transition: all 0.3s;
+
+}
+
+.footer-text {
+    font-weight: 600;
+}
+
+.footer-svg {
+    filter: invert(100%) ;
+
+}
+
+.footer-svg:hover {
+    filter: invert(69%) sepia(9%) saturate(393%) hue-rotate(108deg) brightness(97%) contrast(92%);
+}
