@@ -1,4 +1,20 @@
 const ImageList = document.querySelector(".image-list");
+const InputSerach = document.querySelector(".search-input");
+const containerSearch = document.querySelector(".container-search");
+
+
+const apiUrl = "https://images-api.nasa.gov/search?";
+const apiUrlEnd = "&media_type=image";
+const apiUrlValDefault = "keywords=Carina,HubbleSpaceTelescope,supernova,Galactic";
+const nothigFound = 
+` <li class="nasa-item">
+    <div class='card-notFound'>
+      <h3 class='title-nf'>Nothing found.</h3>
+      <h3 class='title-nf'>Try again.</h3>
+    </div>
+  </li>`
+
+
 const html =
   `<div class='card hidden'>
   <div class='info'>
@@ -12,11 +28,22 @@ let apiNASA = {};
 
 
 async function getData() {
-  const res = await fetch("https://images-api.nasa.gov/search?keywords=HubbleSpaceTelescope, supernova, explosion&media_type=image");
+  
+  let sValue = InputSerach.value.toLowerCase();
+  let apiUrlVal = apiUrlValDefault;
+
+  if (sValue != '')  apiUrlVal = (sValue.search(',') < 0) ? "q=" + sValue : "keywords=" + sValue;
+
+  
+  const res = await fetch(apiUrl + apiUrlVal + apiUrlEnd);
   apiNASA = await res.json();
+  console.log(apiUrlVal);
   console.log(apiNASA);
+
+  ImageList.innerHTML = '';
+  if(apiNASA.collection.items.length == 0) ImageList.innerHTML = nothigFound;
   for (let i = 0; i <= apiNASA.collection.items.length - 1; i++) {
-    CreateListItem(apiNASA.collection.items[i])   
+    CreateListItem(apiNASA.collection.items[i])
   }
 }
 
@@ -32,7 +59,9 @@ function CreateListItem(objItem) {
   img.loading = "lazy";
   img.alt = objItem.data[0].title;
   img.classList.add("nasa-img")
-  setTimeout(() =>{img.classList.add("visible")},100);
+  setTimeout(() => {
+    img.classList.add("visible")
+  }, 100);
   li.appendChild(img);
 
 
