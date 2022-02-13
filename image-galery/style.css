@@ -2,14 +2,13 @@
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
     box-sizing: border-box;
     text-decoration: none;
     outline: 0;
     color: rgba(240, 248, 250, 1);
 }
+
+
 
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
 
@@ -18,7 +17,14 @@
     --footer-height: 5vh;
     --header-height: 8vh;
 }
-
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    background: #303A52;
+}
 
 body {
     font-family: 'Titillium Web', sans-serif;
@@ -140,7 +146,7 @@ div.title.visible {
     transition: all 0.3s;
 }
 
-img.footer-png {
+img.footer-svg {
     object-fit: contain;
     overflow: hidden;
     height: 4vh;
@@ -161,7 +167,6 @@ img.footer-png {
 } */
 .footer-item:link>hover,
 .link:hover {
-    filter: brightness(150%);
     transform: scale(1.2);
     opacity: 0.9;
 }
@@ -173,13 +178,31 @@ header {
     height: var(--header-height);
     position: fixed;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     background-color: rgba(99, 99, 99, 0.4);
     backdrop-filter: blur(5px);
     z-index: 3;
 }
 
+.header-container{
+    display: flex;
+    height: var(--header-height);
+    align-items: center;
+
+}
+.header-png{
+    height: 12em;
+    filter: invert(100%) opacity(60%);
+}
+.header-png:hover{
+    filter: invert(100%) opacity(100%);
+    transform: scale(1);
+}
+h1{
+    font-size: x-large;
+    opacity: 0.6;
+}
 /* SEARCH FORM */
 .container-search {
     display: flex;
@@ -201,7 +224,15 @@ input,
     border: 0px solid;
     border-radius: 2em;
     outline: none;
-    color: rgba(240, 248, 250, 0.9)
+    color: rgba(240, 248, 250, 0.9);
+
+}
+input{
+    padding-left: 1em;
+}
+.search-btn
+{
+    filter: opacity(30%);
 }
 
 .claymorphism {
@@ -219,7 +250,8 @@ button:hover {
 
 .claymorphism:active,
 .claymorphism:hover,
-.claymorphism:focus {
+.claymorphism:focus,
+.claymorphism.hover-clmf {
     cursor: pointer;
     box-shadow: inset -10px -10px 10px rgba(48, 58, 82, 0.7), inset 10px 10px 10px #aeaec040;
 
@@ -240,7 +272,6 @@ button:hover {
 /* NOT FOUND */
 .card-notFound {
 
-/*     background-color: rgb(99, 99, 99, 0.5); */
     backdrop-filter: blur(5px);
     position: absolute;
     width: 100%;

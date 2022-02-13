@@ -37,8 +37,7 @@ async function getData() {
   
   const res = await fetch(apiUrl + apiUrlVal + apiUrlEnd);
   apiNASA = await res.json();
-  console.log(apiUrlVal);
-  console.log(apiNASA);
+  //console.log(apiNASA);
 
   ImageList.innerHTML = '';
   if(apiNASA.collection.items.length == 0) ImageList.innerHTML = nothigFound;
@@ -50,6 +49,14 @@ async function getData() {
 
 
 function CreateListItem(objItem) {
+
+  document.querySelectorAll('li.nasa-item').forEach(el => {
+    el.removeEventListener("mouseover", function (event) {
+      this.querySelector('div.title').classList.add('visible');
+    });
+    el.removeEventListener("mouseout", function (event) {
+      this.querySelector('div.title').classList.remove('visible');});
+    });
 
   let li = document.createElement('li');
   li.classList.add('nasa-item');
@@ -83,6 +90,16 @@ function CreateListItem(objItem) {
 
   ImageList.appendChild(li);
 }
-
+InputSerach.addEventListener("focusin", function (event) {
+  containerSearch.classList.add('hover-clmf');
+});
+InputSerach.addEventListener("focusout", function (event) {
+  containerSearch.classList.remove('hover-clmf');
+});
+InputSerach.addEventListener("keyup", function (event) {
+  if (event.keyCode === 13) {
+    getData();
+  };
+});
 
 getData();

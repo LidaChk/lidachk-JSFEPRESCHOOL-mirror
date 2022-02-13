@@ -13,8 +13,13 @@
 
 <body>
     <header class="header">
+        <div class="header-container">  
+            <a href="https://www.nasa.gov" class="link"><img class="header-png"
+                src="assets/svg/nasa_logo.svg"></a>          
+            <h1 class='title-header'> archive image search</h1>
+        </div>
         <div class="container-search claymorphism">
-            <input type="search" placeholder="Search the site..." list="keywords" class="search-input">
+            <input type="search" placeholder="Search the site..." list="keywords" class="search-input" autofocus="true">
             <button class="material-icons-outlined search-btn" onclick="getData()">search</button>
             <datalist id="keywords"></datalist>
     </header>
@@ -43,8 +48,8 @@
                     </a>
                 </li>
                 <li class="footer-item">
-                    <a href="https://www.nasa.gov" class="footer-item link"><img class="footer-png"
-                            src="assets/img/nasa-usa.png"></a>
+                    <a href="https://www.nasa.gov" class="footer-item link"><img class="footer-svg"
+                            src="assets/svg/brand_nasa_icon.svg"></a>
                     <a href="https://api.nasa.gov" class="footer-item footer-text link">
                         { APIs }
                     </a>
