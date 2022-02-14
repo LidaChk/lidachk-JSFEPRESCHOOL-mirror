@@ -13,24 +13,18 @@
 
 <body>
     <header class="header">
-        <div class="header-container">  
-            <a href="https://www.nasa.gov" class="link"><img class="header-png"
-                src="assets/svg/nasa_logo.svg"></a>          
-            <h1 class='title-header'> archive image search</h1>
+        <div class="header-container">
+            <a href="https://www.nasa.gov" class="link"><img class="header-png" src="assets/svg/nasa_logo.svg"></a>
+            <h1 class='title-header'> library image search</h1>
         </div>
         <div class="container-search claymorphism">
-            <input type="search" placeholder="Search the site..." list="keywords" class="search-input" autofocus="true">
+            <input type="search" placeholder="Search with free text (ex: Ilon Mask) or keywords (ex: Carina,Hubble,supernova)" list="keywords" class="search-input" autofocus="true">
             <button class="material-icons-outlined search-btn" onclick="getData()">search</button>
             <datalist id="keywords"></datalist>
     </header>
     <main>
         <div class="overlay-wrapper hidden"></div>
         <ul class="image-list">
-            <li class="nasa-item"><img
-                    src="https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e002152/GSFC_20171208_Archive_e002152~thumb.jpg"
-                    loading="lazy" alt="Carina Nebula Detail" class="nasa-img visible">
-                <div class="title">Carina Nebula Detail</div>
-            </li>
         </ul>
     </main>
     <footer class="footer">
