@@ -13,7 +13,7 @@ console.log(
   "[x] 9. после отправки поискового запроса и отображения результатов поиска, поисковый запрос продолжает отображаться в поле ввода  (5)\n",
   "[x] 10. в поле ввода есть крестик при клике по которому поисковый запрос из поля ввода удаляется и отображается placeholder (5)\n",
   "[x] 11. Очень высокое качество оформления приложения и/или дополнительный не предусмотренный в задании функционал, улучшающий качество приложения (10)\n",
-  
+
 );
 
 const ImageList = document.querySelector(".image-list");
@@ -94,12 +94,12 @@ function CreateListItem(objItem) {
   img.loading = "lazy";
   img.alt = objItem.data[0].title;
   img.classList.add("nasa-img")
-  
+
   /* user wil not see loading blink*/
   setTimeout(() => {
     img.classList.add("visible")
   }, 300);
-  
+
   li.appendChild(img);
 
   /* hidden title for every image from ketadata*/
@@ -107,14 +107,17 @@ function CreateListItem(objItem) {
   title.classList.add('title');
   title.textContent = objItem.data[0].title;
 
-  /*tags for endless trip trow nasa keywords*/  
-  let tags = document.createElement('p');
-  for (i = 0; i < objItem.data[0].keywords.length; i++) {
-    let s = objItem.data[0].keywords[i];
-    if (s.length > 2) tags.innerHTML = tags.innerHTML + `<a href="#" class="link keyword-link" onclick="GetDataByTag(this)">#${objItem.data[0].keywords[i]} </a>`;
-  }
+  /*tags for endless trip trow nasa keywords*/
+  if (objItem.data[0].keywords) {
+    let tags = document.createElement('p');
 
-  title.appendChild(tags);
+    for (i = 0; i < objItem.data[0].keywords.length; i++) {
+      let s = objItem.data[0].keywords[i];
+      if (s.length > 2) tags.innerHTML = tags.innerHTML + `<a href="#" class="link keyword-link" onclick="GetDataByTag(this)">#${objItem.data[0].keywords[i]} </a>`;
+    }
+
+    title.appendChild(tags);
+  }
   ImageList.appendChild(title);
   li.appendChild(title);
 
@@ -131,8 +134,9 @@ function CreateListItem(objItem) {
   ImageList.appendChild(li);
 }
 
-function GetDataByTag(lTag){
+function GetDataByTag(lTag) {
   sSearchTag = lTag.textContent;
+  InputSerach.value = sSearchTag.slice(1,sSearchTag.length-1)+',';
   getData();
   return false;
 }
