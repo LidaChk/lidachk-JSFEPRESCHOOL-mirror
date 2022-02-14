@@ -51,7 +51,7 @@ ul {
 }
 
 li.nasa-item {
-    height: 25vh;
+    height: 20rem;
     position: relative;
     flex-grow: 1;
     overflow: hidden;
@@ -64,7 +64,7 @@ li.nasa-item {
     display: none;
 }
 
-.overlay {
+/* .overlay {
     position: fixed;
     left: 0px;
     top: 0px;
@@ -73,7 +73,7 @@ li.nasa-item {
     text-align: center;
     z-index: 10;
     background: rgba(0, 0, 0, 0.7);
-}
+} */
 
 .nasa-img {
     max-height: 100%;
@@ -178,6 +178,7 @@ header {
     height: var(--header-height);
     position: fixed;
     display: flex;
+    gap:3vh;
     justify-content: space-between;
     align-items: center;
     background-color: rgba(99, 99, 99, 0.4);
@@ -194,6 +195,8 @@ header {
 .header-png{
     height: 12em;
     filter: invert(100%) opacity(60%);
+    object-fit: cover;
+    overflow: hidden;
 }
 .header-png:hover{
     filter: invert(100%) opacity(100%);
@@ -212,8 +215,9 @@ h1{
     gap: 1vh;
     padding-left: 1em;
     padding-right: 1em;
-    margin-right: 5vh;
+    margin-right: 3em;
     opacity: 0.8;
+    background-color: rgba(99, 99, 99, 0.9);
 }
 
 button,
@@ -242,6 +246,7 @@ input{
     background-color: (0, 0, 0, 0);
     border-radius: 10vh;
     box-shadow: 10px 10px 16px -2px rgba(48, 58, 82, 0.7), -5px -5px 16px -2px rgb(255, 255, 255, 0.3);
+    transition: flex-grow 0.6s ease-in-out;
 }
 
 button:hover {
@@ -252,11 +257,14 @@ button:hover {
 .claymorphism:hover,
 .claymorphism:focus,
 .claymorphism.hover-clmf {
+
     cursor: pointer;
     box-shadow: inset -10px -10px 10px rgba(48, 58, 82, 0.7), inset 10px 10px 10px #aeaec040;
 
 }
-
+.claymorphism.hover-clmf {
+    flex-grow: 1;
+}
 [type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
     color: aliceblue;
@@ -268,6 +276,9 @@ button:hover {
     filter: invert(100%);
 }
 
+Input:focus{
+    width:100%;
+}
 
 /* NOT FOUND */
 .card-notFound {
@@ -278,11 +289,10 @@ button:hover {
     bottom: 0;
     padding: 1vh 0;
     text-align: center;
-    transition: all 0.5s;
     z-index: 2;
     color:rgba(240, 248, 250, 0.8);
     font-weight: 700;
-    font-size: 6em;
+    font-size: 9vh;
     opacity: 0.2;
 }
 
@@ -295,7 +305,8 @@ button:hover {
     );
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
-	height: 100%;
+	min-height: 100vh;
+    height: 100%;
 } 
 
 @keyframes gradient {
