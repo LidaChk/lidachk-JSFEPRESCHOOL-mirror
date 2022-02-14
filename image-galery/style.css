@@ -17,6 +17,12 @@
     --footer-height: 5vh;
     --header-height: 8vh;
 }
+@media (max-width: 425px) {
+    :root {
+        --footer-height: 5vh;
+        --header-height: 15vh;
+    }
+}
 html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -58,7 +64,11 @@ li.nasa-item {
     display: flex;
     align-items: center;
 }
-
+@media (max-width: 425px) {
+    li.nasa-item {
+        height: auto;
+    }
+}
 
 .hidden {
     display: none;
@@ -185,26 +195,47 @@ header {
     backdrop-filter: blur(5px);
     z-index: 3;
 }
-
+@media (max-width: 425px) {
+    header{
+    flex-direction: column;
+    gap:0;
+    justify-content: center;
+    }
+}
 .header-container{
     display: flex;
     height: var(--header-height);
     align-items: center;
-
+}
+@media (max-width: 425px) {
+    .header-container{
+        height: 7vh;
+    }
 }
 .header-png{
-    height: 12em;
+    height: 15vh;
     filter: invert(100%) opacity(60%);
     object-fit: cover;
     overflow: hidden;
 }
+@media (max-width: 425px) {
+    .header-png{
+        height: 13vh;
+    }
+}
 .header-png:hover{
     filter: invert(100%) opacity(100%);
     transform: scale(1);
+
 }
 h1{
-    font-size: x-large;
+    font-size: 3vh;
     opacity: 0.6;
+}
+@media (max-width: 425px) {
+    h1{
+        font-size: 2vh;
+    }
 }
 /* SEARCH FORM */
 .container-search {
@@ -215,10 +246,11 @@ h1{
     gap: 1vh;
     padding-left: 1em;
     padding-right: 1em;
-    margin-right: 3em;
+    margin-right: 3vw;
     opacity: 0.8;
     background-color: rgba(99, 99, 99, 0.9);
 }
+
 
 button,
 input,
@@ -234,6 +266,7 @@ input,
 input{
     padding-left: 1em;
 }
+
 .search-btn
 {
     filter: opacity(30%);
@@ -265,6 +298,11 @@ button:hover {
 .claymorphism.hover-clmf {
     flex-grow: 1;
 }
+@media (max-width: 425px) {
+    .claymorphism.hover-clmf {
+        flex-grow: 0;
+    }
+}
 [type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
     color: aliceblue;
@@ -292,11 +330,11 @@ Input:focus{
     z-index: 2;
     color:rgba(240, 248, 250, 0.8);
     font-weight: 700;
-    font-size: 9vh;
+    font-size: 7rem;
     opacity: 0.2;
 }
 
-/* ANIMATED GRADIENT BG */
+/* ANIMATED GRADIENT BG - easy!*/
  body {
 	background: radial-gradient( ellipse at top,
     #303A52,

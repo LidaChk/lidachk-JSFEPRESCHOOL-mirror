@@ -74,8 +74,14 @@ function CreateListItem(objItem) {
 
 
   let title = document.createElement('div');
+  
   title.classList.add('title');
   title.textContent = objItem.data[0].title;
+
+  let tags = document.createElement('p');
+  tags.innerHTML = tags.innerHTML + `<a href="#">#link</a>`;
+
+  title.appendChild(tags);
   ImageList.appendChild(title);
   li.appendChild(title);
 
@@ -91,6 +97,9 @@ function CreateListItem(objItem) {
 
   ImageList.appendChild(li);
 }
+
+
+/*Input Search Events*/
 InputSerach.addEventListener("focusin", function (event) {
   containerSearch.classList.add('hover-clmf');
 });
@@ -102,5 +111,7 @@ InputSerach.addEventListener("keyup", function (event) {
     getData();
   };
 });
+
+
 
 getData();
