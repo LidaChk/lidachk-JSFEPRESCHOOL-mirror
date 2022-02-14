@@ -107,6 +107,7 @@ li:hover>img {
 
 
 .title {
+    font-size: large;
     background-color: rgb(99, 99, 99, 0.5);
     backdrop-filter: blur(5px);
     position: absolute;
@@ -124,6 +125,11 @@ div.title.visible {
     opacity: 1;
     bottom: 0;
     transition: all 0.5s;
+}
+
+a.keyword-link{
+    opacity: 0.4;
+    font-size: medium;
 }
 
 /* FOOTER */

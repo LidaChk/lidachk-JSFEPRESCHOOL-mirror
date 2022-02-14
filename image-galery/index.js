@@ -15,24 +15,30 @@ const nothigFound =
   </li>`
 
 
-const html =
+
+/* const html =
   `<div class='card hidden'>
   <div class='info'>
     <h2 class='title'>testtest</h2>
     <p class='description'>testtest testtest</p>
   </div>
-</div>`;
+</div>`; */
 
 
 let apiNASA = {};
-
+let sSearchTag = '';
 
 async function getData() {
 
   let sValue = InputSerach.value.toLowerCase();
   let apiUrlVal = apiUrlValDefault;
 
-  if (sValue != '') apiUrlVal = (sValue.search(',') < 0) ? "q=" + sValue : "keywords=" + sValue;
+  if (sSearchTag != '') { //serach on clicking tag
+    apiUrlVal = "keywords=" + sSearchTag.slice(1);
+    sSearchTag = '';
+  } else if (sValue != '') { // search by input search
+    apiUrlVal = (sValue.search(',') < 0) ? "q=" + sValue : "keywords=" + sValue;
+  }
 
 
   const res = await fetch(apiUrl + apiUrlVal + apiUrlEnd);
@@ -40,16 +46,19 @@ async function getData() {
   //console.log(apiNASA);
 
   ImageList.innerHTML = '';
+  ImageList.style.opacity = '0';
   if (apiNASA.collection.items.length == 0) ImageList.innerHTML = nothigFound;
   for (let i = 0; i <= apiNASA.collection.items.length - 1; i++) {
     CreateListItem(apiNASA.collection.items[i])
   }
+  ImageList.style.opacity = '1';
 }
 
 
-
+/* create one image list element for every returned item*/
 function CreateListItem(objItem) {
 
+  /*delete all preveuse event handlers*/
   document.querySelectorAll('li.nasa-item').forEach(el => {
     el.removeEventListener("mouseover", function (event) {
       this.querySelector('div.title').classList.add('visible');
@@ -67,19 +76,25 @@ function CreateListItem(objItem) {
   img.loading = "lazy";
   img.alt = objItem.data[0].title;
   img.classList.add("nasa-img")
+  
+  /* user wil not see loading blink*/
   setTimeout(() => {
     img.classList.add("visible")
   }, 300);
+  
   li.appendChild(img);
 
-
+  /* hidden title for every image from ketadata*/
   let title = document.createElement('div');
-  
   title.classList.add('title');
   title.textContent = objItem.data[0].title;
 
+  /*tags for endless trip trow nasa keywords*/  
   let tags = document.createElement('p');
-  tags.innerHTML = tags.innerHTML + `<a href="#">#link</a>`;
+  for (i = 0; i < objItem.data[0].keywords.length; i++) {
+    let s = objItem.data[0].keywords[i];
+    if (s.length > 2) tags.innerHTML = tags.innerHTML + `<a href="#" class="link keyword-link" onclick="GetDataByTag(this)">#${objItem.data[0].keywords[i]} </a>`;
+  }
 
   title.appendChild(tags);
   ImageList.appendChild(title);
@@ -96,6 +111,12 @@ function CreateListItem(objItem) {
   });
 
   ImageList.appendChild(li);
+}
+
+function GetDataByTag(lTag){
+  sSearchTag = lTag.textContent;
+  getData();
+  return false;
 }
 
 
