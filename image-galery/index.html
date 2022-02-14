@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined&Poppins&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/svg/favicon.ico" />
+    <title>NASA archieve image</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">  
+            <a href="https://www.nasa.gov" class="link"><img class="header-png"
+                src="assets/svg/nasa_logo.svg"></a>          
+            <h1 class='title-header'> archive image search</h1>
+        </div>
+        <div class="container-search claymorphism">
+            <input type="search" placeholder="Search the site..." list="keywords" class="search-input" autofocus="true">
+            <button class="material-icons-outlined search-btn" onclick="getData()">search</button>
+            <datalist id="keywords"></datalist>
+    </header>
+    <main>
+        <div class="overlay-wrapper hidden"></div>
+        <ul class="image-list">
+            <li class="nasa-item"><img
+                    src="https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e002152/GSFC_20171208_Archive_e002152~thumb.jpg"
+                    loading="lazy" alt="Carina Nebula Detail" class="nasa-img visible">
+                <div class="title">Carina Nebula Detail</div>
+            </li>
+        </ul>
+    </main>
+    <footer class="footer">
+        <div class="footer-block">
+            <ul class="footer-list">
+                <li class="footer-item footer-text">© 2022</li>
+                <li>
+                    <a class="footer-item link" href="https://github.com/LidaChk">
+                        <img class="footer-svg" src="./assets/svg/GitHub-Mark.svg" alt="GitHub Icon" width="30">
+                    </a>
+                </li>
+                <li>
+                    <a class="footer-item link" href="https://rs.school/js-stage0/">
+                        <img class="footer-svg" src="./assets/svg/rs_school_js.svg" alt="Rsschool Icon" width="73">
+                    </a>
+                </li>
+                <li class="footer-item">
+                    <a href="https://www.nasa.gov" class="footer-item link"><img class="footer-svg"
+                            src="assets/svg/brand_nasa_icon.svg"></a>
+                    <a href="https://api.nasa.gov" class="footer-item footer-text link">
+                        { APIs }
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</body>
+<script src="index.js"></script>
+
+</html>
