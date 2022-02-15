@@ -341,13 +341,13 @@ Input:focus{
 }
 
 /* ANIMATED GRADIENT BG - easy!*/
- body {
-	background: radial-gradient( ellipse at top,
+body {
+	background: linear-gradient( -45deg,
     #303A52,
     #65588A,
     #884351
     );
-	background-size: 400% 400%;
+	background-size: 200% 200%;
 	animation: gradient 15s ease infinite;
 	min-height: 100vh;
     height: 100%;
