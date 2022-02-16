@@ -245,7 +245,7 @@ h1{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 1vh;
     padding-left: 1em;
     padding-right: 1em;
@@ -267,7 +267,8 @@ input,
 
 }
 input{
-    padding-left: 1em;
+    margin-left: 1em;
+    width:100%;
 }
 input::placeholder {
     color: aliceblue;
@@ -276,6 +277,7 @@ input::placeholder {
 .search-btn
 {
     filter: opacity(30%);
+    flex-grow: 0;
 }
 
 .claymorphism {
@@ -299,11 +301,11 @@ button:hover {
 
     cursor: pointer;
     box-shadow: inset -10px -10px 10px rgba(48, 58, 82, 0.7), inset 10px 10px 10px #aeaec040;
-
-}
-.claymorphism.hover-clmf {
     flex-grow: 1;
 }
+/* .claymorphism.hover-clmf {
+    flex-grow: 1;
+} */
 @media (max-width: 425px) {
     .claymorphism.hover-clmf {
         flex-grow: 0;
@@ -333,10 +335,11 @@ Input:focus{
     bottom: 0;
     padding: 1vh 0;
     text-align: center;
+    align-self: center;
     z-index: 2;
     color:rgba(240, 248, 250, 0.8);
     font-weight: 700;
-    font-size: 7rem;
+    font-size: 10vmin;
     opacity: 0.2;
 }
 

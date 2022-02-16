@@ -65,11 +65,24 @@ async function getData() {
 
   ImageList.innerHTML = '';
   ImageList.style.opacity = '0';
-  if (apiNASA.collection.items.length == 0) ImageList.innerHTML = nothigFound;
-  for (let i = 0; i <= apiNASA.collection.items.length - 1; i++) {
-    CreateListItem(apiNASA.collection.items[i])
+  try{
+    if (!apiNASA.collection.items) {
+      ImageList.innerHTML = nothigFound;
+    } else {
+      if (apiNASA.collection.items.length == 0) ImageList.innerHTML = nothigFound;
+      for (let i = 0; i <= apiNASA.collection.items.length - 1; i++) {
+        CreateListItem(apiNASA.collection.items[i])
+      }
+    }
   }
-  ImageList.style.opacity = '1';
+  catch{
+    ImageList.innerHTML = nothigFound;
+    if(apiNASA.reason) console.log(apiNASA.reason);
+  }
+  finally{
+    ImageList.style.opacity = '1';
+  }
+  
 }
 
 
@@ -136,7 +149,7 @@ function CreateListItem(objItem) {
 
 function GetDataByTag(lTag) {
   sSearchTag = lTag.textContent;
-  InputSerach.value = sSearchTag.slice(1,sSearchTag.length-1)+',';
+  InputSerach.value = sSearchTag.slice(1, sSearchTag.length - 1) + ',';
   getData();
   return false;
 }
@@ -149,6 +162,7 @@ InputSerach.addEventListener("focusin", function (event) {
 InputSerach.addEventListener("focusout", function (event) {
   containerSearch.classList.remove('hover-clmf');
 });
+
 InputSerach.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
     getData();
