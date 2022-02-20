@@ -1,0 +1,153 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+:root {
+  --color-one: #b5ead7;
+  --color-two: #FFFFFF;
+  --color-three: #99b0a8;
+  --color-four: #dedbff;
+  --color-five: #a6a4ca;
+  --field-size: 6;
+  --bg-gradient: radial-gradient(ellipse at top, #4b4453, #534d5c, #575161, #635e6f, #746e82, #837b93, #b2a5c9);
+}
+
+ol,
+ul,
+a,
+p {
+  list-style: none;
+  text-decoration: none;
+  color: var(--color-two);
+}
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  background-image: var(--bg-gradient);
+  font-family: 'Pangolin', cursive;
+ /*  font-family: 'Comfortaa', cursive; */
+  font-weight: 600;
+  font-size: 3vh;
+  color: var(--color-two);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: 100vh;
+}
+
+/*GAME FIELD*/
+main{
+  display: grid;
+  grid-gap: 1vh;
+  border: 1px solid #FFFFFF;
+  border-radius: 2vh; 
+  grid-template-rows:1fr 5fr 2fr;
+  grid-template-columns:30% 1fr 30%;
+  grid-template-areas: 
+  "player1 field-header player2"
+  "player1 wrapper-gameField player2"
+  "player1 diceField Player2";
+} 
+
+.container-grid {
+    padding:1vh;
+    display: grid;
+    grid-gap: 1vh;
+    border: 1px solid #FFFFFF;
+    border-radius: 2vh;  
+  } 
+
+  .wrapper-gameField{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    grid-area:wrapper-gameField;
+    border: 1px solid #FFFFFF;
+    border-radius: 2vh; 
+  }
+ .gameField { 
+  grid-template-columns: repeat(6, 7vh);
+  grid-template-rows: repeat(6, 7vh);
+} 
+
+.cell {
+  justify-content:center;
+  display:flex;
+  align-items:center;
+  border-radius:100%;
+  border: 1px solid #FFFFFF;
+  overflow:hidden;
+} 
+h2{
+  font-size: 4vh;
+}
+/*DICE FIELD*/
+.diceField {
+  margin: 0;
+  padding: 0;
+  justify-content:center;
+  display:flex;
+  align-items:center;
+  gap:3vh;
+  grid-template-columns:1fr 1fr;
+  grid-area: diceField;
+} 
+.dice{
+  display:inline-block;
+  margin: 0;
+  padding: 0;
+  width:12vh;
+  border-radius:4vh;
+  filter: invert(1);
+}
+
+
+.field-header{
+  grid-area: field-header;
+  overflow:hidden; 
+}
+
+/* FOOTER */
+.footer {
+  flex: 0 0 auto;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.footer-block {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 30rem;
+  flex-wrap: wrap;
+}
+.footer-item {
+  color: var(--color-two);
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.footer-text {
+  padding: 0.5rem;
+  font-weight: 600;
+}
+
+.footer-svg {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  filter: invert(25%) sepia(8%) saturate(1232%) hue-rotate(109deg)
+    brightness(95%) contrast(88%);
+}
+
+.footer-svg:hover {
+  filter: invert(69%) sepia(9%) saturate(393%) hue-rotate(108deg)
+    brightness(97%) contrast(92%);
+}
