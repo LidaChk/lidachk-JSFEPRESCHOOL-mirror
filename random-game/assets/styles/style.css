@@ -25,17 +25,18 @@ body {
 }
 
 body {
-  background-image: var(--bg-gradient);
+  background: var(--bg-gradient);
   font-family: 'Pangolin', cursive;
  /*  font-family: 'Comfortaa', cursive; */
   font-weight: 600;
-  font-size: 3vh;
+  font-size: 2vh;
   color: var(--color-two);
   margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: end;
   height: 100vh;
+  
 }
 
 /*GAME FIELD*/
@@ -45,11 +46,12 @@ main{
   border: 1px solid #FFFFFF;
   border-radius: 2vh; 
   grid-template-rows:1fr 5fr 2fr;
-  grid-template-columns:30% 1fr 30%;
+  grid-template-columns:1fr 2fr 1fr;
   grid-template-areas: 
   "player1 field-header player2"
   "player1 wrapper-gameField player2"
   "player1 diceField Player2";
+
 } 
 
 .container-grid {
@@ -58,6 +60,7 @@ main{
     grid-gap: 1vh;
     border: 1px solid #FFFFFF;
     border-radius: 2vh;  
+    
   } 
 
   .wrapper-gameField{
@@ -80,6 +83,8 @@ main{
   border-radius:100%;
   border: 1px solid #FFFFFF;
   overflow:hidden;
+  -webkit-mask-image: url('../img/chalk.png');
+  mask-image: url('./img/chalk.png');
 } 
 h2{
   font-size: 4vh;
@@ -100,9 +105,37 @@ h2{
   margin: 0;
   padding: 0;
   width:12vh;
-  border-radius:4vh;
   filter: invert(1);
+  -webkit-mask-image: url('../img/chalk.png');
+  mask-image: url('./img/chalk.png');
+  transition: opacity 0.2s;
 }
+
+.die-pip.invisible{
+  opacity: 0;
+}
+
+.spin{
+    animation-name: spin;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    /* transform: rotate(3deg); */
+     /* transform: rotate(0.3rad);/ */
+     /* transform: rotate(3grad); */ 
+     /* transform: rotate(.03turn);  */
+  }
+  
+  @keyframes spin {
+      from {
+          transform:rotate(0deg);
+      }
+      to {
+          transform:rotate(360deg);
+      }
+  }
+
+
 
 
 .field-header{

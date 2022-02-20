@@ -11,6 +11,16 @@
 const fieldSize = 6;
 const gameField = document.querySelector('.gameField');
 const diceField = document.querySelector('.diceField');
+const diceOne = document.querySelector('.dice-one');
+const diceTwo = document.querySelector('.dice-two');
+
+
+let turn = 'Player1';
+let stopFlg = true;
+let won = '';
+let spinFlg = true;
+let arrDice = ['one', 'two', 'three', 'four', 'five', 'six'];
+
 
 /* перемешать массив*/
 function shuffle(array) {
@@ -30,6 +40,9 @@ for (let rowIndex = 0; rowIndex < fieldSize; rowIndex++) {
   for (let columnIndex = 0; columnIndex < fieldSize; columnIndex++) {
     const cell = document.createElement('div');
     cell.innerHTML = '<h2>' + arrI[I] + '</h2>';
+    cell.dataset.y = columnIndex;
+    cell.dataset.x = rowIndex;
+    cell.dataset.num = arrI[I];
     I++;
     cell.classList.add('cell');
     gameField.append(cell);
@@ -41,5 +54,33 @@ for (let rowIndex = 0; rowIndex < fieldSize; rowIndex++) {
 
 /*----------------*/
 
+function rollDice() {
+
+  diceOne.classList.add('spin');
+  diceTwo.classList.add('spin');
+
+  shuffle(arrDice);
+  diceField.querySelectorAll('.die-pip').forEach(el => el.classList.add('invisible'));
+  diceOne.querySelectorAll(`.die-pip.${arrDice[0]}`).forEach(el => el.classList.remove('invisible'));
+  diceTwo.querySelectorAll(`.die-pip.${arrDice[1]}`).forEach(el => el.classList.remove('invisible'));
+
+  if (stopFlg) {
+    diceOne.classList.remove('spin');
+    diceTwo.classList.remove('spin');
+  } else {
+    setTimeout(rollDice, 300);
+  }
+};
+
+function gameFlowPlayer(sPlayer) {
+  rollDice();
+
+}
 
 
+function onDiceClick(){
+  stopFlg = !stopFlg;
+  if (!stopFlg) rollDice();
+}
+
+diceField.addEventListener("click", onDiceClick)
