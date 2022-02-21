@@ -1,0 +1,232 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+:root {
+  --color-one: #ff83c3;
+  --color-two: #FFF;
+  --color-three: #35e2c3;
+  --color-four: #ffe552;
+  --color-five: #a6a4ca;
+  --field-size: 6;
+  --bg-gradient: radial-gradient(ellipse at top, #4b4453, #534d5c, #575161, #635e6f, #746e82, #837b93, #b2a5c9);
+}
+*{
+  margin: 0;
+  padding:0;
+}
+ol,
+ul,
+a,
+p {
+  list-style: none;
+  text-decoration: none;
+  color: var(--color-two);
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--bg-gradient);
+  font-family: 'Pangolin', cursive;
+  /*  font-family: 'Comfortaa', cursive; */
+  font-weight: 600;
+  font-size: 2vh;
+  color: var(--color-two);
+  margin: 0;
+  /*   display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: 100vh; */
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 0.5fr 8fr 0.8fr;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer"
+}
+
+.header {
+  /* flex: 0 0 auto; */
+  grid-area: header;
+}
+
+.container-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*GAME FIELD*/
+main {
+  grid-area: main;
+  display: grid;
+  grid-gap: 1vh;
+  grid-template-rows: 10vh 1fr 16vh;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas:
+    "player1 field-header player2"
+    "player1 wrapper-gameField player2"
+    "player1 diceField Player2";
+
+}
+
+.container-grid {
+  padding: 1vh;
+  display: grid;
+  grid-gap: 1vh;
+
+}
+
+.wrapper-gameField {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  grid-area: wrapper-gameField;
+
+}
+
+.gameField {
+  grid-template-columns: repeat(6, 7vh);
+  grid-template-rows: repeat(6, 7vh);
+  border: 3px solid #FFFFFF;
+  border-radius: 2vh;
+  -webkit-mask-image: url('../img/chalk-big2.png');
+  mask-image: url('./img/chalk-big2.png');
+}
+
+.cell {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 100%;
+  border: 1px solid #FFFFFF;
+  overflow: hidden;
+  transition: all 0.1s;
+}
+
+h2,
+span.cell-icon {
+  font-size: 4vh;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.cell-hover {
+  cursor: pointer;
+}
+
+.cell-hover:hover {
+  transform: scale(1.1);
+  color: var(--color-one);
+}
+.cell-fail{
+  background-color: rgb(255, 0, 0, 0);
+  animation-name: color_red;
+  animation-duration: 300ms;
+  animation-timing-function: linear;
+}
+
+@keyframes color_red {
+  0%{background-color:  rgb(255, 0, 0, 0);}
+  50%{background-color:  rgb(255, 0, 0, 1);}
+  100%{background-color:  rgb(255, 0, 0, 0);}
+}
+
+
+/*DICE FIELD*/
+.diceField {
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 3vh;
+  grid-template-columns: 1fr 1fr;
+  grid-area: diceField;
+}
+
+.dice {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 12vh;
+  filter: invert(1);
+  -webkit-mask-image: url('../img/chalk-big.png');
+  mask-image: url('./img/chalk-big.png');
+  transition: opacity 0.2s;
+}
+
+.invisible,
+.die-pip.invisible {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.spin {
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  /* transform: rotate(3deg); */
+  /* transform: rotate(0.3rad);/ */
+  /* transform: rotate(3grad); */
+  /* transform: rotate(.03turn);  */
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.field-header {
+  grid-area: field-header;
+  overflow: hidden;
+  -webkit-mask-image: url('../img/chalk.png');
+  mask-image: url('./img/chalk.png');
+}
+
+/* FOOTER */
+.footer {
+  grid-area: footer;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
+  width: 30rem;
+  flex-wrap: wrap;
+}
+
+.footer-item {
+  color: var(--color-two);
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.footer-text {
+  padding: 0.5rem;
+  font-weight: 400;
+}
+
+.footer-svg {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  filter: invert(25%) sepia(8%) saturate(1232%) hue-rotate(109deg) brightness(95%) contrast(88%);
+}
+
+.footer-svg:hover {
+  filter: invert(69%) sepia(9%) saturate(393%) hue-rotate(108deg) brightness(97%) contrast(92%);
+}
