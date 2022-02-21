@@ -13,13 +13,17 @@ const gameField = document.querySelector('.gameField');
 const diceField = document.querySelector('.diceField');
 const diceOne = document.querySelector('.dice-one');
 const diceTwo = document.querySelector('.dice-two');
+const fieldHeader = document.querySelector('.field-header');
+const gameStates = ['init', 'roll', 'move', 'check'];
 
-
-let turn = 'Player1';
+let iState = 0;
 let stopFlg = true;
-let won = '';
 let spinFlg = true;
 let arrDice = ['one', 'two', 'three', 'four', 'five', 'six'];
+let rollRes = 0;
+let gameDraw = false;
+let activePlayer = 'Player1'
+let won = '';
 
 
 /* перемешать массив*/
@@ -45,14 +49,14 @@ for (let rowIndex = 0; rowIndex < fieldSize; rowIndex++) {
     cell.dataset.num = arrI[I];
     I++;
     cell.classList.add('cell');
+    cell.classList.add('cell-free');
     gameField.append(cell);
   }
 }
 /*----------------*/
-
-/*DICE FIELD*/
-
-/*----------------*/
+function showMessage(sMes) {
+  fieldHeader.textContent = sMes;
+}
 
 function rollDice() {
 
@@ -67,20 +71,87 @@ function rollDice() {
   if (stopFlg) {
     diceOne.classList.remove('spin');
     diceTwo.classList.remove('spin');
+    switchGameSTate();
   } else {
     setTimeout(rollDice, 300);
   }
 };
 
-function gameFlowPlayer(sPlayer) {
-  rollDice();
-
+function getRollRes() {
+  return 14 - document.querySelectorAll(`.die-pip.invisible`).length;
 }
 
 
-function onDiceClick(){
+function onDiceClick() {
   stopFlg = !stopFlg;
   if (!stopFlg) rollDice();
 }
 
-diceField.addEventListener("click", onDiceClick)
+function onCellClick() {
+  this.classList.add(`cell-${activePlayer}`);
+  this.classList.remove(`cell-free`);
+  switchGameSTate();
+  gameField.querySelectorAll(`.cell`).forEach(el => el.classList.remove('cell-hover'));
+  gameField.querySelectorAll(`[data-num='${rollRes}']`).forEach(el => el.removeEventListener("click", onCellClick, false));
+}
+
+function switchGameSTate() {
+  iState = (iState + 1) % gameStates.length
+}
+
+function TurnPrepare() {
+  let freeCells = gameField.querySelectorAll(`.cell-free`);
+  let freeActualCells = gameField.querySelectorAll(`[data-num='${rollRes}']`);
+  if (freeCells.length == 0) {
+    gameDraw = true;
+    showMessage('Game Draw!');
+  } else if (freeActualCells.lenght == 0) {
+    showMessage('There is no move');
+  } else {
+    freeActualCells.forEach(el => {
+
+      el.classList.add('cell-hover');
+      el.addEventListener("click", onCellClick, false);
+      showMessage('Select a cell equal to the sum of the dice');
+    });
+  }
+}
+
+function gameFlowPlayer() {
+
+  switch (gameStates[iState]) {
+    case 'init':
+      diceField.addEventListener("click", onDiceClick, false);
+      switchGameSTate();
+      break;
+
+    case 'roll':
+      break;
+
+    case 'move':
+      diceField.removeEventListener("click", onDiceClick, false);
+      rollRes = getRollRes();
+      TurnPrepare();
+      break;
+    
+    case 'check':
+      break;
+
+    default:
+      won = 'FriendShip';
+  }
+}
+
+function gameFlow()
+{
+    if(won == '')
+    {
+      gameFlowPlayer();
+      setTimeout(gameFlow, 500)
+    }
+    else{
+      showMessage('END');
+    }
+}
+
+gameFlow();

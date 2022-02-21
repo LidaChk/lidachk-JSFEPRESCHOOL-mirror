@@ -89,6 +89,15 @@ main{
 h2{
   font-size: 4vh;
 }
+.cell-hover{
+  cursor:pointer;
+}
+.cell-hover:hover{
+  transform: scale(1.1);
+  color: var(--color-one);
+}
+
+
 /*DICE FIELD*/
 .diceField {
   margin: 0;
