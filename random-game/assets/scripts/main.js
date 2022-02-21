@@ -14,6 +14,7 @@ const diceField = document.querySelector('.diceField');
 const diceOne = document.querySelector('.dice-one');
 const diceTwo = document.querySelector('.dice-two');
 const fieldHeader = document.querySelector('.field-header');
+const infoHeader = fieldHeader.querySelector('.info-header');
 const gameStates = ['init', 'roll', 'move', 'check'];
 
 let iState = 0;
@@ -43,7 +44,7 @@ let I = 0;
 for (let rowIndex = 0; rowIndex < fieldSize; rowIndex++) {
   for (let columnIndex = 0; columnIndex < fieldSize; columnIndex++) {
     const cell = document.createElement('div');
-    cell.innerHTML = '<h2>' + arrI[I] + '</h2>';
+    cell.innerHTML = '<span class="cell-icon">' + arrI[I] + '</span>';
     cell.dataset.y = columnIndex;
     cell.dataset.x = rowIndex;
     cell.dataset.num = arrI[I];
@@ -54,8 +55,11 @@ for (let rowIndex = 0; rowIndex < fieldSize; rowIndex++) {
   }
 }
 /*----------------*/
+
 function showMessage(sMes) {
-  fieldHeader.textContent = sMes;
+  infoHeader.classList.add('invisible');
+  infoHeader.textContent = sMes;
+  infoHeader.classList.remove('invisible');
 }
 
 function rollDice() {
@@ -84,19 +88,36 @@ function getRollRes() {
 
 function onDiceClick() {
   stopFlg = !stopFlg;
-  if (!stopFlg) rollDice();
+  if (!stopFlg) {
+    showMessage('Click on Dice to Stop');
+    rollDice();
+  }
+}
+function onFailCellClick(){
+  this.classList.add('cell-fail')
+  setTimeout(() => {this.classList.remove('cell-fail')}, 500)
 }
 
 function onCellClick() {
   this.classList.add(`cell-${activePlayer}`);
   this.classList.remove(`cell-free`);
-  switchGameSTate();
-  gameField.querySelectorAll(`.cell`).forEach(el => el.classList.remove('cell-hover'));
+  gameField.querySelectorAll(`.cell`).forEach(el => {
+    el.classList.remove('cell-hover');
+    el.removeEventListener("click", onFailCellClick, false);
+  });
   gameField.querySelectorAll(`[data-num='${rollRes}']`).forEach(el => el.removeEventListener("click", onCellClick, false));
+
+  this.querySelector('.cell-icon').classList.add('invisible');
+  this.querySelector('.cell-icon').classList.add('material-icons-outlined');
+  this.querySelector('.cell-icon').textContent = 'pets';
+  this.querySelector('.cell-icon').classList.remove('invisible');
+  this.dataset.num = '0';
+  switchGameSTate();
 }
 
 function switchGameSTate() {
-  iState = (iState + 1) % gameStates.length
+  iState = (iState + 1) % gameStates.length;
+  console.log(gameStates[iState]);
 }
 
 function TurnPrepare() {
@@ -108,9 +129,11 @@ function TurnPrepare() {
   } else if (freeActualCells.lenght == 0) {
     showMessage('There is no move');
   } else {
-    freeActualCells.forEach(el => {
-
+    freeCells.forEach(el => {
       el.classList.add('cell-hover');
+      if (el.dataset.num != rollRes) el.addEventListener("click", onFailCellClick, false);
+    });
+    freeActualCells.forEach(el => {
       el.addEventListener("click", onCellClick, false);
       showMessage('Select a cell equal to the sum of the dice');
     });
@@ -123,6 +146,7 @@ function gameFlowPlayer() {
     case 'init':
       diceField.addEventListener("click", onDiceClick, false);
       switchGameSTate();
+      showMessage('Click on Dice to Roll');
       break;
 
     case 'roll':
@@ -132,9 +156,11 @@ function gameFlowPlayer() {
       diceField.removeEventListener("click", onDiceClick, false);
       rollRes = getRollRes();
       TurnPrepare();
+      switchGameSTate();
       break;
-    
+
     case 'check':
+      //switchGameSTate();
       break;
 
     default:
@@ -142,16 +168,13 @@ function gameFlowPlayer() {
   }
 }
 
-function gameFlow()
-{
-    if(won == '')
-    {
-      gameFlowPlayer();
-      setTimeout(gameFlow, 500)
-    }
-    else{
-      showMessage('END');
-    }
+function gameFlow() {
+  if (won == '') {
+    gameFlowPlayer();
+    setTimeout(gameFlow, 500)
+  } else {
+    showMessage('END');
+  }
 }
 
 gameFlow();
