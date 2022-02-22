@@ -5,7 +5,7 @@
   --color-one: #ff83c3;
   --color-two: #FFF;
   --color-three: #35e2c3;
-  --color-four: #F0E100;
+  --color-four: #FFC2B4;
   --color-five: #a6a4ca;
   --field-size: 6;
   --bg-gradient: radial-gradient(ellipse at top, #4b4453, #534d5c, #575161, #635e6f, #746e82, #837b93, #b2a5c9);
@@ -145,7 +145,8 @@ span.cell-icon {
 }
 
 
-/*DICE FIELD*/
+
+  /*DICE FIELD*/
 .diceField {
   margin: 0;
   padding: 0;
