@@ -18,6 +18,11 @@ const diceTwo = document.querySelector('.dice-two');
 const fieldHeader = document.querySelector('.field-header');
 const infoHeader = fieldHeader.querySelector('.info-header');
 const gameStates = ['init', 'roll', 'move', 'check'];
+const pNames = ['Bobosaur', 'Junior', 'Chaos', 'HueJass', 'Lumos', 'Pupsi', 'NotATRex', 'Cosmo', 'Tiara', 'StalkingCat', 'Tiberius', 'Grinch', 'Biscuit']
+
+//флаг, при котором можно выбирать любые клетки, а не только те, сумма которых равна выпавшим кубикам
+// просто выполните в консоли debugModeFlg= true, чтобы не возиться с выигрышем
+let debugModeFlg= false;
 
 let iState = 0;
 let stopFlg = true;
@@ -25,14 +30,18 @@ let spinFlg = true;
 let arrDice = ['one', 'two', 'three', 'four', 'five', 'six'];
 let rollRes = 0;
 let gameDraw = false;
-let activePlayer = 'Player1'
-let won = '';
+let movesCount = 0;
+
+let winner = '';
 
 
+let activePlayer = shuffle(pNames)[0]
 /* перемешать массив*/
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
 }
+
+
 
 /* FIELD CREATING */
 let arrI = [];
@@ -57,11 +66,15 @@ for (let rowIndex = 0; rowIndex < fieldSize; rowIndex++) {
   }
 }
 /*----------------*/
+function invOnOff(el){
+  el.style.opacity = '0';
+  setTimeout(el.style.opacity = '1', 500);
+}
 
 function showMessage(sMes) {
-  infoHeader.classList.add('invisible');
-  infoHeader.textContent = sMes;
-  infoHeader.classList.remove('invisible');
+  invOnOff(infoHeader)
+  //infoHeader.textContent = sMes;
+  infoHeader.innerHTML = sMes;
 }
 
 function rollDice() {
@@ -90,15 +103,20 @@ function getRollRes() {
 
 function onDiceClick() {
   stopFlg = !stopFlg;
+
   if (!stopFlg) {
     showMessage('Click on Dice to Stop');
     rollDice();
   }
 }
-function onFailCellClick(){
+
+function onFailCellClick() {
   this.classList.add('cell-fail')
-  setTimeout(() => {this.classList.remove('cell-fail')}, 500)
+  setTimeout(() => {
+    this.classList.remove('cell-fail')
+  }, 500)
 }
+
 
 function onCellClick() {
   this.classList.add(`cell-${activePlayer}`);
@@ -111,23 +129,28 @@ function onCellClick() {
 
   this.querySelector('.cell-icon').classList.add('invisible');
   this.querySelector('.cell-icon').classList.add('material-icons-outlined');
+
   this.querySelector('.cell-icon').textContent = 'pets';
-  this.querySelector('.cell-icon').classList.remove('invisible');
+  setTimeout(this.querySelector('.cell-icon').classList.remove('invisible'), 300)
+  this.dataset.owner = activePlayer;
   this.dataset.num = '0';
+
+  movesCount++;
   switchGameSTate();
 }
 
 function switchGameSTate() {
   iState = (iState + 1) % gameStates.length;
-  console.log(gameStates[iState]);
+  //console.log(gameStates[iState]);
 }
 
 function TurnPrepare() {
   let freeCells = gameField.querySelectorAll(`.cell-free`);
   let freeActualCells = gameField.querySelectorAll(`[data-num='${rollRes}']`);
+  if (debugModeFlg) freeActualCells = gameField.querySelectorAll(`.cell-free`);
   if (freeCells.length == 0) {
     gameDraw = true;
-    showMessage('Game Draw!');
+    winner = 'NoOne';
   } else if (freeActualCells.lenght == 0) {
     showMessage('There is no move');
   } else {
@@ -137,9 +160,43 @@ function TurnPrepare() {
     });
     freeActualCells.forEach(el => {
       el.addEventListener("click", onCellClick, false);
-      showMessage('Select a cell equal to the sum of the dice');
+      showMessage('Select a Cell<br> equal to the sum of the dice');
     });
   }
+}
+
+function check() {
+  let sReturn = false;
+  const cells = gameField.querySelectorAll(`.cell-${activePlayer}`);
+  const dist = (c1, c2) => {
+    return Math.sqrt((c1.dataset.x - c2.dataset.x) ** 2 + (c1.dataset.y - c2.dataset.y) ** 2);
+  };
+  const isByIdx = (i, j) => {
+    return !!gameField.querySelector(`.cell-${activePlayer}[data-x='${i}'][data-y='${j}']`);
+  };
+  const setWinner = (i, j) => {
+    invOnOff(gameField.querySelector(`.cell-${activePlayer}[data-x='${i}'][data-y='${j}']`)); 
+    gameField.querySelector(`.cell-${activePlayer}[data-x='${i}'][data-y='${j}']`).querySelector('span').classList.add('winners');
+  };
+  for (let elInd = 0; elInd < cells.length; elInd++) {
+    let x = parseInt(cells[elInd].dataset.x);
+    let y = parseInt(cells[elInd].dataset.y);
+    for (let opi = -1; opi <= 1; opi++) {
+      for (let opj = -1; opj <= 1; opj++) {
+        if (!(opj == 0 && opi == 0) && isByIdx(x + opi, y + opj) && isByIdx(x + 2 * opi, y + 2 * opj) && isByIdx(x + 3 * opi, y + 3 * opj)) {
+
+          mu = 0;
+          while (isByIdx(x + mu * opi, y + mu * opj)) {
+            setWinner(x + mu * opi, y + mu * opj);
+            mu++;
+          }
+          sReturn=true;
+        }
+      }
+    }
+  }
+
+  return sReturn;
 }
 
 function gameFlowPlayer() {
@@ -147,6 +204,7 @@ function gameFlowPlayer() {
   switch (gameStates[iState]) {
     case 'init':
       diceField.addEventListener("click", onDiceClick, false);
+      diceField.classList.add('cursor-pointer');
       switchGameSTate();
       showMessage('Click on Dice to Roll');
       break;
@@ -156,27 +214,51 @@ function gameFlowPlayer() {
 
     case 'move':
       diceField.removeEventListener("click", onDiceClick, false);
+      diceField.classList.remove('cursor-pointer');
       rollRes = getRollRes();
       TurnPrepare();
+      break;
+
+
+    case 'check':
+      if (check()) winner = activePlayer;
       switchGameSTate();
       break;
 
-    case 'check':
-      //switchGameSTate();
-      break;
-
     default:
-      won = 'FriendShip';
+      winner = 'NoOne';
   }
 }
 
 function gameFlow() {
-  if (won == '') {
+  if (winner == '') {
     gameFlowPlayer();
     setTimeout(gameFlow, 500)
   } else {
-    showMessage('END');
+    if (winner == 'NoOne') {
+      showMessage(`No more moves after ${movesCount} moves`);
+    } else {
+      showMessage(`${winner} won in  ${movesCount} moves`);
+    }
+
   }
 }
+
+function crateLolacObj(){
+ 
+  let obj = { item1: 1, item2: [123, "two", 3.0], item3:"hello" }; 
+
+}
+
+function writeResult(){
+ 
+  let obj = { item1: 1, item2: [123, "two", 3.0], item3:"hello" }; 
+  let serialObj = JSON.stringify(obj); 
+
+  localStorage.setItem("myKey", serialObj); 
+
+  let returnObj = JSON.parse(localStorage.getItem("myKey")) //спарсим его обратно объект
+}
+
 
 gameFlow();

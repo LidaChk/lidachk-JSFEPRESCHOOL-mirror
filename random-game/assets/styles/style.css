@@ -2,18 +2,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
 
 :root {
-  --color-one: #ff83c3;
+  --color-one: #FFE7FF;
   --color-two: #FFF;
-  --color-three: #35e2c3;
-  --color-four: #F0E100;
-  --color-five: #a6a4ca;
+  --color-three: #F9F871;
+  --color-four: #1FFCF4;
+  --color-five: #4b4453;
   --field-size: 6;
-  --bg-gradient: radial-gradient(ellipse at top, #4b4453, #534d5c, #575161, #635e6f, #746e82, #837b93, #b2a5c9);
 }
-*{
+
+* {
   margin: 0;
-  padding:0;
+  padding: 0;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: opacity 0.5s;
 }
+
 ol,
 ul,
 a,
@@ -29,10 +37,9 @@ body {
 }
 
 body {
- /*  background: var(--bg-gradient); */
- background-color: #4b4453;
-background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  background-color: #4b4453;
+  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   font-family: 'Pangolin', cursive;
   /*  font-family: 'Comfortaa', cursive; */
   font-weight: 600;
@@ -67,26 +74,30 @@ background-image: url("https://www.transparenttextures.com/patterns/soft-wallpap
 main {
   grid-area: main;
   display: grid;
-  grid-gap: 1vh;
+  /*   grid-gap: 1vh; */
   grid-template-rows: 10vh 1fr 16vh;
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-areas:
     "player1 field-header player2"
     "player1 wrapper-gameField player2"
     "player1 diceField Player2";
-
+  justify-content: center;
 }
 
 .container-grid {
   padding: 1vh;
   display: grid;
   grid-gap: 1vh;
+}
 
+.wrapper-player1{
+  grid-area: player1;
 }
 
 .wrapper-gameField {
   display: flex;
-  align-items: end;
+  flex-direction:column;
+  align-items: center;
   justify-content: center;
   grid-area: wrapper-gameField;
 
@@ -95,10 +106,11 @@ main {
 .gameField {
   grid-template-columns: repeat(6, 7vh);
   grid-template-rows: repeat(6, 7vh);
-  border: 1vh solid #FFFFFF;
+  border: 1vh solid var(--color-one);
   border-radius: 4vh;
-   -webkit-mask-image: url('../img/chalk-big3.png');
-  mask-image: url('../img/chalk-big3.png');
+  -webkit-mask-image: url('../img/textured-paper.png');
+  mask-image: url('../img/textured-paper.png');
+
   padding: 2vh;
 }
 
@@ -110,14 +122,14 @@ main {
   border: 0.5vh solid var(--color-two);
   overflow: hidden;
   transition: all 0.1s;
--webkit-mask-image: url('../img/chalk-big2.png');
-  mask-image: url('../img/chalk-big2.png');  
-
+  -webkit-mask-image: url('../img/textured-paper.png');
+  mask-image: url('../img/textured-paper.png');
 }
 
 
 h2,
 span.cell-icon {
+/*   width:100%; */
   font-size: 4vh;
   text-align: center;
   transition: all 0.3s;
@@ -129,20 +141,32 @@ span.cell-icon {
 
 .cell-hover:hover {
   transform: scale(1.1);
-  color: var(--color-one);
-}
-.cell-fail{
-  background-color: rgb(255, 0, 0, 0);
-  animation-name: color_red;
-  animation-duration: 300ms;
-  animation-timing-function: linear;
+  color: var(--color-three);
 }
 
-@keyframes color_red {
-  0%{background-color:  rgb(255, 0, 0, 0);}
-  50%{background-color:  rgb(255, 0, 0, 1);}
-  100%{background-color:  rgb(255, 0, 0, 0);}
+span.material-icons-outlined {
+  font-size: 5vh;
+  color: var(--color-three);
 }
+
+.cell-fail {
+  background-color: rgb(255, 0, 0, 0);
+  animation-name: color_fail;
+  animation-duration: 300ms;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes color_fail {
+  0% {
+    background-color: rgb(0, 0, 0, 0);  
+    border: 0.5vh solid var(--color-two);
+  }
+  100% {
+    background-color: #F038FF;
+    border: 0.5vh solid #F038FF;
+  }
+}
+
 
 
 /*DICE FIELD*/
@@ -164,14 +188,22 @@ span.cell-icon {
   width: 12vh;
   filter: invert(1);
   transition: opacity 0.2s;
+  -webkit-mask-image: url('../img/textured-paper.png');
+  mask-image: url('../img/textured-paper.png');
 }
-.dice-one{
-  -webkit-mask-image: url('../img/chalk-big2.png');
-  mask-image: url('../img/chalk-big2.png');
+
+.dice-one {
+  -webkit-mask-image: url('../img/textured-paper.png');
+  mask-image: url('../img/textured-paper.png');
 }
-.dice-two{
-  -webkit-mask-image: url('../img/chalk-big3.png');
-  mask-image: url('../img/chalk-big3.png');
+
+.dice-two {
+  -webkit-mask-image: url('../img/textured-paper.png');
+  mask-image: url('../img/textured-paper.png');
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .invisible,
@@ -204,16 +236,20 @@ span.cell-icon {
 .field-header {
   grid-area: field-header;
   overflow: hidden;
-  color:var(--color-four);
- -webkit-mask-image: url('../img/chalk.png');
-  mask-image: url('../img/chalk.png');
+  color: var(--color-one);
+  -webkit-mask-image: url('../img/textured-paper.png');
+  mask-image: url('../img/chalk-big3.png2');
 }
 
 /* FOOTER */
 .footer {
   grid-area: footer;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
+  background: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+  /*   backdrop-filter: blur(5px); */
+  /*   -webkit-mask-image: url('../img/chalk-big3.png');
+  mask-image: url('../img/chalk-big3.png');  */
+
+  /*   border-top: 1vh solid var(--color-two) ; */
 }
 
 .footer-list {
@@ -239,9 +275,9 @@ span.cell-icon {
 .footer-svg {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  filter: invert(25%) sepia(8%) saturate(1232%) hue-rotate(109deg) brightness(95%) contrast(88%);
+  filter: invert(100%) sepia(8%) saturate(1232%) hue-rotate(109deg) brightness(95%) contrast(88%);
 }
 
 .footer-svg:hover {
-  filter: invert(69%) sepia(9%) saturate(393%) hue-rotate(108deg) brightness(97%) contrast(92%);
+  filter: invert(20%) sepia(9%) saturate(393%) hue-rotate(108deg) brightness(97%) contrast(92%);
 }
