@@ -20,6 +20,10 @@ const infoHeader = fieldHeader.querySelector('.info-header');
 const gameStates = ['init', 'roll', 'move', 'check'];
 const pNames = ['Bobosaur', 'Junior', 'Chaos', 'HueJass', 'Lumos', 'Pupsi', 'NotATRex', 'Cosmo', 'Tiara', 'StalkingCat', 'Tiberius', 'Grinch', 'Biscuit']
 
+//флаг, при котором можно выбирать любые клетки, а не только те, сумма которых равна выпавшим кубикам
+// просто выполните в консоли debugModeFlg= true, чтобы не возиться с выигрышем
+let debugModeFlg= false;
+
 let iState = 0;
 let stopFlg = true;
 let spinFlg = true;
@@ -141,7 +145,7 @@ function switchGameSTate() {
 function TurnPrepare() {
   let freeCells = gameField.querySelectorAll(`.cell-free`);
   let freeActualCells = gameField.querySelectorAll(`[data-num='${rollRes}']`);
-  //let freeActualCells = gameField.querySelectorAll(`.cell-free`);
+  if (debugModeFlg) freeActualCells = gameField.querySelectorAll(`.cell-free`);
   if (freeCells.length == 0) {
     gameDraw = true;
     winner = 'NoOne';
@@ -160,6 +164,7 @@ function TurnPrepare() {
 }
 
 function check() {
+  let sReturn = false;
   const cells = gameField.querySelectorAll(`.cell-${activePlayer}`);
   const dist = (c1, c2) => {
     return Math.sqrt((c1.dataset.x - c2.dataset.x) ** 2 + (c1.dataset.y - c2.dataset.y) ** 2);
@@ -183,12 +188,13 @@ function check() {
             setWinner(x + mu * opi, y + mu * opj);
             mu++;
           }
-          return true;
+          sReturn=true;
         }
       }
     }
   }
 
+  return sReturn;
 }
 
 function gameFlowPlayer() {
@@ -233,5 +239,22 @@ function gameFlow() {
 
   }
 }
+
+function crateLolacObj(){
+ 
+  let obj = { item1: 1, item2: [123, "two", 3.0], item3:"hello" }; 
+
+}
+
+function writeResult(){
+ 
+  let obj = { item1: 1, item2: [123, "two", 3.0], item3:"hello" }; 
+  let serialObj = JSON.stringify(obj); 
+
+  localStorage.setItem("myKey", serialObj); 
+
+  let returnObj = JSON.parse(localStorage.getItem("myKey")) //спарсим его обратно объект
+}
+
 
 gameFlow();
