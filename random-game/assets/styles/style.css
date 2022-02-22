@@ -5,7 +5,7 @@
   --color-one: #ff83c3;
   --color-two: #FFF;
   --color-three: #35e2c3;
-  --color-four: #ffe552;
+  --color-four: #F0E100;
   --color-five: #a6a4ca;
   --field-size: 6;
   --bg-gradient: radial-gradient(ellipse at top, #4b4453, #534d5c, #575161, #635e6f, #746e82, #837b93, #b2a5c9);
@@ -29,7 +29,10 @@ body {
 }
 
 body {
-  background: var(--bg-gradient);
+ /*  background: var(--bg-gradient); */
+ background-color: #4b4453;
+background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   font-family: 'Pangolin', cursive;
   /*  font-family: 'Comfortaa', cursive; */
   font-weight: 600;
@@ -92,10 +95,11 @@ main {
 .gameField {
   grid-template-columns: repeat(6, 7vh);
   grid-template-rows: repeat(6, 7vh);
-  border: 3px solid #FFFFFF;
-  border-radius: 2vh;
-  -webkit-mask-image: url('../img/chalk-big2.png');
-  mask-image: url('./img/chalk-big2.png');
+  border: 1vh solid #FFFFFF;
+  border-radius: 4vh;
+   -webkit-mask-image: url('../img/chalk-big3.png');
+  mask-image: url('../img/chalk-big3.png');
+  padding: 2vh;
 }
 
 .cell {
@@ -103,10 +107,14 @@ main {
   display: flex;
   align-items: center;
   border-radius: 100%;
-  border: 1px solid #FFFFFF;
+  border: 0.5vh solid var(--color-two);
   overflow: hidden;
   transition: all 0.1s;
+-webkit-mask-image: url('../img/chalk-big2.png');
+  mask-image: url('../img/chalk-big2.png');  
+
 }
+
 
 h2,
 span.cell-icon {
@@ -155,9 +163,15 @@ span.cell-icon {
   padding: 0;
   width: 12vh;
   filter: invert(1);
-  -webkit-mask-image: url('../img/chalk-big.png');
-  mask-image: url('./img/chalk-big.png');
   transition: opacity 0.2s;
+}
+.dice-one{
+  -webkit-mask-image: url('../img/chalk-big2.png');
+  mask-image: url('../img/chalk-big2.png');
+}
+.dice-two{
+  -webkit-mask-image: url('../img/chalk-big3.png');
+  mask-image: url('../img/chalk-big3.png');
 }
 
 .invisible,
@@ -190,8 +204,9 @@ span.cell-icon {
 .field-header {
   grid-area: field-header;
   overflow: hidden;
-  -webkit-mask-image: url('../img/chalk.png');
-  mask-image: url('./img/chalk.png');
+  color:var(--color-four);
+ -webkit-mask-image: url('../img/chalk.png');
+  mask-image: url('../img/chalk.png');
 }
 
 /* FOOTER */
