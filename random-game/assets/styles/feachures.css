@@ -21,7 +21,9 @@
     overflow: hidden;
 
 }
-
+.button:hover{
+    animation: steam 5s ease infinite;
+}
 @keyframes steam {
 	0% {
 		background-position: 0% 50%;
