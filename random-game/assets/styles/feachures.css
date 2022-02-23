@@ -132,6 +132,7 @@ background-size: contain;
     main {
       width: 100vw;
       height:100%;
+      min-height: 650px;
       grid-gap: 0;
       grid-template-rows: 8% 10% 45% 150px;  
       grid-template-columns: 1vw 90vw 1vw;
@@ -164,5 +165,8 @@ background-size: contain;
   }
   .info-header{
       font-size: xx-large;
+  }
+  header{
+      min-height: 52px;
   }
 }
