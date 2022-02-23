@@ -237,7 +237,7 @@ function gameFlowPlayer() {
 
 
     case 'check':
-      activePlayer = check.querySelector('input').value ;
+      activePlayer = document.querySelector('input').value ;
       if (check()) winner = activePlayer;
       switchGameSTate();
       break;
