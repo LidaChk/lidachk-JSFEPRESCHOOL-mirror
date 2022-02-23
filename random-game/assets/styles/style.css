@@ -21,7 +21,9 @@
   user-select: none;
   transition: opacity 0.3s;
 }
-
+::-webkit-scrollbar {
+  width: 0;
+}
 ol,
 ul,
 a,
