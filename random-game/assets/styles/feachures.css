@@ -117,19 +117,20 @@ background-size: contain;
     h2,
     span.cell-icon {
   
-      font-size: 3vh;
+      font-size: 7vmin;
     }
     span.material-icons-outlined {
-      font-size: 4vh;
+      font-size: 7vmin;
     }
     .cell {
-      border: 0.4vh solid var(--color-two);
+      border: 0.4vmin solid var(--color-two);
     
     }
     main {
       width: 100vw;
+      height:100%;
       grid-gap: 0;
-      grid-template-rows: 5vh 10vh 45vh 150px;  
+      grid-template-rows: 8% 10% 45% 150px;  
       grid-template-columns: 1vw 90vw 1vw;
   /*     grid-template-areas:
         "wrapper-players wrapper-players wrapper-players"

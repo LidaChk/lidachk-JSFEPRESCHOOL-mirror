@@ -124,16 +124,17 @@ main {
   background-clip: text;
   -webkit-background-clip: text;
   font-size: 4vh;
-  border-color: var(--color-one);
-  background-color: rgba(0, 0, 0, 0);
-  border-width: 0.5vh;
-  
+
+  border: 0;  
 }
 
 .info-player:active,
-.info-player:focus {
+.info-player:focus,
+.info-player:focus-visible { 
   border-color: #FFACFF;
-  border-width: 0.5vh;
+  border-width: 0;  
+  outline: #FFACFF auto 1px;
+
 }
 
 .wrapper-gameField {
