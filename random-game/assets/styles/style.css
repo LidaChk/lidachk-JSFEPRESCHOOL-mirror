@@ -127,6 +127,7 @@ main {
   border-color: var(--color-one);
   background-color: rgba(0, 0, 0, 0);
   border-width: 0.5vh;
+  
 }
 
 .info-player:active,
