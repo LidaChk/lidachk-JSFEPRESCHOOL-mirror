@@ -108,16 +108,16 @@ background-size: contain;
 
 @media (max-width: 425px) {
     .gameField {
-      grid-template-columns: repeat(6, 5vh);
-      grid-template-rows: repeat(6, 5vh);
-      border-radius: 2vh;
-      grid-gap: 0.5vh;
+      grid-template-columns: repeat(6, 7vmin);
+      grid-template-rows: repeat(6, 7vmin);
+      border-radius: 4vmin;
+      grid-gap: 1vmin;
     }
   
     h2,
     span.cell-icon {
   
-      font-size: 7vmin;
+      font-size: 6vmin;
     }
     span.material-icons-outlined {
       font-size: 7vmin;
