@@ -1,19 +1,24 @@
+:root{
+    --animation-duration: 10s;
+}
 
 .winners{
-    mix-blend-mode:color ;    
+    mix-blend-mode:overlay ;  
+    overflow: hidden; 
 }
-.winners::after  {
+.winners::after, .winners::before  {
 	content: '';
 	position: absolute;
 	left: -2px;
 	top: -2px;
-	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
-		#0000ff, #00ff00,#ffff00, #ff0000);
+	background: linear-gradient(45deg,#1FFCF4, #F9F871, #9400A8, #F038FF,#FF5900, #FF00B8);
 	background-size: 200%;
 	width: calc(100%);
 	height: calc(100%);
 	z-index: -1;
 	animation: steam 5s ease infinite;
+    mix-blend-mode: multiply;
+    overflow: hidden;
 
 }
 
@@ -29,6 +34,73 @@
 	}
 }
 
-.winners::after {
+/* .winners::after {
 	filter: blur(50px);
+} */
+
+.wrapper-field1::after{
+    content:'';
+    position:absolute;
+    grid-area: field1;
+    z-index: -1;
+    left:5vh;
+	top: 0vh;
+    background: url('../img/twocutes1.png');
+    width:20vw;
+    height:20vw;
+background-size: contain;
+    background-repeat: no-repeat;
+    -webkit-mask-image: url('../img/textured-paper.png');
+    mask-image: url('../img/textured-paper.png');
+    filter: invert(80%);
+    animation: cutes var(--animation-duration) cubic-bezier(0.215, 0.610, 0.355, 1) alternate  infinite;
+
 }
+
+.wrapper-field2::after{
+    content:'';
+    position:absolute;
+    grid-area: field1;
+    z-index: -1;
+    right:5vh;
+	top: 0vh;
+    background: url('../img/twocutes2.png');
+    width:20vw;
+    height:20vw;
+background-size: contain;
+    background-repeat: no-repeat;
+    -webkit-mask-image: url('../img/textured-paper.png');
+    mask-image: url('../img/textured-paper.png');
+    filter: invert(80%);
+    animation: cutes var(--animation-duration) cubic-bezier(0.215, 0.610, 0.355, 1) alternate infinite;
+
+}
+
+ @keyframes cutes {
+
+
+ 	0% {
+        transform: rotate(-2deg)  ;
+        top:0;
+	}
+    25%{
+        transform: rotate(2deg)  scale(1.1) ;
+        top:20vh;
+    }
+    50%{
+        transform: rotate(-2deg)  scale(1) ;
+        top:40vh;
+    }
+    75%
+    {
+        transform: rotate(0deg) translateY(20vh) scale(1.1);
+        top:50vh;
+;
+    }
+	100% {
+        transform: rotate(0deg)  scale(0.6);
+        top:70vh;
+	} 
+} 
+
+
