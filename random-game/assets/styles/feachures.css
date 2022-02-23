@@ -21,7 +21,9 @@
     overflow: hidden;
 
 }
-
+.button:hover{
+    animation: steam 5s ease infinite;
+}
 @keyframes steam {
 	0% {
 		background-position: 0% 50%;
@@ -105,29 +107,35 @@ background-size: contain;
 
 
 @media (max-width: 425px) {
+        Body{
+            min-height: 400px;
+    }
     .gameField {
-      grid-template-columns: repeat(6, 5vh);
-      grid-template-rows: repeat(6, 5vh);
-      border-radius: 2vh;
-      grid-gap: 0.5vh;
+      grid-template-columns: repeat(6,40px);
+      grid-template-rows: repeat(6, 40px);
+      border-radius: 40px;
+      grid-gap: 7px;
+      border-width: 5px;
     }
   
     h2,
-    span.cell-icon {
+    span.cell-icon,
+    .info-player {
   
-      font-size: 3vh;
+      font-size: x-large;
     }
     span.material-icons-outlined {
-      font-size: 4vh;
+      font-size: 38px;
     }
     .cell {
-      border: 0.4vh solid var(--color-two);
+      border: 2px solid var(--color-two);
     
     }
     main {
       width: 100vw;
+      height:100%;
       grid-gap: 0;
-      grid-template-rows: 5vh 10vh 45vh 150px;  
+      grid-template-rows: 8% 10% 45% 150px;  
       grid-template-columns: 1vw 90vw 1vw;
   /*     grid-template-areas:
         "wrapper-players wrapper-players wrapper-players"
@@ -146,6 +154,7 @@ background-size: contain;
 
     .info-player {
         width: 50vmin;
+
     }
     .wrapper-table {
         padding:6vmin;
@@ -155,3 +164,7 @@ background-size: contain;
         background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
         font-size: 5vmin;
   }
+  .info-header{
+      font-size: xx-large;
+  }
+}

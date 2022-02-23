@@ -21,7 +21,9 @@
   user-select: none;
   transition: opacity 0.3s;
 }
-
+::-webkit-scrollbar {
+  width: 0;
+}
 ol,
 ul,
 a,
@@ -38,8 +40,9 @@ body {
 
 body {
   background-color: var(--color-five);
-  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  background-image: url('../img/freechalkboard.png'), url("https://www.transparenttextures.com/patterns/soft-wallpaper.png"); 
+  background-blend-mode: soft-light;
+
   font-family: 'Pangolin', cursive;
   /*  font-family: 'Comfortaa', cursive; */
   font-weight: 600;
@@ -117,23 +120,24 @@ main {
   font-family: 'Pangolin', cursive;
   border-radius: 4vh;
   font-weight: 600;
-  width: 30vw;
+  width: 130px;
   padding-left: 1vw;
   color: var(--color-one);
   /* background-image:  linear-gradient(45deg,#1FFCF4, #F9F871, #FFACFF, #FF9C57, #F9F871, #1FFCF4); */
   background-clip: text;
   -webkit-background-clip: text;
   font-size: 4vh;
-  border-color: var(--color-one);
-  background-color: rgba(0, 0, 0, 0);
-  border-width: 0.5vh;
-  
+
+  border: 0;  
 }
 
 .info-player:active,
-.info-player:focus {
+.info-player:focus,
+.info-player:focus-visible { 
   border-color: #FFACFF;
-  border-width: 0.5vh;
+  border-width: 0;  
+  outline: #FFACFF auto 1px;
+
 }
 
 .wrapper-gameField {
@@ -425,4 +429,5 @@ header.header {
   mask-image: url('../img/textured-paper.png');
   cursor: pointer;
   background-image: linear-gradient(45deg, #1FFCF4, #F9F871, #FFACFF, #FF9C57, #F9F871, #1FFCF4);
+  background-size: 200%;
 }
