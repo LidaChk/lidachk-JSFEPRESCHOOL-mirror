@@ -28,6 +28,7 @@ const resTable = document.querySelector('table.table-results');
 const wrapperTable = document.querySelector('div.wrapper-table');
 const gameStates = ['init', 'roll', 'move', 'check'];
 const pNames = ['Bobosaur', 'Junior', 'Chaos', 'HueJass', 'Lumos', 'Pupsi', 'NotATRex', 'Cosmo', 'Tiara', 'StalkingCat', 'Tiberius', 'Grinch', 'Biscuit']
+let flgNoMoves = false;
 
 //флаг, при котором можно выбирать любые клетки, а не только те, сумма которых равна выпавшим кубикам
 // просто выполните в консоли debugModeFlg= true, чтобы не возиться с выигрышем
@@ -165,14 +166,19 @@ function switchGameSTate() {
 }
 
 function TurnPrepare() {
+  flgNoMoves = false;
   let freeCells = gameField.querySelectorAll(`.cell-free`);
   let freeActualCells = gameField.querySelectorAll(`[data-num='${rollRes}']`);
   if (debugModeFlg) freeActualCells = gameField.querySelectorAll(`.cell-free`);
+  //console.log(freeActualCells.length);
   if (freeCells.length == 0) {
     gameDraw = true;
     winner = 'DrawGame';
-  } else if (freeActualCells.lenght == 0) {
-    showMessage('There is no move');
+  } else if (freeActualCells.length == 0) {
+    flgNoMoves = true;
+    //showMessage('There is no move. Click on Dice to Roll again.');
+    switchGameSTate();
+    switchGameSTate();
   } else {
     freeCells.forEach(el => {
       el.classList.add('cell-hover');
@@ -226,7 +232,8 @@ function gameFlowPlayer() {
       diceField.addEventListener("click", onDiceClick, false);
       diceField.classList.add('cursor-pointer');
       switchGameSTate();
-      showMessage('Click on Dice to Roll');
+      if(flgNoMoves) showMessage('There is no move. Click on Dice to Roll again.');
+      if(!flgNoMoves) showMessage('Click on Dice to Roll');
       break;
 
     case 'roll':
