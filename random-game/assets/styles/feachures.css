@@ -107,8 +107,8 @@ background-size: contain;
 
 
 @media (max-width: 425px) {
-        Body{
-            min-height: 400px;
+        main{
+            min-height: 360px;
     }
     .gameField {
       grid-template-columns: repeat(6,40px);
