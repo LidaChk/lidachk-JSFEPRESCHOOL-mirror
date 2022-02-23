@@ -38,8 +38,9 @@ body {
 
 body {
   background-color: var(--color-five);
-  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  background-image: url('../img/freechalkboard.png'), url("https://www.transparenttextures.com/patterns/soft-wallpaper.png"); 
+  background-blend-mode: soft-light;
+
   font-family: 'Pangolin', cursive;
   /*  font-family: 'Comfortaa', cursive; */
   font-weight: 600;
