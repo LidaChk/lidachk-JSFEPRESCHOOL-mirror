@@ -169,4 +169,11 @@ background-size: contain;
   header{
       min-height: 52px;
   }
+  .button {
+    font-size: large;
+    padding: 5px 10px 5px 10px;
+    display: flex;
+    align-items: center;
+    min-height: 25px;
+    border-radius: 25px;
 }
