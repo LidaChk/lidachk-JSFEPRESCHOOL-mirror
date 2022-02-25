@@ -42,6 +42,7 @@ body {
   background-color: var(--color-five);
   background-image: url('../img/freechalkboard.png'), url("https://www.transparenttextures.com/patterns/soft-wallpaper.png"); 
   background-blend-mode: soft-light;
+  background-size: cover;
 
   font-family: 'Pangolin', cursive;
   /*  font-family: 'Comfortaa', cursive; */
