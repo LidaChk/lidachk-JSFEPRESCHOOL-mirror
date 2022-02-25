@@ -8,6 +8,7 @@
   --color-four: rgb(31, 252, 244);
   --color-five: #4b4453;
   --field-size: 6;
+  scrollbar-width: none !important;
 }
 
 * {
@@ -21,7 +22,8 @@
   user-select: none;
   transition: opacity 0.3s;
 }
-::-webkit-scrollbar {
+::-webkit-scrollbar 
+  {
   width: 0;
 }
 ol,
